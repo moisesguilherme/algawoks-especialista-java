@@ -41,7 +41,6 @@ public class ControlePesoAeronave {
        
        pesoTotalPassageiros += pesoPassageiro;
        System.out.print("Incluir novo passageiro? ");
-       incluirNovoPassageiro = entrada.nextBoolean();
     }
     
     
