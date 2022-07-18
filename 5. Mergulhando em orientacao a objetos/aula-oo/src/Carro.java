@@ -1,10 +1,10 @@
 public class Carro {
 
     // Atributos ou propriedades
-    String fabricante = "Ford";
+    String fabricante;
     String modelo;
     String cor;
-    int anoFabricacao = 2022;
+    int anoFabricacao;
     Pessoa proprietario = new Pessoa();
 
 }
