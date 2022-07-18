@@ -5,6 +5,6 @@ public class Carro {
     String modelo;
     String cor;
     int anoFabricacao = 2022;
-    Pessoa proprietario;
+    Pessoa proprietario = new Pessoa();
 
 }
