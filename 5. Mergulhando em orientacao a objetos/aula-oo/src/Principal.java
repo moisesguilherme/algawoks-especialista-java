@@ -23,6 +23,7 @@ public class Principal {
         meuCarro.cor = "Preto";
         meuCarro.fabricante = "Honda";
         meuCarro.modelo = "HR-V";
+        meuCarro.precoCompra = 120000;
 
         meuCarro.proprietario = eu;
 
@@ -39,6 +40,7 @@ public class Principal {
         seuCarro.cor = "Branco";
         seuCarro.fabricante = "BMW";
         seuCarro.modelo = "X6";
+        seuCarro.precoCompra = 980000;
         seuCarro.proprietario = voce;
 
         meuCarro.calcularValorRevenda();
