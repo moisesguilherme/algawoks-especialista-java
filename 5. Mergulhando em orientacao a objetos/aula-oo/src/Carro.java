@@ -5,6 +5,11 @@ public class Carro {
     String modelo;
     String cor;
     int anoFabricacao;
-    Pessoa proprietario = new Pessoa();
+    Pessoa proprietario;
+
+    void calcularValorRevenda() {
+        System.out.printf("Calcular valor de revenda de: %s %d%n",
+                modelo, anoFabricacao);
+    }
 
 }

@@ -41,6 +41,10 @@ public class Principal {
         seuCarro.modelo = "X6";
         seuCarro.proprietario = voce;
 
+        meuCarro.calcularValorRevenda();
+        seuCarro.calcularValorRevenda();
+
+        /*
         System.out.println("Meu carro");
         System.out.println("---------------");
         System.out.printf("Modelo: %s%n", meuCarro.modelo);
@@ -55,6 +59,7 @@ public class Principal {
         System.out.printf("Modelo: %s%n", seuCarro.modelo);
         System.out.printf("Ano: %d%n", seuCarro.anoFabricacao);
         System.out.printf("Proprietario: %s%n", seuCarro.proprietario.nome);
+         */
 
     }
 }
