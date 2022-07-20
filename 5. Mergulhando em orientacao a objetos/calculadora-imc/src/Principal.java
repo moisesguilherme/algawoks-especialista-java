@@ -7,9 +7,9 @@ public class Principal {
 
         IndiceMassaCorporal imc = paciente.calcularIndiceMassaCorporal();
 
-        if (imc.resultado >= 30) {
+        if (imc.estaComObsesidade()) {
             System.out.printf("Paciente com altura de %.2f e peso de %.2f " +
-                    "está com obesidade", imc.altura, imc.peso);
+                    "está com obesidade%n", imc.altura, imc.peso);
         }
         System.out.printf("IMC: %.2f%n", imc.resultado);
     }
