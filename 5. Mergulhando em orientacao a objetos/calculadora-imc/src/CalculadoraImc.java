@@ -1,9 +1,9 @@
-public class Paciente {
+public class CalculadoraImc {
 
     double peso;
     double altura;
 
-    IndiceMassaCorporal calcularIndiceMassaCorporal() {
+    IndiceMassaCorporal calcular() {
         IndiceMassaCorporal imc = new IndiceMassaCorporal();
         imc.resultado = peso / (altura * altura);
         imc.peso = peso;
