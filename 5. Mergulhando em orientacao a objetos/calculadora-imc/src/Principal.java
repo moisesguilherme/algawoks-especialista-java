@@ -5,10 +5,11 @@ public class Principal {
         //calculadoraImc.altura = 1.80;
         ///calculadoraImc.peso = 120;
 
-        double peso = 175;
-        double altura = 1.82;
+        Paciente joao = new Paciente();
+        joao.peso = 175;
+        joao.altura = 1.82;
 
-        IndiceMassaCorporal imc = calculadoraImc.calcular(peso, altura);
+        IndiceMassaCorporal imc = calculadoraImc.calcular(joao);
 
         if (imc.estaComObsesidade()) {
             System.out.printf("Paciente com altura de %.2f e peso de %.2f " +
