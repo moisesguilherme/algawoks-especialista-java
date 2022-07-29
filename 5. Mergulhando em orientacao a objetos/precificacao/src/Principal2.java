@@ -5,8 +5,8 @@ public class Principal2 {
         Produto produto2 = new Produto();
 
         // Não é uma boa prática, accessar um método de instância que altera a variável stática da classe.
-        produto1.alterarCustoEmbalagem(12);
-        produto2.alterarCustoEmbalagem(20);
+        // Método de instância alterando variável estática
+        Produto.alterarCustoEmbalagem(12);
 
         // Produto.custoEmbalagem = 20;
         // produto2.alterarCustoEmbalagem(0); // errado!
@@ -16,8 +16,7 @@ public class Principal2 {
         // produto1.custoEmbalagem = 10;
         // produto2.custoEmbalagem = 15;
 
-        produto1.imprimirCustoEmbalagem();
-        produto2.imprimirCustoEmbalagem();
+        Produto.imprimirCustoEmbalagem();
 
     }
 
