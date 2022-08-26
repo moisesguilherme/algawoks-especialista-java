@@ -48,7 +48,7 @@ public class OlaMergulhador {
         }
 
         // Ver cursor para alterar mais de uma linha
-        System.out.println("Alterar texto");
+        System.out.println("Alterar texto"); // Ctrl + shift + j (Junta duas linhas)
         System.out.println("Alterar texto");
         System.out.println("Alterar texto");
         System.out.println("Alterar texto");
@@ -57,6 +57,8 @@ public class OlaMergulhador {
         for (int i = 0; i < totalTeste ; i++) {
 
         }
+
+
     }
 
 }
