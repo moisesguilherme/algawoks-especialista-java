@@ -9,8 +9,9 @@ public class Principal {
         var cadastroPortaria = new CadastroPortaria();
         int codigoVisitante = cadastroPortaria.cadastrar(novoVisitante, 1);
 
+        var textoCompartilhado = Pessoa.COMPARTILHADO;
         Pessoa pessoa = new Pessoa();
-        pessoa.imprimeTipoPessoa("Olá");
+        pessoa.imprimeTipoPessoa("Olá " + textoCompartilhado);
 
     }
 
