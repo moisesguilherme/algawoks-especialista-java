@@ -4,6 +4,7 @@ public class Produto {
     double precoUnitario;
     boolean ativo;
 
+    /*
     void alterarStatus(boolean ativo) {
         if (ativo) {
             System.out.println("Ativando");
@@ -12,6 +13,16 @@ public class Produto {
         }
 
         this.ativo = ativo;
+    }*/
+
+    void ativar(){
+        System.out.println("Ativando");
+        this.ativo = true;
+    }
+
+    void inativar() {
+        System.out.println("Desativando");
+        this.ativo = false;
     }
 
 }
