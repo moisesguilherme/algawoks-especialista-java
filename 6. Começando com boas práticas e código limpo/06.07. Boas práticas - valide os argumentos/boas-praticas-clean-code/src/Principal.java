@@ -7,6 +7,11 @@ public class Principal {
         produto.nome = "Água";
         produto.precoUnitario = 5;
 
+        // com null vai gerar a excessão
+        //carrinho.adicionarItem(null, 4);
+
+        // com valor negativo, gera uma excessão
+        //carrinho.adicionarItem(produto, -4);
         carrinho.adicionarItem(produto, 4);
 
         Endereco endereco = new Endereco();
@@ -16,7 +21,9 @@ public class Principal {
 
         // Princípio: vc nunca deve passar null para um argumento de um método,
         // para explicar que não tem nenhum valor para esse elemento.
-        carrinho.gerarPedido(null);
+        //carrinho.gerarPedido(null);
+        carrinho.gerarPedido(endereco);
+
 
         System.out.println("Pedido gerado");
     }
