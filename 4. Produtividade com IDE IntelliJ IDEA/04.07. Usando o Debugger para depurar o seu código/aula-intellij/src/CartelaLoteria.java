@@ -15,7 +15,13 @@ public class CartelaLoteria {
         // Criar break point
         // - possibilidade de resume break point
         // - mute break-point simbolo/icone - bola vermelha - com um cortado.
-        // - colocar condicao no break-point
+        // - colocar condicao no break-point (btn direito no íconee do break-point)
+
+        // Alterar a variável em tempo de debug.
+        // - em Debugger (menu inferior) na lista de variáveis do painel, clicar em btn direito
+        //   set value, ou F2
+
+        // ver variável, condicão, ícone calculadora.
 
         for (int i = 1; i <= totalNumeros; i++) {
             if (i < 10) {
