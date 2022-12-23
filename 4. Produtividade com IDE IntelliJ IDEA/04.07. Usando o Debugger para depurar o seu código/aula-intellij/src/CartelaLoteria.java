@@ -28,7 +28,7 @@ public class CartelaLoteria {
         // pode fazer um log no break-point, desmarcar o suspend (para na linha) e colcoar
         // - Evaluate and log.
         // "Dentro do loop" + totalNumeros + " - " + i
-        
+
         for (int i = 1; i <= totalNumeros; i++) {
             if (i < 10) {
                 System.out.print("0");
