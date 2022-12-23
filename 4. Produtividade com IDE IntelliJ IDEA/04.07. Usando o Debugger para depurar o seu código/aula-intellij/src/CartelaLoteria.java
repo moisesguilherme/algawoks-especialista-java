@@ -12,6 +12,11 @@ public class CartelaLoteria {
         int totalNumeros = 60;
         int numerosPorLinha = 10;
 
+        // Criar break point
+        // - possibilidade de resume break point
+        // - mute break-point simbolo/icone - bola vermelha - com um cortado.
+        // - colocar condicao no break-point
+
         for (int i = 1; i <= totalNumeros; i++) {
             if (i < 10) {
                 System.out.print("0");
