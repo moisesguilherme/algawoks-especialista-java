@@ -2,10 +2,19 @@ public class Turma {
 
     String identificacao;
     String nomeProfessora;
-    //Não é uma boa prática colcoar releacão alunos na classe Turma,
-    //melhor criar uma classe aluno
-    //String[] nomesAlunos;
-    //int[] idadesAlunos;
     Aluno[] alunos;
+
+    void imprimirListaDeAlunos() {
+        // alunos.for - enhanced for
+        for (Aluno aluno : alunos) {
+            if (aluno != null) {
+                System.out.printf("%s (%d anos)%n", aluno.nome, aluno.idade);
+            } else {
+                System.out.printf("vago");
+            }
+        }
+    }
+
+
 
 }
