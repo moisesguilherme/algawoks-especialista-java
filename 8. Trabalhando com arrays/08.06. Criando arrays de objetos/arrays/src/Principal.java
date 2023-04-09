@@ -16,6 +16,18 @@ public class Principal {
 
         turmaB.alunos[1] = aluno1;
 
+        // Itereracão.
+        // Atalho
+        // turmaB.alunos.fori
+        for (int i = 0; i < turmaB.alunos.length; i++) {
+            if(turmaB.alunos[i] != null){
+                System.out.printf("%d - %s (%d anos)%n",
+                        i, turmaB.alunos[i].nome, turmaB.alunos[i].idade);
+            }else {
+                System.out.printf("%d - vago%n", i);
+            }
+        }
+
     }
 
 }
