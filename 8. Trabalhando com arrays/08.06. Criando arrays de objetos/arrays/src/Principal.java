@@ -20,9 +20,9 @@ public class Principal {
         // Atalho
         // turmaB.alunos.fori
         for (int i = 0; i < turmaB.alunos.length; i++) {
-            if(turmaB.alunos[i] != null){
-                System.out.printf("%d - %s (%d anos)%n",
-                        i, turmaB.alunos[i].nome, turmaB.alunos[i].idade);
+            Aluno aluno = turmaB.alunos[i];
+            if(aluno != null){
+                System.out.printf("%d - %s (%d anos)%n", i, aluno.nome, aluno.idade);
             }else {
                 System.out.printf("%d - vago%n", i);
             }
