@@ -17,6 +17,11 @@ public class Principal1 {
         for (String aluno : alunos) {
             System.out.println(aluno);
         }
+
+        // ArrayList não suporta tipos primitivos
+        // ArrayList<int> numeros = new ArrayList<>();
+        // Pode usar o tipo wrapper exemplo: Integer
+        // ArrayList<Integer> numeros = new ArrayList<>();
     }
 
 }
