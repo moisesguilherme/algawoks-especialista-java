@@ -29,11 +29,11 @@ public class Cardapio {
             }
         }
 
-        // boa prática
-        //return itensEncontrados;
-
         // má prática
-        return itensEncontrados.isEmpty() ? null : itensEncontrados;
+        //return itensEncontrados.isEmpty() ? null : itensEncontrados;
+
+        // boa prática - sempre retonrar o arraylist mesmo vazio
+        return itensEncontrados;
     }
 
 }
