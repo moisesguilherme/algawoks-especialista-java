@@ -6,8 +6,11 @@ public class Principal {
         fatura.valorTotal = 1_293.55;
 
         ServicoDeCobranca servicoDeCobranca = new ServicoDeCobranca();
-        String[] email = new String[]{"teste@gmail.com", "teste2gmail.com"};
-        servicoDeCobranca.pagar(fatura, email);
+
+        // String[] emailsCobranca = {"joao@gmail.com", "maria@gmail.com"};
+        // servicoDeCobranca.pagar(fatura, emailsCobranca);
+
+        servicoDeCobranca.pagar(fatura, new String[] {"joao@gmail.com", "maria@gmail.com"});
 
     }
 
