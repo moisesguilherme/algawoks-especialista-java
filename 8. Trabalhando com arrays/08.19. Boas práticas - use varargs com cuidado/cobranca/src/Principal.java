@@ -9,7 +9,8 @@ public class Principal {
 
         //servicoDeCobranca.pagar(fatura, "joao@algaworks.com", "maria@algaworks.com", "jose@algaworks.com");
 
-        servicoDeCobranca.pagar(fatura);
+        //servicoDeCobranca.pagar(fatura, "joao@algaworks.com", "joao@algaworks.com", "maria@algaworks.com", "jose@algaworks.com");
+        servicoDeCobranca.pagar(fatura, null, "joao@algaworks.com", "maria@algaworks.com", "jose@algaworks.com");
     }
 
 }
