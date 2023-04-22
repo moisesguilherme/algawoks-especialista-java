@@ -5,15 +5,20 @@ public class Produto {
     String nome;
     int quantidadeEstoque;
 
+    public Produto() {
+        this.nome = "Sem nome";
+        this.quantidadeEstoque = QUANTIDADE_ESTOQUE_INICIAL;
+    }
+
     Produto(String nome){
         this.nome = nome;
         this.quantidadeEstoque = QUANTIDADE_ESTOQUE_INICIAL;
     }
-    Produto(String nome,int quantidadeEstoque){
+
+    // Sobrecarga de construtores
+    Produto(String nome, int etoqueInicial){
         this.nome = nome;
-        this.quantidadeEstoque = quantidadeEstoque;
+        this.quantidadeEstoque = etoqueInicial;
     }
-
-
 
 }
