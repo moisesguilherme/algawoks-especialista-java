@@ -8,19 +8,11 @@ public class Produto {
     int quantidadeEstoque;
 
     Produto() {
-        // this chama outro construtor.
-        // no método isso não funciona
-        this("Sem nome"); // Precisa ser a primeira instrucão.
-        // System.out.println("Teste"); // Essa linha não pode estar na linha acima
-
-        //this.nome = "Sem nome";
-        //this.quantidadeEstoque = QUANTIDADE_ESTOQUE_INICIAL;
+        this("Sem nome");
     }
 
     Produto(String nome) {
-        Objects.requireNonNull(nome, "Nome é obrigatório");
-        this.nome = nome;
-        this.quantidadeEstoque = QUANTIDADE_ESTOQUE_INICIAL;
+        this(nome, QUANTIDADE_ESTOQUE_INICIAL);
     }
 
     Produto(String nome, int estoqueInicial) {
@@ -32,9 +24,4 @@ public class Produto {
         this.nome = nome;
         this.quantidadeEstoque = estoqueInicial;
     }
-
-    void testar() {
-        //this("Seu nome");
-    }
-
 }
