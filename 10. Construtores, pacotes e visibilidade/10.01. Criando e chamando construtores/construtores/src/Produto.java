@@ -1,14 +1,19 @@
 public class Produto {
 
+    static final int QUANTIDADE_ESTOQUE_INICIAL = 100;
+
+    String nome;
     int quantidadeEstoque;
-    // no java mesmo se não criar o construtor principal ele vai criar um padrão ao rodar o projeto
-    Produto(){
-        this.quantidadeEstoque = 10;
-        System.out.println("Construido um protudo");
+
+    Produto(String nome){
+        this.nome = nome;
+        this.quantidadeEstoque = QUANTIDADE_ESTOQUE_INICIAL;
+    }
+    Produto(String nome,int quantidadeEstoque){
+        this.nome = nome;
+        this.quantidadeEstoque = quantidadeEstoque;
     }
 
-    // Se tiver um retorno ele não é mais um construtor e sim um método
-    void Produto(){
-        System.out.println("Isso é um método, com retorno void");
-    }
+
+
 }
