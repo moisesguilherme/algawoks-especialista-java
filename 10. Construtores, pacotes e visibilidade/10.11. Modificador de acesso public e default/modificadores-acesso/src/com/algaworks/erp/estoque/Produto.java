@@ -8,10 +8,10 @@ public class Produto {
     static final int QUANTIDADE_ESTOQUE_INICIAL = 100;
 
     final String codigo;
-    String nome;
+    public String nome;
     int quantidadeEstoque;
 
-    public Produto() {
+    Produto() {
         this("Sem nome");
     }
 
@@ -19,7 +19,7 @@ public class Produto {
         this(nome, QUANTIDADE_ESTOQUE_INICIAL);
     }
 
-    public Produto(String nome, int estoqueInicial) {
+    Produto(String nome, int estoqueInicial) {
         Objects.requireNonNull(nome, "Nome é obrigatório");
 
         if (estoqueInicial < 0) {
