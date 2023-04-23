@@ -8,7 +8,9 @@ import java.util.ArrayList;
 // quando não tem é o default
 // ela é visivel apenas para classe do mesmo pacote
 // somente a classe cliente consegue acessar
-class Pedido {
+
+// agora com public, fica visivel para todos os pacotes
+public class Pedido {
 
     ArrayList<Produto> produtos;
     Cliente cliente;

@@ -6,7 +6,7 @@ public class Principal {
 
         // modificadores de acesso, public e default
         // default, a Classe pedido vc não acessa
-        com.algaworks.erp.Pedido
+        com.algaworks.erp.comercial.Pedido pedido;
     }
 
 }
