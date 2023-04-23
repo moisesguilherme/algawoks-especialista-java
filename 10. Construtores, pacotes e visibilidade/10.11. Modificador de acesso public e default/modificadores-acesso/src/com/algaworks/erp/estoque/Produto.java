@@ -3,15 +3,18 @@ package com.algaworks.erp.estoque;
 import java.util.Objects;
 import java.util.UUID;
 
+// private, não funciona para classe
 public class Produto {
 
-    static final int QUANTIDADE_ESTOQUE_INICIAL = 100;
+    private static final int QUANTIDADE_ESTOQUE_INICIAL = 100;
 
-    final String codigo;
-    public String nome;
-    int quantidadeEstoque;
+    private final String codigo;
+    // private, mesmo no mesmo pacote não tem acesso
+    // somente a classe tem acesso
+    private String nome;
+    private int quantidadeEstoque;
 
-    Produto() {
+    public Produto() {
         this("Sem nome");
     }
 
@@ -19,7 +22,8 @@ public class Produto {
         this(nome, QUANTIDADE_ESTOQUE_INICIAL);
     }
 
-    Produto(String nome, int estoqueInicial) {
+    // Faz sentido tornar um construtor privado
+    private Produto(String nome, int estoqueInicial) {
         Objects.requireNonNull(nome, "Nome é obrigatório");
 
         if (estoqueInicial < 0) {
@@ -28,7 +32,11 @@ public class Produto {
 
         this.nome = nome;
         this.quantidadeEstoque = estoqueInicial;
-        this.codigo = UUID.randomUUID().toString();
+        this.codigo = gerarCodigo();
+    }
+
+    private String gerarCodigo() {
+        return UUID.randomUUID().toString();
     }
 
 }
