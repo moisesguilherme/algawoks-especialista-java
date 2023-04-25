@@ -29,6 +29,8 @@ public class Produto {
         }
 
         this.nome = nome;
+        //ctrl + q (para exibir a documentacão)
+        nome.toUpperCase();
         this.quantidadeEstoque = estoqueInicial;
         this.codigo = gerarCodigo();
     }
