@@ -9,18 +9,7 @@ public class Cartao implements Serializable {
 
     private String titular;
     private double saldo;
-    // boolean com isAtivo
     private boolean ativo;
-
-    // Para ser JavaBean precisa:
-    // Regra #1 - ter um construtor sem argumentos.
-    //  Caso a classe não tenha um construtor é gerado uma padrão
-    //  No caso essa classe tem um construtor com argumentos, que seta o titular,
-    //  então precisa, criar um construor vazio que chame ele.
-
-    // Regra #2 Implementar uma interface para dizer que essa classe é serializada.
-    //  Serializer, vai transforma o objeto em fluxo de bytes para transferir via rede
-
 
     public Cartao() {
 
@@ -30,10 +19,9 @@ public class Cartao implements Serializable {
         this.titular = titular;
     }
 
+    //Gerar o getters e setters na ide
+    // alt+inset
 
-    public boolean isAtivo() {
-        return ativo;
-    }
 
     public String getTitular() {
         return titular;
@@ -45,6 +33,10 @@ public class Cartao implements Serializable {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
     }
 
     public void debitar(double valorDebito) {
