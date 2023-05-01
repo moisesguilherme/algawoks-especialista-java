@@ -9,7 +9,7 @@ public class ServicoDePagamentoOnline {
     public Recibo efetuarPagamento(Estabelecimento estabelecimento,
                                    Cartao cartao, double valor) {
 
-        if(cartao.obterSaldo() < valor ){
+        if(cartao.getSaldo() < valor ){
             throw new RuntimeException("Saldo insuficiente para pagamento");
         }
 
@@ -18,7 +18,7 @@ public class ServicoDePagamentoOnline {
         // TODO realiza outras lógicas para efetuar o pagamento ao estabelecimento
 
 
-        return new Recibo(cartao.obterTitular(), "Pagamento", valor);
+        return new Recibo(cartao.getTitular(), "Pagamento", valor);
     }
 
 }

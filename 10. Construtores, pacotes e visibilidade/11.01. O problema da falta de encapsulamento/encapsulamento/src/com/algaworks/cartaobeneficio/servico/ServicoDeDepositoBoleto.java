@@ -9,7 +9,7 @@ public class ServicoDeDepositoBoleto {
         // TODO faz cobranca do valor no Boleto.
 
         cartao.debitar(valorDeposito);
-        return new Recibo(cartao.obterTitular(), "Depósito", valorDeposito);
+        return new Recibo(cartao.getTitular(), "Depósito", valorDeposito);
 
     }
 
