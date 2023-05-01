@@ -13,9 +13,12 @@ public class ServicoDePagamentoOnline {
             throw new RuntimeException("Saldo insuficiente para pagamento");
         }
 
-        cartao.alterarSaldo(cartao.obterSaldo() - valor);
+        //cartao.alterarSaldo(cartao.obterSaldo() - valor);
         //cartao.saldo -= valor;
+        cartao.debitar(valor);
+
         // TODO realiza outras lógicas para efetuar o pagamento ao estabelecimento
+
 
         return new Recibo(cartao.obterTitular(), "Pagamento", valor);
     }
