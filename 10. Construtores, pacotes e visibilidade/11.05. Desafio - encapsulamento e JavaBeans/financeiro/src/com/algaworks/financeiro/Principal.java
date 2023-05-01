@@ -17,13 +17,13 @@ public class Principal {
         imprimirConta(contaAluguel);
 
         // Pagar a mesma conta novamente deve ser impedido
-        // contaAluguel.pagar();
+        //contaAluguel.pagar();
 
         contaAluguel.cancelarPagamento();
         imprimirConta(contaAluguel);
 
         // Cancelar o pagamento de uma conta pendente deve ser impedido
-        // contaAluguel.cancelarPagamento();
+         contaAluguel.cancelarPagamento();
     }
 
     public static void imprimirConta(ContaPagar conta) {
