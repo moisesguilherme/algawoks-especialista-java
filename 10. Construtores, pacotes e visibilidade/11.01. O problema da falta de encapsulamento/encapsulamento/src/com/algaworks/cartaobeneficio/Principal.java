@@ -9,11 +9,6 @@ public class Principal {
         var supermercado = new Estabelecimento("Supermercado do Zé");
         var cartao = new Cartao("João Souza Silva");
 
-        // vc pode alterar diretamente, isso não é bom.
-        // ainda consegue colocar saldo negativo.
-        //cartao.saldo = -700;
-        //cartao.debitar(1000);
-
         var servicoDeDeposito = new ServicoDeDepositoPix();
         Recibo reciboDeposito = servicoDeDeposito.efetuarDeposito(cartao, 500);
         reciboDeposito.imprimir();
