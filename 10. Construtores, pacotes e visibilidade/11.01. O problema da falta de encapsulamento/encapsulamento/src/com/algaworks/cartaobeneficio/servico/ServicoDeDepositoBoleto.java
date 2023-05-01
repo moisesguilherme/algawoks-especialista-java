@@ -17,9 +17,10 @@ public class ServicoDeDepositoBoleto {
             );
         }
 
-        cartao.saldo += valorDeposito - Cartao.TARIFA_DEPOSITO;
+        cartao.alterarSaldo(cartao.obterSaldo() + valorDeposito - Cartao.TARIFA_DEPOSITO);
+        //cartao.saldo += valorDeposito - Cartao.TARIFA_DEPOSITO;
 
-        return new Recibo(cartao.titular, "Depósito", valorDeposito);
+        return new Recibo(cartao.obterTitular(), "Depósito", valorDeposito);
 
     }
 
