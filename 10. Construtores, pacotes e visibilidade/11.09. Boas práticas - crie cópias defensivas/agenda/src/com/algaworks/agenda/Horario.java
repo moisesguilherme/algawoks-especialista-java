@@ -1,7 +1,7 @@
 package com.algaworks.agenda;
 
 public class Horario {
-
+    // Horário é mutável, melhor solucão é colocar final para ficar imutável.
     private int hora;
     private int minuto;
 

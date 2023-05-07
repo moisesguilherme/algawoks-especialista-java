@@ -2,16 +2,22 @@ package com.algaworks.agenda;
 
 public class Agendamento {
 
+    // Não pode alterar o horario
     private final Horario horario;
     private String descricao;
 
     public Agendamento(Horario horario, String descricao) {
-        this.horario = horario;
-        this.descricao = descricao;
+        //criar uma cópia defensiva
+        //this.horario = horario;
+        this.horario = new Horario(horario.getHora(), horario.getMinuto());
+        //this.descricao = descricao;
     }
 
     public Horario getHorario() {
-        return horario;
+        //Não retornar a instância que está trabalhando
+        //faz uma cópia para altera a cópia
+        return new Horario(horario.getHora(), horario.getMinuto());
+        //return horario;
     }
 
     public String getDescricao() {
