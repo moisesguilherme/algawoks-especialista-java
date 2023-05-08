@@ -6,6 +6,7 @@ public class Principal2 {
         Horario horario = new Horario(10, 30);
         Agendamento agendamentoCabelo = new Agendamento(horario, "Corte de cabelo");
 
+        //refatorando
         Horario novoHorario = CalculadoraHorario.somarDuasHoras(horario);
 
         System.out.println(agendamentoCabelo.getHorarioFormatado());
