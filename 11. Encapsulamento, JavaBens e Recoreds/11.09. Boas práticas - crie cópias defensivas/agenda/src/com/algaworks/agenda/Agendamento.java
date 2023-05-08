@@ -2,7 +2,8 @@ package com.algaworks.agenda;
 
 public class Agendamento {
 
-    // Não pode alterar o horario
+    // Não pode alterar o horario, mas pode alterar o objeto horário
+    // a classe horário é mutável.
     private final Horario horario;
     private String descricao;
 
