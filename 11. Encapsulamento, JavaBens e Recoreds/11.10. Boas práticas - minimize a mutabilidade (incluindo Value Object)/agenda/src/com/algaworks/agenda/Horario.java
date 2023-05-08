@@ -2,22 +2,22 @@ package com.algaworks.agenda;
 
 public final class Horario {
 
-    private final int hora;
-    private final int minuto;
+    private int hora;
+    private int minuto;
 
     public Horario(int hora, int minuto) {
         setHora(hora);
         setMinuto(minuto);
     }
 
-    public setHora(int hora) {
+    public void setHora(int hora) {
         if (hora < 0 || hora > 23) {
             throw new IllegalArgumentException("Hora inválida: " + hora);
         }
         this.hora = hora;
     }
 
-    public setMinuto(int minuto) {
+    public void setMinuto(int minuto) {
         if (minuto < 0 || minuto > 59) {
             throw new IllegalArgumentException("Minuto inválido: " + minuto);
         }

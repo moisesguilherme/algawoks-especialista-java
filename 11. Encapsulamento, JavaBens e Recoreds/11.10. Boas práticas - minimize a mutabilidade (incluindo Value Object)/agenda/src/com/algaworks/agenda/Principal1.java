@@ -9,7 +9,7 @@ public class Principal1 {
         Integer novaIDade = idade + 1;
 
         //Classe mutável
-        Horário horario = new Horario(10, 30);
+        Horario horario = new Horario(10, 30);
         // Problema de uma classe mutável:
         // -
         horario.setHora(15);

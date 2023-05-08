@@ -12,10 +12,8 @@ public class CalculadoraHorario {
             hora = hora - 24;
         }
 
-//        horario.setHora(hora);
-//        return horario;
-
-        return new Horario(hora, horario.getMinuto());
+        horario.setHora(hora);
+        return horario;
     }
 
 }
