@@ -11,8 +11,7 @@ public class Principal1 {
         //Classe mutável
         Horario horario = new Horario(10, 30);
         // Problema de uma classe mutável:
-        // -
-        horario.setHora(15);
+        //horario.setHora(15);
 
 
     }

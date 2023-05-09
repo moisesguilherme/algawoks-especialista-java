@@ -2,7 +2,7 @@ package com.algaworks.agenda;
 
 public class Agendamento {
 
-    private Horario horario;
+    private final Horario horario;
     private String descricao;
 
     public Agendamento(Horario horario, String descricao) {

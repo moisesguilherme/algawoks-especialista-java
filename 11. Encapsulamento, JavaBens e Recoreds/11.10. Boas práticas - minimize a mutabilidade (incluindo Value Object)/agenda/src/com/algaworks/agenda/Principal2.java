@@ -7,6 +7,8 @@ public class Principal2 {
         Agendamento agendamentoCabelo = new Agendamento(horario, "Corte de cabelo");
 
         //refatorando
+        // pode perder o controle do objeto horário, precisa transformar em
+        // um objeto imutável
         Horario novoHorario = CalculadoraHorario.somarDuasHoras(horario);
 
         System.out.println(agendamentoCabelo.getHorarioFormatado());

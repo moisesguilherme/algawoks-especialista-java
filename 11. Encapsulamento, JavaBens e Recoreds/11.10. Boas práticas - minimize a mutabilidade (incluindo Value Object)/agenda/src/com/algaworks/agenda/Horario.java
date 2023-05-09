@@ -1,29 +1,31 @@
 package com.algaworks.agenda;
 
+// Final em classe, não pode ser herdada.
 public final class Horario {
 
-    private int hora;
-    private int minuto;
+    // adiciona o final (imutável)
+    // ver construtor
+    private final int hora;
+    private final int minuto;
 
     public Horario(int hora, int minuto) {
-        setHora(hora);
-        setMinuto(minuto);
-    }
+        //precisa inicializar no construtor
 
-    public void setHora(int hora) {
         if (hora < 0 || hora > 23) {
             throw new IllegalArgumentException("Hora inválida: " + hora);
         }
-        this.hora = hora;
-    }
 
-    public void setMinuto(int minuto) {
         if (minuto < 0 || minuto > 59) {
             throw new IllegalArgumentException("Minuto inválido: " + minuto);
         }
+
+        this.hora = hora;
         this.minuto = minuto;
+        //setHora(hora);
+        //setMinuto(minuto);
     }
 
+    //Tirou os setters
     public int getHora() {
         return hora;
     }

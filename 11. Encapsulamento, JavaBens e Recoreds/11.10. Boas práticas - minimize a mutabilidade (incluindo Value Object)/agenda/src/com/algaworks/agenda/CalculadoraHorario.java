@@ -12,8 +12,11 @@ public class CalculadoraHorario {
             hora = hora - 24;
         }
 
-        horario.setHora(hora);
-        return horario;
+        //horario.setHora(hora);
+        //return horario;
+        // fica imutável, pois retorna um novo objeto
+        // Value Object - Objetos de valor
+        return new Horario(hora, horario.getMinuto());
     }
 
 }
