@@ -11,6 +11,11 @@ public class Principal2 {
         // um objeto imutável
         Horario novoHorario = CalculadoraHorario.somarDuasHoras(horario);
 
+        //Não consegue fazer um set pois horário é imutável
+        //agendamentoCabelo.getHorario().set...;
+        //Somente criando um Value Object
+        agendamentoCabelo.setHorario(new Horario(16, 20));
+
         System.out.println(agendamentoCabelo.getHorarioFormatado());
         System.out.println(novoHorario.formatar());
     }

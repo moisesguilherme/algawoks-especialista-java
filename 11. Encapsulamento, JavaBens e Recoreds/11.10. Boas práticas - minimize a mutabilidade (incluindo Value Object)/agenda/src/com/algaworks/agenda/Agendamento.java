@@ -2,13 +2,15 @@ package com.algaworks.agenda;
 
 public class Agendamento {
 
-    private final Horario horario;
+    // Tira o final de horario, deixa mutável
+    private Horario horario;
     private String descricao;
 
     public Agendamento(Horario horario, String descricao) {
         this.horario = horario;
         this.descricao = descricao;
     }
+
 
     public Horario getHorario() {
         return horario;
