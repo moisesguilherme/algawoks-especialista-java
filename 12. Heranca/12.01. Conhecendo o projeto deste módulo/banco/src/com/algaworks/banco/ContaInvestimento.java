@@ -1,11 +1,13 @@
 package com.algaworks.banco;
 
-public class Conta {
+public class ContaInvestimento {
 
     private Titular titular;
     private int agencia;
     private int numero;
     private double saldo;
+
+    private double valorTotalRendimento;
 
     public Titular getTitular() {
         return titular;
@@ -39,6 +41,15 @@ public class Conta {
         this.saldo = saldo;
     }
 
+    public double getValorTotalRendimento() {
+        return valorTotalRendimento;
+    }
+
+    public void creditarRendimentos(double percentualJuros) {
+        double valorRendimentos = getSaldo() * percentualJuros / 100;
+        this.valorTotalRendimento += valorRendimentos;
+        depositar(valorRendimentos);
+    }
 
     public void sacar(double valorSaque) {
         if (valorSaque <= 0) {

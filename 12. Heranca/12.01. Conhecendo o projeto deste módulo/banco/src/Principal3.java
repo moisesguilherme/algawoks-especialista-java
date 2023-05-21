@@ -1,14 +1,14 @@
 import com.algaworks.banco.Conta;
+import com.algaworks.banco.ContaEspecial;
 import com.algaworks.banco.Titular;
 
 public class Principal3 {
 
     public static void main(String[] args) {
-        Conta conta1 = new Conta();
+        ContaEspecial conta1 = new ContaEspecial();
         conta1.setTitular(new Titular("João da Silva", "12312312300"));
         conta1.setAgencia(1234);
         conta1.setNumero(999999);
-        conta1.setTipo(Conta.ESPECIAL);
         conta1.setLimiteChequeEspecial(1000);
         conta1.setTarifaMensal(90);
 
