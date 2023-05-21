@@ -13,6 +13,7 @@ public class Principal3 {
         conta1.setTarifaMensal(90);
 
         conta1.imprimirDemonstrativo();
+        //conta1.imprimirDemonstrativoContaEspecial();
 
         conta1.depositar(100);
         conta1.imprimirDemonstrativo();
