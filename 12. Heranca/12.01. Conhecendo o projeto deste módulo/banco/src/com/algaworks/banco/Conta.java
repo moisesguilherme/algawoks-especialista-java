@@ -1,6 +1,7 @@
 package com.algaworks.banco;
 
-public class Conta {
+// Toda classe Java extende da classe Object
+public class Conta extends Object {
 
     private Titular titular;
     private int agencia;

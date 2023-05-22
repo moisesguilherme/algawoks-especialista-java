@@ -21,6 +21,10 @@ public class Principal1 {
         conta1.sacar(27.5);
         conta1.imprimirDemonstrativo();
 
+        // Instanciar a classe Object
+        Object obj = new Object();
+        obj.toString();
+
     }
 
 }
