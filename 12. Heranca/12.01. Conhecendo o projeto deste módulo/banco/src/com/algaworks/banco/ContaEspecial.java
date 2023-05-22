@@ -38,6 +38,13 @@ public class ContaEspecial extends ContaInvestimento {
         System.out.printf("Saldo disponível: %.2f%n", getSaldoDisponivel());
     }
 
+    // Não consegue restringir mais que da super-classe
+    // private
+    // aceita protected, ou public
+    public void setSaldo(double saldo) {
+
+    }
+
     public void sacar(double valorSaque) {
         if (valorSaque <= 0) {
             throw new IllegalArgumentException("Valor do saque deve ser maior que 0");
@@ -48,7 +55,9 @@ public class ContaEspecial extends ContaInvestimento {
         }
 
         // precisa dar acesso ao saldo na classe conta
-        saldo -= valorSaque;
+        // saldo é private, modificou para protected
+        //saldo -= valorSaque;
+        setSaldo(getSaldo() - valorSaque);
     }
 
 }

@@ -9,6 +9,10 @@ public class Principal1 {
         conta1.setAgencia(1234);
         conta1.setNumero(999999);
 
+        //com protected da acesso aos membros de uma classe
+        // se colocar o Principal1 no pacote banco, vai funcionar
+        //conta1.saldo = 10;
+
         conta1.imprimirDemonstrativo();
 
         conta1.depositar(100);
