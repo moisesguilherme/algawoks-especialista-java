@@ -6,51 +6,30 @@ public class Conta extends Object {
     private Titular titular;
     private int agencia;
     private int numero;
-    // protected pode ser acessado por sub-classe
-    //protected double saldo;
     private double saldo;
 
-    /*public Conta() {
-        //super(); // precisa ser a primeira instrucão
-        this(0);
-    }*/
-
-    // Quando cria um construtor com argumentos deixa de existir o
-    // construtor padrão (sem argumentos)
-    public Conta(double saldoInicial){
-        this.saldo = saldoInicial;
+    public Conta(Titular titular, int agencia, int numero) {
+        this.titular = titular;
+        this.agencia = agencia;
+        this.numero = numero;
     }
 
     public Titular getTitular() {
         return titular;
     }
 
-    public void setTitular(Titular titular) {
-        this.titular = titular;
-    }
 
     public int getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
 
     public int getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
-
     public double getSaldo() {
         return saldo;
-    }
-
-    protected void setSaldo(double saldo) {
-        this.saldo = saldo;
     }
 
 

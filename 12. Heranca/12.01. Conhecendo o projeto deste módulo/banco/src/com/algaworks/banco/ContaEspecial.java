@@ -5,14 +5,10 @@ public class ContaEspecial extends ContaInvestimento {
     private double tarifaMensal;
     private double limiteChequeEspecial;
 
-    //Construtor padrão
-    //Todas as classes tem um construtor principal
-    public ContaEspecial() {
-        super(); // chama da super classe
-        //this() --> chama da mesma classe
-
+    public ContaEspecial(Titular titular, int agencia, int numero, double tarifaMensal) {
+        super(titular, agencia, numero);
+        this.tarifaMensal = tarifaMensal;
     }
-
 
     public double getTarifaMensal() {
         return tarifaMensal;
@@ -32,21 +28,16 @@ public class ContaEspecial extends ContaInvestimento {
     public void debitarTarifaMensal() {
         sacar(getTarifaMensal());
     }
-    // @Override não compila
+
     public double getSaldoDisponivel() {
         return getSaldo() + getLimiteChequeEspecial();
     }
-    @Override // é uma sob-escrita da classe conta
+    @Override
     public void imprimirDemonstrativo() {
-        // Vamos resolver o código duplicado
         super.imprimirDemonstrativo();
-
         System.out.printf("Saldo disponível: %.2f%n", getSaldoDisponivel());
     }
 
-    // Não consegue restringir mais que da super-classe
-    // private
-    // aceita protected, ou public
     public void setSaldo(double saldo) {
 
     }
