@@ -10,6 +10,17 @@ public class Conta extends Object {
     //protected double saldo;
     private double saldo;
 
+    /*public Conta() {
+        //super(); // precisa ser a primeira instrucão
+        this(0);
+    }*/
+
+    // Quando cria um construtor com argumentos deixa de existir o
+    // construtor padrão (sem argumentos)
+    public Conta(double saldoInicial){
+        this.saldo = saldoInicial;
+    }
+
     public Titular getTitular() {
         return titular;
     }

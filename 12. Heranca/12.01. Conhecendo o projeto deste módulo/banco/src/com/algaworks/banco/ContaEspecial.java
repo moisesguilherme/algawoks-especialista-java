@@ -5,6 +5,15 @@ public class ContaEspecial extends ContaInvestimento {
     private double tarifaMensal;
     private double limiteChequeEspecial;
 
+    //Construtor padrão
+    //Todas as classes tem um construtor principal
+    public ContaEspecial() {
+        super(); // chama da super classe
+        //this() --> chama da mesma classe
+
+    }
+
+
     public double getTarifaMensal() {
         return tarifaMensal;
     }
