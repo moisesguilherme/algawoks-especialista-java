@@ -45,6 +45,14 @@ public class ContaEspecial extends ContaInvestimento {
 
     }
 
+    protected void validarSaldoParaSaque(double valorSaque) {
+        if (getSaldoDisponivel() < valorSaque) {
+            throw new RuntimeException("Saldo insuficiente para saque");
+        }
+
+    }
+
+    /*
     public void sacar(double valorSaque) {
         if (valorSaque <= 0) {
             throw new IllegalArgumentException("Valor do saque deve ser maior que 0");
@@ -58,6 +66,6 @@ public class ContaEspecial extends ContaInvestimento {
         // saldo é private, modificou para protected
         //saldo -= valorSaque;
         setSaldo(getSaldo() - valorSaque);
-    }
+    }*/
 
 }
