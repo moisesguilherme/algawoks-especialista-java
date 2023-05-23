@@ -15,20 +15,14 @@ public class Principal {
         cadastro.adicionar("Tivoli Ecoresort", "Praia do Forte/BA", 2000);
         cadastro.adicionar("Mercure", "Uberlândia/MG", 400);
 
-        //Tem 2 objetos iguais
-        //Para retonar o último elemendo (no array da esquerda pra a direita)
-        cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1400);
-
-        // O conteúdo precisa ser igual, equals e hashcode
-        //cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1400);
-
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
-        // equal não olha precoDiaria
+        hoteis.add(3, new Hotel("Teste", "teste", 0));
+        //hoteis.set(0, new Hotel("Teste 2", "teste", 0));
+
         //int indice = hoteis.indexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        int indice = hoteis.lastIndexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        System.out.println(indice);
-        System.out.println(hoteis.get(indice));
-        //imprimirHoteis(hoteis);
+        //System.out.println(indice);
+        //System.out.println(hoteis.get(indice));
+        imprimirHoteis(hoteis);
     }
 
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {

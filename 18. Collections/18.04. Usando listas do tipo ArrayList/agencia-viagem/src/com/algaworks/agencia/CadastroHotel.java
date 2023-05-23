@@ -10,11 +10,13 @@ public class CadastroHotel {
     public void adicionar(String nome, String cidade, double precoDiaria) {
         Hotel hotel = new Hotel(nome, cidade, precoDiaria);
 
-        /*if (hoteis.contains(hotel)) {
+        if (hoteis.contains(hotel)) {
             throw new HotelJaExistenteException("Hotel já foi adicionado");
-        }*/
+        }
 
-        hoteis.add(hotel);
+        //indicie
+        //hoteis.add(0, hotel);
+        hoteis.add(hotel); //Final
     }
 
     public ArrayList<Hotel> obterTodos() {
