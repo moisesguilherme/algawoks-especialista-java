@@ -24,9 +24,9 @@ public class Principal {
         */
 
         //Erro pois o hoteis é um arrayList "puro" sem o generic
-        ArrayList hoteis = cadastro.obterTodos();
-        hoteis.add("Teste"); //ClassCastException -> problema por não colocar o generics
-
+        ArrayList<Hotel> hoteis = cadastro.obterTodos();
+        //hoteis.add("Teste"); //ClassCastException -> problema por não colocar o generics
+        hoteis.add(new Hotel("Novo Hotel", "BH", 250));
         imprimirHoteis(hoteis);
     }
 

@@ -8,6 +8,7 @@ public class CadastroHotel {
     private final ArrayList<Hotel> hoteis = new ArrayList<>(1000);
 
     public void adicionar(String nome, String cidade, double precoDiaria) {
+        //hoteis.add("Teste") //erro
         hoteis.add(new Hotel(nome, cidade, precoDiaria)); // Toda list tem o add
     }
 
