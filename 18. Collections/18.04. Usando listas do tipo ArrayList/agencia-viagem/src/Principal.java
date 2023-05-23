@@ -15,18 +15,11 @@ public class Principal {
         cadastro.adicionar("Tivoli Ecoresort", "Praia do Forte/BA", 2000);
         cadastro.adicionar("Mercure", "Uberlândia/MG", 400);
 
-        /*
-        System.out.println(cadastro.obterTodos());
+        // O conteúdo precisa ser igual, equals e hashcode
+        cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1400);
 
-        // get retorna um object, com a lista "cru" sem generic
-        Hotel hotel = (Hotel) cadastro.obterTodos().get(1);
-        System.out.println(hotel.getNome());
-        */
 
-        //Erro pois o hoteis é um arrayList "puro" sem o generic
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
-        //hoteis.add("Teste"); //ClassCastException -> problema por não colocar o generics
-        hoteis.add(new Hotel("Novo Hotel", "BH", 250));
         imprimirHoteis(hoteis);
     }
 
@@ -38,7 +31,5 @@ public class Principal {
         }
 
     }
-
-
 
 }
