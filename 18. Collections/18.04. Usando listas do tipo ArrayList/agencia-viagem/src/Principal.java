@@ -23,15 +23,18 @@ public class Principal {
         System.out.println(hotel.getNome());
         */
 
+        //Erro pois o hoteis é um arrayList "puro" sem o generic
         ArrayList hoteis = cadastro.obterTodos();
+        hoteis.add("Teste"); //ClassCastException -> problema por não colocar o generics
+
         imprimirHoteis(hoteis);
     }
 
-    private static void imprimirHoteis(ArrayList hoteis) {
+    private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
         for (int i = 0; i < hoteis.size(); i++) {
-            Hotel hotel = (Hotel) hoteis.get(i);
+            Hotel hotel = hoteis.get(i);
             System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(),
-            hotel.getCidade(), hotel.getPrecoDiaria());
+                hotel.getCidade(), hotel.getPrecoDiaria());
         }
 
     }
