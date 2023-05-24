@@ -23,9 +23,13 @@ public class Principal {
 
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
         Iterator<Hotel> hotelIterator = hoteis.iterator();
-        System.out.println(hotelIterator.next());
-        System.out.println(hotelIterator.next());
+        while (hotelIterator.hasNext()) {
+            Hotel hotel =  hotelIterator.next(); //precisa ter o next.
+            System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
 
+            // hoteis.remove(0); // Não pode remover um elemento de uma lista q está
+            // rodando o iterator.  .ConcurrentModificationException
+        }
 
         /*for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
