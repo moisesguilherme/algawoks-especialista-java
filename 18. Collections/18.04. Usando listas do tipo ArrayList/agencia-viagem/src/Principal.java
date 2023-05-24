@@ -3,6 +3,7 @@ import com.algaworks.agencia.Hotel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Principal {
 
@@ -23,19 +24,19 @@ public class Principal {
     }
 
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
-        Iterator<Hotel> hotelIterator = hoteis.iterator();
-        while (hotelIterator.hasNext()) {
-            Hotel hotel =  hotelIterator.next(); //precisa ter o next.
-            System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
-
-            // hoteis.remove(0); // Não pode remover um elemento de uma lista q está
-            // rodando o iterator.  .ConcurrentModificationException
+        ListIterator<Hotel> hotelIterator = hoteis.listIterator(hoteis.size()); //precisa dizer que inicia no final
+        while (hotelIterator.hasPrevious()) {
+            Hotel hotel =  hotelIterator.previous();
+            System.out.printf("%s (%s) -> %.2f%n",
+                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
         }
 
-        /*for (int i = 0; i < hoteis.size(); i++) {
-            Hotel hotel = hoteis.get(i);
-            System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(),
-                hotel.getCidade(), hotel.getPrecoDiaria());
+
+/*        Iterator<Hotel> hotelIterator = hoteis.iterator();
+        while (hotelIterator.hasNext()) {
+            Hotel hotel =  hotelIterator.next(); //precisa ter o next.
+            System.out.printf("%s (%s) -> %.2f%n",
+                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
         }*/
 
     }
