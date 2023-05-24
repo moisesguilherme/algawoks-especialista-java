@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class CadastroHotel {
 
-    // Operador diamante <>
     private final ArrayList<Hotel> hoteis = new ArrayList<>(1000);
 
     public void adicionar(String nome, String cidade, double precoDiaria) {
@@ -14,8 +13,6 @@ public class CadastroHotel {
             throw new HotelJaExistenteException("Hotel já foi adicionado");
         }
 
-        //indicie
-        //hoteis.add(0, hotel);
         hoteis.add(hotel); //Final
     }
 
@@ -24,14 +21,12 @@ public class CadastroHotel {
     }
 
     public void removerPorCidade(String cidade) {
-        ArrayList<Hotel> hoteisParaRemocao = new ArrayList<>(); //Array temporário
+        ArrayList<Hotel> hoteisParaRemocao = new ArrayList<>();
 
         for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
             if(hotel.getCidade().equals(cidade)) {
                 hoteisParaRemocao.add(hotel);
-                //hoteis.remove(i);
-                //i--;
             }
         }
 
