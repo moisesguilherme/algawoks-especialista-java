@@ -15,8 +15,9 @@ public class Principal {
         cadastro.adicionar("Tivoli Ecoresort", "Praia do Forte/BA", 2000);
         cadastro.adicionar("Mercure", "Uberlândia/MG", 400);
 
-        cadastro.remover(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        //cadastro.removerPorCidade("Fortim/CE");
+        //cadastro.remover(new Hotel("Vila Selvagem", "Fortim/CE", 0));
+        cadastro.removerPorCidade("Fortim/CE");
+        cadastro.removeTodos();
 
 
         ArrayList<Hotel> hoteis = cadastro.obterTodos();

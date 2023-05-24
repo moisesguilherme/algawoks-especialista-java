@@ -24,13 +24,18 @@ public class CadastroHotel {
     }
 
     public void removerPorCidade(String cidade) {
+        ArrayList<Hotel> hoteisParaRemocao = new ArrayList<>(); //Array temporário
+
         for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
             if(hotel.getCidade().equals(cidade)) {
-                hoteis.remove(i);
-                i--;
+                hoteisParaRemocao.add(hotel);
+                //hoteis.remove(i);
+                //i--;
             }
         }
+
+        hoteis.removeAll(hoteisParaRemocao);
     }
 
     public void remover(Hotel hotel) {
@@ -39,6 +44,10 @@ public class CadastroHotel {
         if(!removido) {
             throw new HotelNaoEncontradoException("Hotel não encotrado para remocão");
         }
+    }
+
+    public void removeTodos() {
+        hoteis.clear();
     }
 
 }
