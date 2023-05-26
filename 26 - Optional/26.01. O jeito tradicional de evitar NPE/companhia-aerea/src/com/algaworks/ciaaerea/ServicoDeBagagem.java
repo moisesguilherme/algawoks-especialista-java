@@ -20,7 +20,13 @@ public class ServicoDeBagagem {
 
         Optional<Reserva> reservaOptional = servicoDeReserva.buscar(codigoReserva);
         // se tiver vazio ainda vai lancar o NoSuchElementException - No value present
-        reservaOptional.get().adicionarBagagens(quantidadeBagagens);
+        // precisa sempre validar se existe um valor
+        if (reservaOptional.isPresent()) {
+            reservaOptional.get().adicionarBagagens(quantidadeBagagens);
+        } else {
+            throw new ReservaNaoEncontradaException("Reserva não existe");
+        }
+
     }
 
 }
