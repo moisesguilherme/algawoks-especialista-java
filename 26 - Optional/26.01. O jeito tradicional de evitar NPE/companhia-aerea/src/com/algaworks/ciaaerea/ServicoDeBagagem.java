@@ -1,6 +1,7 @@
 package com.algaworks.ciaaerea;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class ServicoDeBagagem {
 
@@ -17,13 +18,9 @@ public class ServicoDeBagagem {
         }
         // aqui poderia ter outras regras de negócio
 
-        Reserva reserva = servicoDeReserva.buscar(codigoReserva);
-
-        if (reserva == null) {
-            throw new ReservaNaoEncontradaException("Reserva não existe");
-        }
-
-        reserva.adicionarBagagens(quantidadeBagagens);
+        Optional<Reserva> reservaOptional = servicoDeReserva.buscar(codigoReserva);
+        // se tiver vazio ainda vai lancar o NoSuchElementException - No value present
+        reservaOptional.get().adicionarBagagens(quantidadeBagagens);
     }
 
 }

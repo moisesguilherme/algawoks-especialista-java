@@ -1,6 +1,7 @@
 package com.algaworks.ciaaerea;
 
 import java.util.*;
+import java.util.Optional;
 
 public class ServicoDeReserva {
 
@@ -19,17 +20,25 @@ public class ServicoDeReserva {
         }
     }
 
-    public Reserva buscar(String codigo) {
+    public Optional<Reserva> buscar(String codigo) {
         Reserva reservaEncontrada = null;
 
         for (Reserva reserva : reservas) {
             if (reserva.getCodigo().equals(codigo)) {
-                reservaEncontrada = reserva;
-                break;
+                //Sempre vai retornar um valor
+                // diferenca entre of e ofNullable, o Nullable pode retornar vazio
+                // já of precisa ser um valor.
+                return Optional.of(reserva);
+                //reservaEncontrada = reserva;
+                //break;
             }
         }
 
-        return reservaEncontrada;
+        // recebe o valor
+        // se for null ele entende que o optional está vazio
+        //return Optional.ofNullable(reservaEncontrada);
+        return Optional.empty(); //vazio não tem nda nele
+
     }
 
 }
