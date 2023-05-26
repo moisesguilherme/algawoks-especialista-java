@@ -18,4 +18,23 @@ public class ContaInvestimento extends Conta{
         depositar(valorRendimentos);
     }
 
+    //subclasse
+   /* @Override
+    public String toString() {
+        return "ContaInvestimento{" +
+                "valorTotalRendimento=" + valorTotalRendimento +
+                '}' + super.toString();
+    }*/
+
+    @Override
+    public String toString() {
+        // Evitar o  NullPointerException dentro da string
+        return "ContaInvestimento{" +
+                "titular=" + getTitular() +
+                ", agencia=" + getAgencia() +
+                ", numero=" + getNumero() +
+                ", saldo=" + getSaldo() +
+                ", valorTotalRendimentos=" + valorTotalRendimento +
+                '}';
+    }
 }

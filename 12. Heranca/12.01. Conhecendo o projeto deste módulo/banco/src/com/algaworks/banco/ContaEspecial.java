@@ -49,4 +49,18 @@ public class ContaEspecial extends ContaInvestimento {
 
     }
 
+
+    @Override
+    public String toString() {
+        // Evitar o  NullPointerException dentro da string
+        return "ContaEspecial{" +
+                "titular=" + getTitular() +
+                ", agencia=" + getAgencia() +
+                ", numero=" + getNumero() +
+                ", saldo=" + getSaldo() +
+                ", tarifaMensal=" + tarifaMensal +
+                ", limiteChequeEspecial=" + limiteChequeEspecial +
+                '}';
+    }
+
 }

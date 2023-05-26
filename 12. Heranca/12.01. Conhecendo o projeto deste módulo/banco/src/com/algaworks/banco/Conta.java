@@ -66,4 +66,23 @@ public class Conta extends Object {
         System.out.printf("Saldo: %.2f%n", getSaldo());
     }
 
+
+    /*@Override
+    public String toString() {
+        return String.format("Conta(titular=%s, agencia=%d, numero=%d)",
+                titular.getNome(), agencia, numero);
+    }*/
+
+    //usando o wizard da ide
+
+    @Override
+    public String toString() {
+        // Evitar o  NullPointerException dentro da string
+        return "Conta{" +
+                "titular=" + (titular != null ? titular : null) +
+                ", agencia=" + agencia +
+                ", numero=" + numero +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
