@@ -100,4 +100,9 @@ public class Conta {
     }
     */
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(agencia, numero);
+    }
+
 }
