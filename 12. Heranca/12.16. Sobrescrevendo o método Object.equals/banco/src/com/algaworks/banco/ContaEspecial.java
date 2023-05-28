@@ -33,6 +33,7 @@ public final class ContaEspecial extends ContaInvestimento {
     @Override
     public final void imprimirDemonstrativo() {
         super.imprimirDemonstrativo();
+        System.out.println(">>> classe: ContaEspecial");
         System.out.printf("Saldo disponível: %.2f%n", getSaldoDisponivel());
     }
 
