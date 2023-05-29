@@ -9,24 +9,7 @@ public class Principal {
                 1234, 999999,90);
         conta1.setLimiteChequeEspecial(1000);
 
-        ContaEspecial conta2 = new ContaEspecial( new Titular("Maria", "98773733333"),
-                2222, 888888,90);
-
-
-        ContaSalario conta3 = new ContaSalario( new Titular("Francisco Souza", "44343434333"),
-                2222, 888888,90);
-
-
-        conta3.depositar(300);
-
-        // Problema, se precisar da contaSalario para a conta especial.
-        // Como fizesse upcasting
-        // caixaEletronico.transferir((Conta) conta3, (Conta) conta1, 50);
-        //caixaEletronico.transferir(conta3, conta1, 50);
-        caixaEletronico.transferir(conta1, conta3, 50);
-
-        conta1.imprimirDemonstrativo();
-        conta3.imprimirDemonstrativo();
+        caixaEletronico.imprimirDemostrativo(conta1);
 
     }
 
