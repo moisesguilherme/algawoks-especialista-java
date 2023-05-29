@@ -17,9 +17,12 @@ public class Principal {
                 2222, 888888,90);
 
 
-        conta1.depositar(300);
+        conta3.depositar(300);
 
         // Problema, se precisar da contaSalario para a conta especial.
+        // Como fizesse upcasting
+        // caixaEletronico.transferir((Conta) conta3, (Conta) conta1, 50);
+        //caixaEletronico.transferir(conta3, conta1, 50);
         caixaEletronico.transferir(conta1, conta3, 50);
 
         conta1.imprimirDemonstrativo();
