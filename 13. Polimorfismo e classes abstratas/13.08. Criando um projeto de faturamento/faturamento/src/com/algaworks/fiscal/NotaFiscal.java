@@ -1,6 +1,7 @@
 package com.algaworks.fiscal;
 
-public class NotaFiscal {
+//Essa é uma classe abstrata
+public abstract class NotaFiscal {
 
     private String descricao;
     private double valorTotal;
