@@ -15,19 +15,16 @@ public class CaixaEletronico {
         contaDestino.depositar(valorTranferencia);
     }
 
-    // Fazendo sobrecarga para evitaro uso do instanceof
+    // Fazendo sobrecarga para evitar o uso do instanceof
+    // Usando ao máximo o polimorfismo
     public void imprimirDemostrativo(Conta conta) {
-        debitarTarifaImpressaoDemostrativo(conta);
-        conta.imprimirDemonstrativo();
-    }
-
-    public void imprimirDemostrativo(ContaInvestimento contaInvestimento) {
-        if (contaInvestimento.getValorTotalRendimentos() > 0) {
-            System.out.println("Impressão do demonstrativo é gratuito");
+        if (conta.possuiGratuidadeImperssao()) {
+            System.out.println("Impressão do demonstrativo é gratuita");
         } else {
-            debitarTarifaImpressaoDemostrativo(contaInvestimento);
+            debitarTarifaImpressaoDemostrativo(conta);
+            conta.imprimirDemonstrativo();
         }
-        contaInvestimento.imprimirDemonstrativo();
+
     }
 
     private static void debitarTarifaImpressaoDemostrativo(Conta conta) {

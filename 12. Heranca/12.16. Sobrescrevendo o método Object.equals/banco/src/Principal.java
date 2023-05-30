@@ -26,8 +26,9 @@ public class Principal {
         //caixaEletronico.imprimirDemostrativo(conta1);
 
         //ContaSalario
-        caixaEletronico.imprimirDemostrativo(conta3); //Vai pegar no método conta, pq contaSalario não é uma contaInvestimento
+        //caixaEletronico.imprimirDemostrativo(conta3);
 
+        caixaEletronico.imprimirDemostrativo(conta1); //Conta especial é uma conta investimento
 
     }
 
