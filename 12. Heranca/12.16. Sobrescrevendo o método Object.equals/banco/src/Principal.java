@@ -22,11 +22,11 @@ public class Principal {
                 1234, 999999, 18_000);
         conta3.depositar(100);
 
-        //caixaEletronico.imprimirDemostrativo(conta2);
-        //caixaEletronico.imprimirDemostrativo(conta1); //ContaEspecial é um tipo de conta Investimento
-        //Conta salário vai ter problema.
-        //caixaEletronico.imprimirDemostrativo(conta3);
-        caixaEletronico.imprimirDemostrativo(conta1);
+        //ContaEspecial é uma contaInvestimento, vai pegar no método que tem ContaInvestimento
+        //caixaEletronico.imprimirDemostrativo(conta1);
+
+        //ContaSalario
+        caixaEletronico.imprimirDemostrativo(conta3); //Vai pegar no método conta, pq contaSalario não é uma contaInvestimento
 
 
     }
