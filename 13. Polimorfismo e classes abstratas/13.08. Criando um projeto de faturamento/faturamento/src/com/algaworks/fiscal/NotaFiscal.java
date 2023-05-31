@@ -20,9 +20,12 @@ public abstract class NotaFiscal {
     }
 
     //Vai sobrescrever na classe Produto e Servico
-    public double calcularImpostos() {
-        return 0; //Não existe NotaFiscal genérica, ou é produto ou servico
-    }
+    // Se remover esse método não vai conseguir fazer o uso do polimorfismo.
+
+    public abstract double calcularImpostos(); // precisa remover o bloco, Somente a declaracão da assinatura do método
+    // {
+        //return 0; //Não existe NotaFiscal genérica, ou é produto ou servico
+    //}
 
     public void emitir() {
         System.out.printf("Emitindo nota fiscal para: %s%n", getDescricao());
