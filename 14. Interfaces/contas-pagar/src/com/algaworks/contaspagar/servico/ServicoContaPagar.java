@@ -1,21 +1,25 @@
 package com.algaworks.contaspagar.servico;
 
-import com.algaworks.pagamento.Beneficiario;
-import com.algaworks.pagamento.DocumentoPagavel;
+import com.algaworks.pagamento.*;
 
 public class ServicoContaPagar {
 
     // Importante saber a diferenca entre classes abastratas e interfaces.
     // Usando os recuros da classes abstratas, conseguimos fazer uso do polimorfismo
     public void pagar(DocumentoPagavel documento) {
-        Beneficiario beneficiario = documento.getBeneficiario();
 
-        if(beneficiario.naoPossuiChavePix()) {
-            throw new RuntimeException("Beneficiário não possui chave Pix");
-        }
+        //ServicoContaPagar está fixo para pix precisamos criar um outra forma de pagamento.
 
-        System.out.printf("DEBUG: Efetuando PIX para %s no valor de %.2f com a chave %s%n",
-                beneficiario.getNome(), documento.getValorTotal(), beneficiario.getChavePix());
+        //MetodoPagamento metodoPagamento = new Pix();
+        // Precisa alterar para new Transferencia();
+        MetodoPagamento metodoPagamento = new Transferencia();
+
+
+        // Poderia ter outras regras de negócio aqui
+        // como por exemplo registrar o pagamento no banco de dados,
+        // enviar uma notificacão por e-mail, etc.
+
+        metodoPagamento.pagar(documento);
     }
 
 
