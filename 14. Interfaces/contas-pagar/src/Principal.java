@@ -1,13 +1,14 @@
 import com.algaworks.contaspagar.modelo.Holerite;
 import com.algaworks.contaspagar.modelo.OrdemServico;
 import com.algaworks.contaspagar.servico.ServicoContaPagar;
-import com.algaworks.pagamento.Beneficiario;
-import com.algaworks.pagamento.DocumentoPagavel;
+import com.algaworks.pagamento.*;
 
 public class Principal {
     public static void main(String[] args) {
 
-        ServicoContaPagar servicoContaPagar = new ServicoContaPagar();
+        //MetodoPagamento metodoPagamento = new Pix();
+        MetodoPagamento metodoPagamento = new Transferencia();
+        ServicoContaPagar servicoContaPagar = new ServicoContaPagar(metodoPagamento);
 
         // TODO Precisamos instanciar uma classe que implemente a interface
 
