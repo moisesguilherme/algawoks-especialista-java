@@ -38,11 +38,11 @@ public class Beneficiario {
 
 
     public boolean naoPossuiChavePix() {
-        return getChavePix() != null || getChavePix().isEmpty();
+        return getChavePix() == null || getChavePix().isEmpty();
     }
 
     public boolean naoPossuiContaBancaria() {
-        return getContaBancaria() != null || getContaBancaria().isEmpty();
+        return getContaBancaria() == null || getContaBancaria().isEmpty();
     }
 
 

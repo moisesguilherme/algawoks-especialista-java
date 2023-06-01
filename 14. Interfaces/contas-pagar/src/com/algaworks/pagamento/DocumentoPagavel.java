@@ -1,6 +1,6 @@
 package com.algaworks.pagamento;
 
-public interface DocumentoPagavel {
+public interface DocumentoPagavel{
 
     // Assinar o DocumentoPagavel
     // Todos DocumentoPagavel precisa ter o método;
