@@ -26,8 +26,5 @@ public abstract class Empresa {
         this.totalFaturamento = totalFaturamento;
     }
 
-    // Método abstrato não tem implementaćão na classe empresa
-    // Remover o método abstrato
-    //public abstract double calcularLimiteAprovado();
 
 }

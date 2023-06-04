@@ -1,13 +1,12 @@
 package com.algaworks.financeira.servico;
 
-import com.algaworks.financeira.modelo.Empresa;
-import com.algaworks.financeira.modelo.EmpresaFinanciavel;
+import com.algaworks.financeira.modelo.ClienteFinanciavel;
 
 public class ServicoFinanciamento {
 
-    public void solicitarFinanciamento(EmpresaFinanciavel empresa, double valorSolicitado) {
+    public void solicitarFinanciamento(ClienteFinanciavel cliente, double valorSolicitado) {
         //polimorfismo vai usar o método calcularLimiteAprovado de outra classe
-        double limiteAprovado = empresa.calcularLimiteAprovado();
+        double limiteAprovado = cliente.calcularLimiteAprovado();
 
         if (limiteAprovado < valorSolicitado) {
             throw new RuntimeException(String.format(
@@ -20,11 +19,11 @@ public class ServicoFinanciamento {
                 limiteAprovado);
     }
 
-    public double consultarLimiteAprovado(EmpresaFinanciavel empresa) {
+    public double consultarLimiteAprovado(ClienteFinanciavel cliente) {
         // aqui poderia registrar a consulta em algum lugar para um consultor comercial entrar em contato
         // com o cliente (não vamos fazer isso, porque o objetivo agora é estudar OO primeiro)
 
-        return empresa.calcularLimiteAprovado();
+        return cliente.calcularLimiteAprovado();
     }
 
 }
