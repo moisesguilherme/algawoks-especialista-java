@@ -27,4 +27,15 @@ public class LojaVarejista extends Empresa implements ClienteFinanciavel {
             + (getValorTotalEstoque() * PERCENTUAL_VALOR_ESTOQUE_LIMITE_CREDITO);
     }
 
+    @Override
+    public double calcularJuros(double valorSolicitado) {
+        if (valorSolicitado <= 100_000) {
+            return 1.0;
+        } else if(valorSolicitado <= 1_000_000) {
+            return 1.5;
+        }
+
+        return 2.0;
+    }
+
 }

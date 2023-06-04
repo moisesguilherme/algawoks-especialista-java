@@ -31,4 +31,15 @@ public class Industria extends Empresa implements ClienteFinanciavel{
         return valorAprovado;
     }
 
+    @Override
+    public double calcularJuros(double valorSolicitado) {
+        if (valorSolicitado <= 100_000) {
+            return 1.0;
+        } else if(valorSolicitado <= 1_000_000) {
+            return 1.5;
+        }
+
+        return 2.0;
+    }
+
 }
