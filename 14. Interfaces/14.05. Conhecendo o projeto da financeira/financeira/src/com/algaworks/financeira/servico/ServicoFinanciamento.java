@@ -16,7 +16,7 @@ public class ServicoFinanciamento {
 
         // registraríamos a solicitação do financiamento aqui em alguma classe de persistência de dados,
         // mas por enquanto, apenas imagine isso acontecendo...
-        System.out.printf("DEBUG: Financiamento aprovado no valor de R$%.2f com juros de $.2f. Limite máximo de %.2f%n",
+        System.out.printf("DEBUG: Financiamento aprovado no valor de R$%.2f com juros de %.2f%%. Limite máximo de %.2f%n",
                 valorSolicitado, jurosCalculado, limiteAprovado);
     }
 

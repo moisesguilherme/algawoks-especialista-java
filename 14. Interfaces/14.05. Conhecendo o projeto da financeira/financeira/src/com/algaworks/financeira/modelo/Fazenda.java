@@ -30,7 +30,8 @@ public class Fazenda extends Empresa implements ClienteFinanciavel  {
     }
 
     // Comeca a ter código duplicado... nas outras classes, Industria, LojaVarejista
-    @Override
+
+    /*@Override
     public double calcularJuros(double valorSolicitado) {
         if (valorSolicitado <= 100_000) {
             return 1.0;
@@ -39,6 +40,6 @@ public class Fazenda extends Empresa implements ClienteFinanciavel  {
         }
 
         return 2.0;
-    }
+    }*/
 
 }

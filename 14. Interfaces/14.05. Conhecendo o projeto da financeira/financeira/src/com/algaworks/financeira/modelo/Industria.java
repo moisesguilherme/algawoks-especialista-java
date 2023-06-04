@@ -31,6 +31,7 @@ public class Industria extends Empresa implements ClienteFinanciavel{
         return valorAprovado;
     }
 
+    /*
     @Override
     public double calcularJuros(double valorSolicitado) {
         if (valorSolicitado <= 100_000) {
@@ -40,6 +41,6 @@ public class Industria extends Empresa implements ClienteFinanciavel{
         }
 
         return 2.0;
-    }
+    }*/
 
 }
