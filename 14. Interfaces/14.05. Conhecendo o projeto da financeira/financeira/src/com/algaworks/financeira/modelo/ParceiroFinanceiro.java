@@ -16,9 +16,5 @@ public class ParceiroFinanceiro extends Empresa {
         valorTotalAplicado += valorAplicado;
     }
 
-    @Override
-    public double calcularLimiteAprovado() {
-        throw new RuntimeException("Não é possível financiar um parceiro");
-    }
 
 }

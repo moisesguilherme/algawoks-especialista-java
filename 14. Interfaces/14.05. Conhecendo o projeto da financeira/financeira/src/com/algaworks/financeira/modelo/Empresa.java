@@ -27,6 +27,7 @@ public abstract class Empresa {
     }
 
     // Método abstrato não tem implementaćão na classe empresa
-    public abstract double calcularLimiteAprovado();
+    // Remover o método abstrato
+    //public abstract double calcularLimiteAprovado();
 
 }

@@ -1,6 +1,6 @@
 package com.algaworks.financeira.modelo;
 
-public class LojaVarejista extends Empresa {
+public class LojaVarejista extends EmpresaFinanciavel {
 
     public static final double PERCENTUAL_FATURAMENTO_LIMITE_CREDITO = 0.2;
     public static final double PERCENTUAL_VALOR_ESTOQUE_LIMITE_CREDITO = 0.5;
