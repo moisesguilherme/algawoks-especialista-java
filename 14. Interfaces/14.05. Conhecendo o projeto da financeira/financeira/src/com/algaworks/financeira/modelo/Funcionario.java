@@ -1,6 +1,6 @@
 package com.algaworks.financeira.modelo;
 
-public class Funcionario implements ClienteFinanciavel {
+public class Funcionario implements ClienteFinanciavel, PessoaBonificavel {
 
     public static final int QUANTIDADE_SALARIOS_LIMITE_CREDITO = 5;
 
@@ -31,5 +31,10 @@ public class Funcionario implements ClienteFinanciavel {
     @Override
     public double calcularLimiteAprovado() {
         return getSalarioMensal() * QUANTIDADE_SALARIOS_LIMITE_CREDITO;
+    }
+
+    @Override
+    public double calcularBonus(double percentualMetaAlcancada) {
+        return getSalarioMensal() * percentualMetaAlcancada / 100;
     }
 }

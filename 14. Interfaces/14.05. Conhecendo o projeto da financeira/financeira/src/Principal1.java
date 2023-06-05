@@ -1,7 +1,7 @@
 import com.algaworks.financeira.modelo.*;
 import com.algaworks.financeira.servico.ServicoFinanciamento;
 
-public class Principal {
+public class Principal1 {
 
     public static void main(String[] args) {
         var servicoFinanciamento = new ServicoFinanciamento();
