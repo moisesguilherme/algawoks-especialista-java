@@ -15,8 +15,8 @@ public class Principal {
         //servicoFinanciamento.solicitarFinanciamento(industria, 500_000);
 
         // Método utilitário, estático em interface
-        System.out.println(ClienteFinanciavel.isFinanciamentoGrandeValor(500_000));
-        System.out.println(ClienteFinanciavel.idade);
+        System.out.printf("Juros baixo risco:  %.2f%n", ClienteFinanciavel.JUROS_BAIXO_RISCO);
+
     }
 
 }

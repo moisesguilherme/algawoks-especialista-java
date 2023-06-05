@@ -7,19 +7,22 @@ public interface ClienteFinanciavel {
     // 2. uma classe pode implementar uma ou várias interfaces
     // 3. uma interface não possui estado, não tem variável de instância
 
-    int idade = 0; // igual a public static final int idade = 0;
+    //public static final
+    double JUROS_BAIXO_RISCO = 1.0;
+    double JUROS_MEDIO_RISCO = 1.5;
+    double JUROS_ALTO_RISCO = 2.0;
 
     double calcularLimiteAprovado();
 
 
     default double calcularJuros(double valorSolicitado) {
         if (isFinanciamentoPequenoValor(valorSolicitado)) {
-            return 1.0;
+            return JUROS_BAIXO_RISCO;
         } else if(isFinanciamentoGrandeValor(valorSolicitado)) {
-            return 1.5;
+            return JUROS_MEDIO_RISCO;
         }
 
-        return 2.0;
+        return JUROS_ALTO_RISCO;
     }
 
     public static boolean isFinanciamentoGrandeValor(double valorSolicitado) {
