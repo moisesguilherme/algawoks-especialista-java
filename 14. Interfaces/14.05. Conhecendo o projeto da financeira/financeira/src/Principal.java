@@ -16,7 +16,7 @@ public class Principal {
 
         // Método utilitário, estático em interface
         System.out.println(ClienteFinanciavel.isFinanciamentoGrandeValor(500_000));
-
+        System.out.println(ClienteFinanciavel.idade);
     }
 
 }
