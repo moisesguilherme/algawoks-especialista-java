@@ -1,7 +1,4 @@
-import com.algaworks.financeira.modelo.Fazenda;
-import com.algaworks.financeira.modelo.Funcionario;
-import com.algaworks.financeira.modelo.Industria;
-import com.algaworks.financeira.modelo.ParceiroFinanceiro;
+import com.algaworks.financeira.modelo.*;
 import com.algaworks.financeira.servico.ServicoFinanciamento;
 
 public class Principal {
@@ -16,6 +13,8 @@ public class Principal {
         servicoFinanciamento.solicitarFinanciamento(funcionario, 90_000);
         servicoFinanciamento.solicitarFinanciamento(fazenda, 600_000);
         servicoFinanciamento.solicitarFinanciamento(industria, 500_000);
+
+
     }
 
 }
