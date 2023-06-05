@@ -10,10 +10,12 @@ public class Principal {
         var parceiro = new ParceiroFinanceiro("Capital ABC", 2_000_000);
         var funcionario = new Funcionario("João da Silva", 18_000);
 
-        servicoFinanciamento.solicitarFinanciamento(funcionario, 90_000);
-        servicoFinanciamento.solicitarFinanciamento(fazenda, 600_000);
-        servicoFinanciamento.solicitarFinanciamento(industria, 500_000);
+        //servicoFinanciamento.solicitarFinanciamento(funcionario, 90_000);
+        //servicoFinanciamento.solicitarFinanciamento(fazenda, 600_000);
+        //servicoFinanciamento.solicitarFinanciamento(industria, 500_000);
 
+        // Método utilitário, estático em interface
+        System.out.println(ClienteFinanciavel.isFinanciamentoGrandeValor(500_000));
 
     }
 

@@ -20,12 +20,12 @@ public interface ClienteFinanciavel {
     }
 
     // Java 8 pode ter métodos estáticos em interfaces
-    private boolean isFinanciamentoGrandeValor(double valorSolicitado) {
+    public static boolean isFinanciamentoGrandeValor(double valorSolicitado) {
         return valorSolicitado <= 1_000_000;
     }
 
     //Método privado na interface, recurso java 9
-    private boolean isFinanciamentoPequenoValor(double valorSolicitado) {
+    static boolean isFinanciamentoPequenoValor(double valorSolicitado) {
         return valorSolicitado <= 100_000;
     }
 
