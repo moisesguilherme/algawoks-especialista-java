@@ -1,6 +1,6 @@
 package com.algaworks.financeira.modelo;
 
-public class Funcionario implements ClienteFinanciavel, PessoaBonificavel {
+public class Funcionario implements PessoaBonificavel {
 
     public static final int QUANTIDADE_SALARIOS_LIMITE_CREDITO = 5;
 
