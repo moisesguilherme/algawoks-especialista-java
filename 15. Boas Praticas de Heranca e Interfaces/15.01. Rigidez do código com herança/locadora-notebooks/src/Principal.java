@@ -6,7 +6,7 @@ public class Principal {
         Notebook notebook = new Notebook("Macbook Pro i7 16gb", 5, 100);
 
         //Locacao locacao = new LocacaoPorHora(notebook);
-        Locacao locacao = new LocacaoPorDia(notebook);
+        Locacao locacao = new LocacaoPorHora(notebook);
         double valorDevido = locacao.calcularValorDevido(10);
 
         System.out.printf("Valor a pagar: R$%.2f%n", valorDevido);
