@@ -3,6 +3,7 @@ public class TestRunTime {
     public static void main(String[] args) {
         imprimirUsoMemoria();
 
+        // java -Xmx5G -Xms400M TestRunTime
         byte[] x = new byte[500 * 1024 * 1024];
         byte[] y = new byte[500 * 1024 * 1024];
 
