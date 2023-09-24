@@ -1,38 +1,15 @@
-public class TestGarbageCollector {
+public class TestGarbageCollector4 {
 
     public static void main(String[] args) {
         imprimirUsoMemoria();
 
-        byte[] x = new byte[500 * 1024 * 1024];
-        imprimirUsoMemoria();
-        x = null; //Garbage Collector o objeto se torna inalcancável
-
-
-        byte[] y = new byte[10 * 1024 * 1024];
+        //Cliente c = new Cliente(); //Não coleta pois o objeto está relacionando com a variável c
+        new Cliente();
         imprimirUsoMemoria();
 
-        //Uma sugestão para o GarbageCollector
         System.gc();
 
         imprimirUsoMemoria();
-
-        /*
-        byte[] h = null;
-        while(true){
-            imprimirUsoMemoria();
-            y = null;
-            h = null;
-            byte[] z = new byte[100 * 1024 * 1024];
-            try{
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            z = null;
-            h = new byte[10 * 1024 * 1024];
-            imprimirUsoMemoria();
-        }*/
-
     }
 
     static void imprimirUsoMemoria() {
