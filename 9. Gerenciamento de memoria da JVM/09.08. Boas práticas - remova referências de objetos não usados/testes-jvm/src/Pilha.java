@@ -28,7 +28,10 @@ public class Pilha {
     void imprimirEstatisticas() {
         System.out.printf("Tamanho atual: %d%n", tamanho);
         System.out.printf("Capacidade: %d%n", elementos.length);
-        System.out.printf("Máxima: %s%n%n",emMegabytes(Runtime.getRuntime().maxMemory()));
+        System.out.printf("Máxima: %s%n",emMegabytes(Runtime.getRuntime().maxMemory()));
+        long memoriaUsada = Runtime.getRuntime().totalMemory()
+                - Runtime.getRuntime().freeMemory();
+        System.out.printf("Usada: %s%n%n", emMegabytes(memoriaUsada));
     }
 
     private void garantirCapacidade() {

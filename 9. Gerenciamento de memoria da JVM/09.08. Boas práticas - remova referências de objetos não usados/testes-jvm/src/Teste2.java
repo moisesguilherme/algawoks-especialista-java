@@ -19,9 +19,13 @@ public class Teste2 {
         } while (clienteRetirado != null);
 
         Cliente c1 = new Cliente();
+        pilha.imprimirEstatisticas();
         Cliente c2 = new Cliente();
+        pilha.imprimirEstatisticas();
         Cliente c3 = new Cliente();
+        pilha.imprimirEstatisticas();
         Cliente c4 = new Cliente();
+        pilha.imprimirEstatisticas();
     }
 
 }
