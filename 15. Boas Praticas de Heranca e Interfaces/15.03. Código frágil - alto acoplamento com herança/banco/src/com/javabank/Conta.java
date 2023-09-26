@@ -6,6 +6,11 @@ public interface Conta {
     void sacar(double valor);
     void depositar(double valor);
     void transferir(Conta conta, double valor);
+
+    //Se a interface for alterada, quebra o código
     void aplicarEmInvestimento(double valor);
+
+
+
 
 }

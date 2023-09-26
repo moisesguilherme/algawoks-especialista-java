@@ -24,13 +24,13 @@ public class ContaCorrente implements Conta {
     public void transferir(Conta conta, double valor) {
         //this.saldo -= valor;
         sacar(valor); //Problema
-        sacarTarifa(15); // vai chamar a do ContaCorrenteComTribuicao
+        //sacarTarifa(15); // vai chamar a do ContaCorrenteComTribuicao
         conta.depositar(valor);
     }
 
     @Override
     public void aplicarEmInvestimento(double valor) {
-        System.out.println(">>> chamou sacar super aplicarEmInvestimento");
+        System.out.println(">>> chamou super aplicarEmInvestimento");
         this.saldo -= valor;
         // TODO aqui aplicaria o dinheiro no investimento
     }
