@@ -11,6 +11,7 @@ public class ContaCorrente implements Conta {
 
     @Override
     public void sacar(double valor) {
+        System.out.println(">>> chamou sacar super classe");
         this.saldo -= valor;
     }
 
@@ -22,12 +23,14 @@ public class ContaCorrente implements Conta {
     @Override
     public void transferir(Conta conta, double valor) {
         //this.saldo -= valor;
-        sacar(valor);
+        sacar(valor); //Problema
+        sacarTarifa(15); // vai chamar a do ContaCorrenteComTribuicao
         conta.depositar(valor);
     }
 
     @Override
     public void aplicarEmInvestimento(double valor) {
+        System.out.println(">>> chamou sacar super aplicarEmInvestimento");
         this.saldo -= valor;
         // TODO aqui aplicaria o dinheiro no investimento
     }
