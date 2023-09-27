@@ -2,20 +2,24 @@ package com.algabank;
 
 import com.javabank.Conta;
 
-import java.util.Objects;
+public class PontuacaoDecorator implements Conta {
 
-public class ContaComTributacao implements Conta {
-
-    public static final double TAXA_IMPOSTO_MOVIMENTACAO = 0.1;
-    //Classe wrapper (embrulhar a outra)
     private Conta contaOriginal;
+    private int pontos;
 
-    //Futuramente pode usar outra conta, pois usa polimorfismo
-    public ContaComTributacao(Conta contaOriginal) {
-        Objects.requireNonNull(contaOriginal);
+    public PontuacaoDecorator(Conta contaOriginal) {
         this.contaOriginal = contaOriginal;
     }
 
+
+    public int getPontos() {
+        return pontos;
+    }
+
+    // Delegate Methods
+    // Esse método só delega, um ponto negativo da composicão que
+    // precisa criar os métodos apenas para isso.
+    // para resolver isso pode criar a classe abstrata
     @Override
     public double getSaldo() {
         return contaOriginal.getSaldo();
@@ -24,27 +28,21 @@ public class ContaComTributacao implements Conta {
     @Override
     public void sacar(double valor) {
         contaOriginal.sacar(valor);
-        debitarImpostoMovimentacao(valor);
     }
 
     @Override
     public void depositar(double valor) {
         contaOriginal.depositar(valor);
+        pontos += valor / 100;
     }
 
     @Override
     public void transferir(Conta conta, double valor) {
         contaOriginal.transferir(conta, valor);
-        debitarImpostoMovimentacao(valor);
     }
 
     @Override
     public void aplicarEmInvestimento(double valor) {
         contaOriginal.aplicarEmInvestimento(valor);
-        debitarImpostoMovimentacao(valor);
-    }
-
-    private void debitarImpostoMovimentacao(double valorMovimentacao) {
-        contaOriginal.sacar(valorMovimentacao * TAXA_IMPOSTO_MOVIMENTACAO);
     }
 }

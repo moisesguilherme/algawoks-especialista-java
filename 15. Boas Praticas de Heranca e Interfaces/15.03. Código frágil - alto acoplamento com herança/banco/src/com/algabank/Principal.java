@@ -7,8 +7,16 @@ public class Principal {
 
     public static void main(String[] args) {
 
-        //Method Delegate (Delegacão de método)
-        Conta conta1 = new ContaComTributacao(new ContaCorrente());
+        //Padrão de projeto:
+        // Decorator Pattern ou padrão decorate
+                           //Decorando a conta.
+                           //Tributacão conta corrente embrulha ContaCorrente
+                           //TributacaoDecorator -> substituiu para PontuacaoDecorator
+        //Conta conta1 = new PontuacaoDecorator(new ContaCorrente());
+        PontuacaoDecorator pontuacao = new PontuacaoDecorator(new ContaCorrente());
+        // --> com se fosse: TributacaoDecorator(new PontuacaoDecorator(new ContaCorrente()))
+        //     TributacaoDecorator embrulha uma PontuacaoDecorator que embrulha uma contaCorrente
+        Conta conta1 = new TributacaoDecorator(pontuacao);
         Conta conta2 = new ContaCorrente();
 
         conta1.depositar(1000);
@@ -17,6 +25,7 @@ public class Principal {
 
         System.out.printf("Saldo da conta 1: R$%.2f%n", conta1.getSaldo());
         System.out.printf("Saldo da conta 2: R$%.2f%n", conta2.getSaldo());
+        System.out.printf("Pontos da conta 1: %d%n", pontuacao.getPontos());
     }
 
 }
