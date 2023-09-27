@@ -2,13 +2,12 @@ package com.algabank;
 
 import com.javabank.Conta;
 
-public class PontuacaoDecorator implements Conta {
+public class PontuacaoDecorator extends ContaBaseDecorator {
 
-    private Conta contaOriginal;
     private int pontos;
 
     public PontuacaoDecorator(Conta contaOriginal) {
-        this.contaOriginal = contaOriginal;
+        super(contaOriginal);
     }
 
 
@@ -16,11 +15,13 @@ public class PontuacaoDecorator implements Conta {
         return pontos;
     }
 
+    // Remove todos com a classe abstrata
+
     // Delegate Methods
     // Esse método só delega, um ponto negativo da composicão que
     // precisa criar os métodos apenas para isso.
     // para resolver isso pode criar a classe abstrata
-    @Override
+    /*@Override
     public double getSaldo() {
         return contaOriginal.getSaldo();
     }
@@ -29,13 +30,14 @@ public class PontuacaoDecorator implements Conta {
     public void sacar(double valor) {
         contaOriginal.sacar(valor);
     }
-
+    */
+    // Somente o método depositar
     @Override
     public void depositar(double valor) {
-        contaOriginal.depositar(valor);
+        getContaOriginal().depositar(valor);
         pontos += valor / 100;
     }
-
+    /*
     @Override
     public void transferir(Conta conta, double valor) {
         contaOriginal.transferir(conta, valor);
@@ -44,5 +46,5 @@ public class PontuacaoDecorator implements Conta {
     @Override
     public void aplicarEmInvestimento(double valor) {
         contaOriginal.aplicarEmInvestimento(valor);
-    }
+    }*/
 }
