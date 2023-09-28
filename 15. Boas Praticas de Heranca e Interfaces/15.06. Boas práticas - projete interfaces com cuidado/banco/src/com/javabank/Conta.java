@@ -8,7 +8,7 @@ public interface Conta {
     void transferir(Conta conta, double valor);
     void aplicarEmInvestimento(double valor);
 
-    void imprimirSaldo();
+    void imprimirSaldo(); //Vai quebrar ContaCorrente, AuditoriaDecorator, PontuacaoDecorator
 
     //Solucão: Default method, a partir do java 8, ele tem implementacão
     /*default void imprimirSaldo() {
