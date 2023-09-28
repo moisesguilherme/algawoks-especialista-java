@@ -8,11 +8,11 @@ public interface Conta {
     void transferir(Conta conta, double valor);
     void aplicarEmInvestimento(double valor);
 
-    void imprimirSaldo(); //Vai quebrar ContaCorrente, AuditoriaDecorator, PontuacaoDecorator
+    //void imprimirSaldo(); //Vai quebrar ContaCorrente, AuditoriaDecorator, PontuacaoDecorator
 
     //Solucão: Default method, a partir do java 8, ele tem implementacão
-    /*default void imprimirSaldo() {
+    default void imprimirSaldo() {
         System.out.printf("Seu saldo é de R$%.2f%n", getSaldo());
-    }*/
+    }
 
 }

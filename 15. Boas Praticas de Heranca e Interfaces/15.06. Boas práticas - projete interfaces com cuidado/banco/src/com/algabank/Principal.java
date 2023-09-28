@@ -10,7 +10,7 @@ public class Principal {
         conta1.depositar(1000);
         conta1.sacar(100);
         conta1.sacar(50);
-        //conta1.imprimirSaldo();
+        conta1.imprimirSaldo(); //Vai imprimir o método da conta, precisa sobrescrever
 
         System.out.printf("Saldo da conta: R$%.2f%n", conta1.getSaldo());
         System.out.printf("Operações: %d", conta1.getQuantidadeOperacoes());
