@@ -8,8 +8,11 @@ public interface Conta {
     void transferir(Conta conta, double valor);
     void aplicarEmInvestimento(double valor);
 
-    default void imprimirSaldo() {
+    void imprimirSaldo();
+
+    //Solucão: Default method, a partir do java 8, ele tem implementacão
+    /*default void imprimirSaldo() {
         System.out.printf("Seu saldo é de R$%.2f%n", getSaldo());
-    }
+    }*/
 
 }
