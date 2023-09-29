@@ -24,9 +24,13 @@ public class Carrinho {
         return valorTotal;
     }
 
-    public void finalizar(CartaoCredito cartaoCredito) {
+    //Sempre dar preferencia para usar interface, substituir CartaoCredito para a interface
+    //MetodoPagamento
+    //public void finalizar(CartaoCredito cartaoCredito)
+
+    public void finalizar(MetodoPagamento metodoPagamento) {
         double valorTotal = calcularValorTotal();
-        cartaoCredito.pagar(valorTotal);
+        metodoPagamento.pagar(valorTotal);
 
         System.out.printf("Pedido finalizado: R$%.2f%n", valorTotal);
     }
