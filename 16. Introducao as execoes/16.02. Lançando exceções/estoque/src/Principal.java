@@ -7,6 +7,10 @@ public class Principal {
         Produto produto = new Produto("Apple Watch");
         produto.adicionarEstoque(10);
 
+        // Problema vai adicionar no estoque, - com - é igual + = (resultado 15)
+        produto.retirarEstoque(-5);
+
+
         System.out.printf("Estoque: %d%n", produto.getQuantidadeEstoque());
     }
 
