@@ -42,6 +42,12 @@ public class Produto {
     }
 
     public void retirarEstoque(int quantidade) {
+        if(quantidade < 0) {
+            IllegalArgumentException excecao = new IllegalArgumentException(
+                    "Quantidade não pode ser negativa para retirada no estoque");
+            throw excecao;
+        }
+
         this.quantidadeEstoque -= quantidade;
     }
 
