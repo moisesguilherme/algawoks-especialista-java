@@ -33,8 +33,9 @@ public class Principal {
         } catch (IllegalArgumentException iae) {
             // instrucões
             System.out.println("Erro ao efetuar baixa no estoque: " + iae.getMessage());
-
+            // Evite ao máximo ignorar a execão
         }
+
     }
 
 }
