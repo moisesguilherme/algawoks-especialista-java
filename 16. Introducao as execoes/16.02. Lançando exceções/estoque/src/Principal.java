@@ -19,15 +19,22 @@ public class Principal {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Quantidade: ");
         int quantidade = scanner.nextInt();
+
         efetuarBaixaEstoque(produto, quantidade);
         System.out.println("Compra realizada");
 
     }
 
     private static void efetuarBaixaEstoque(Produto produto, int quantidade) {
-        produto.retirarEstoque(quantidade);
-        System.out.printf("%d unidades retiradas do estoque. Estoque atual: %d%n",
-                quantidade, produto.getQuantidadeEstoque());
+        try {
+            produto.retirarEstoque(quantidade);
+            System.out.printf("%d unidades retiradas do estoque. Estoque atual: %d%n",
+                    quantidade, produto.getQuantidadeEstoque());
+        } catch (IllegalArgumentException iae) {
+            // instrucões
+            System.out.println("Erro ao efetuar baixa no estoque: " + iae.getMessage());
+
+        }
     }
 
 }
