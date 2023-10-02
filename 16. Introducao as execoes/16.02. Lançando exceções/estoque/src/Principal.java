@@ -28,6 +28,9 @@ public class Principal {
                 System.out.println("Compra realizada");
                 break;
             } catch (IllegalArgumentException iae){
+                //iae.printStackTrace(System.out); //pode colocar na ordem do System.out
+                iae.printStackTrace();
+                //System.err.println(); //err
                 System.out.println("Erro na compra: " + iae.getMessage());
             }
         } while (true);
