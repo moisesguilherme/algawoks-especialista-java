@@ -1,4 +1,6 @@
 import com.algaworks.estoque.Produto;
+import com.algaworks.estoque.ProdutoInativoException;
+import com.algaworks.estoque.ProdutoSemEstoqueException;
 
 import java.util.Scanner;
 
@@ -6,7 +8,7 @@ public class Principal {
 
     public static void main(String[] args) {
         Produto produto = new Produto("Apple Watch");
-        // produto.ativar();
+        produto.ativar();
         produto.adicionarEstoque(20);
 
         comprar(produto);
@@ -26,8 +28,10 @@ public class Principal {
                 break;
             } catch (IllegalArgumentException iae) {
                 System.out.println("Erro na compra: " + iae.getMessage());
-            } catch (IllegalStateException ise) {
-                System.out.println("Erro na compra: " + ise.getMessage());
+            } catch (ProdutoSemEstoqueException e) {
+                System.out.println("Erro na compra: " + e.getMessage());
+            } catch (ProdutoInativoException e) {
+                System.out.println("Erro na compra: " + e.getMessage());
 
                 System.out.print("Deseja ativar o produto? ");
 
