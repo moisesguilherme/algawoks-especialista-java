@@ -48,7 +48,8 @@ public class Principal {
         } while (true);
     }
 
-    private static void efetuarBaixaEstoque(Produto produto, int quantidade) {
+    private static void efetuarBaixaEstoque(Produto produto, int quantidade)
+            throws ProdutoSemEstoqueException {
         produto.retirarEstoque(quantidade);
         System.out.printf("%d unidades retiradas do estoque. Estoque atual: %d%n",
                 quantidade, produto.getQuantidadeEstoque());
