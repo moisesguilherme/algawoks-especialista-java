@@ -49,7 +49,7 @@ public class Principal {
     }
 
     private static void efetuarBaixaEstoque(Produto produto, int quantidade)
-            throws ProdutoSemEstoqueException {
+            throws ProdutoSemEstoqueException, ProdutoInativoException{
         produto.retirarEstoque(quantidade);
         System.out.printf("%d unidades retiradas do estoque. Estoque atual: %d%n",
                 quantidade, produto.getQuantidadeEstoque());
