@@ -29,17 +29,16 @@ public class Principal {
                 break;
             } catch (IllegalArgumentException iae) {
                 System.out.println("Erro na compra: " + iae.getMessage());
-            } catch(ProdutoException e) {
-                System.out.println(e.getClass().getName());
-                System.out.println("Erro na compra: " + e.getMessage());
-            }
-            /*catch (ProdutoSemEstoqueException e) {
+            /*
+            }catch (ProdutoSemEstoqueException e) {
                 System.out.printf("Erro na compra: %s. Estoque disponível: %d. Estoque necessário: %d%n",
                         e.getMessage(), e.getEstoqueDisponivel(), e.getEstoqueNecesario());
                 //System.out.println("Erro na compra: " + e.getMessage());
-            } catch (ProdutoInativoException e) {
+            }
+            */
+                // Colocar o mais específico primeiro (ProdutoInativoException)
+            } catch (ProdutoInativoException e){
                 System.out.println("Erro na compra: " + e.getMessage());
-
                 System.out.print("Deseja ativar o produto? ");
 
                 if (scanner.nextBoolean()) {
@@ -49,7 +48,12 @@ public class Principal {
                     System.out.println("Ok. Compra não pode ser realizada");
                     break;
                 }
-            }*/
+             } //catch (Exception e) { // Evitar ao máximo o Exception
+                //catch (Throwable e) // Nunca chamar por ele.
+                catch (ProdutoException e) { // Menos específico
+                System.out.println(e.getClass().getName());
+                System.out.println("Erro na compra: " + e.getMessage());
+            }
         } while (true);
     }
 
