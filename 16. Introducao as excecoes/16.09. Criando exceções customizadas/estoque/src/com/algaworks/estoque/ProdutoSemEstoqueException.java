@@ -1,6 +1,6 @@
 package com.algaworks.estoque;
 
-public class ProdutoSemEstoqueException extends Exception{
+public class ProdutoSemEstoqueException extends ProdutoException {
 
 
     private final int estoqueDisponivel;

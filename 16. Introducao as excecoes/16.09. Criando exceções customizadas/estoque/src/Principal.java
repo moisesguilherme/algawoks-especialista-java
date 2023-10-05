@@ -1,4 +1,5 @@
 import com.algaworks.estoque.Produto;
+import com.algaworks.estoque.ProdutoException;
 import com.algaworks.estoque.ProdutoInativoException;
 import com.algaworks.estoque.ProdutoSemEstoqueException;
 
@@ -28,7 +29,11 @@ public class Principal {
                 break;
             } catch (IllegalArgumentException iae) {
                 System.out.println("Erro na compra: " + iae.getMessage());
-            } catch (ProdutoSemEstoqueException e) {
+            } catch(ProdutoException e) {
+                System.out.println(e.getClass().getName());
+                System.out.println("Erro na compra: " + e.getMessage());
+            }
+            /*catch (ProdutoSemEstoqueException e) {
                 System.out.printf("Erro na compra: %s. Estoque disponível: %d. Estoque necessário: %d%n",
                         e.getMessage(), e.getEstoqueDisponivel(), e.getEstoqueNecesario());
                 //System.out.println("Erro na compra: " + e.getMessage());
@@ -44,7 +49,7 @@ public class Principal {
                     System.out.println("Ok. Compra não pode ser realizada");
                     break;
                 }
-            }
+            }*/
         } while (true);
     }
 
