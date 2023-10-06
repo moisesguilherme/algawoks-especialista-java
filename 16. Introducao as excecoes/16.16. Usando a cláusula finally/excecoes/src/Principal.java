@@ -5,8 +5,8 @@ import java.nio.file.Path;
 
 public class Principal {
 
-    public static void main(String[] args) {
-        Path arquivo = Path.of("/home/moises/Desktop/DEV/AlgaWorks/EspecialistaJava/teste2.txt");
+    public static void main(String[] args) throws IOException {
+        Path arquivo = Path.of("/home/moises/Desktop/DEV/AlgaWorks/EspecialistaJava/teste3.txt");
         BufferedReader reader = null;
 
         try {
@@ -16,12 +16,14 @@ public class Principal {
 
         } catch (IOException e) {
             System.out.println("Erro ao ler arquivo: " + e.getMessage());
-
-            // Nào é uma boa prática.
+        } finally {
+            // uma excecao não pode estorar dentro do finally
+            // se isso acontecer ela vai substituir uma excecao anterior
+            System.out.println("DEBUG: Finally");
             try {
                 reader.close();
-            } catch (IOException ex) {
-                System.out.println("Erro fechando leitor de arquivo");;
+            } catch (IOException e) {
+                System.out.println("Erro fechando leitor de arquivo");
             }
         }
     }
