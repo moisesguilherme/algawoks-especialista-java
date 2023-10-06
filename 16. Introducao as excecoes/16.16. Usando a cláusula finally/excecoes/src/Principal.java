@@ -10,8 +10,8 @@ public class Principal {
 
         try {
             BufferedReader reader = Files.newBufferedReader(arquivo);
-            System.out.println(reader.readLine());
-
+            System.out.println(reader.readLine()); // pode lancar uma IOException
+            // se for executado vai para o catch, e o reader.close() nao vai ser executado
             reader.close();
         } catch (IOException e) {
             System.out.println("Erro ao ler arquivo: " + e.getMessage());
