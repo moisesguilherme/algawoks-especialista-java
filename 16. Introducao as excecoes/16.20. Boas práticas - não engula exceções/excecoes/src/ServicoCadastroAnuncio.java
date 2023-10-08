@@ -10,10 +10,12 @@ public class ServicoCadastroAnuncio {
         try {
             Files.writeString(arquivo, descricao);
         } catch (IOException e) {
+            throw new CadastroAnuncioException("Erro na escrita do arquivo de anúncio...", e);
+
             // Engolir excecão // não ter nda auqi.
             // É melhor usar alguma biblioteca de loggin para fazer isso
-            System.out.println(">>> erro escrevendo arquivo. Ignorando...");
-            e.printStackTrace();
+            //System.out.println(">>> erro escrevendo arquivo. Ignorando...");
+            //e.printStackTrace();
         }
     }
 
