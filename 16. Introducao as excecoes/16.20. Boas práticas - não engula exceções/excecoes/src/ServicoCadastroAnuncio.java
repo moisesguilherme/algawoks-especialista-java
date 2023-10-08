@@ -10,7 +10,10 @@ public class ServicoCadastroAnuncio {
         try {
             Files.writeString(arquivo, descricao);
         } catch (IOException e) {
-            System.out.println(">>> erro");
+            // Engolir excecão // não ter nda auqi.
+            // É melhor usar alguma biblioteca de loggin para fazer isso
+            System.out.println(">>> erro escrevendo arquivo. Ignorando...");
+            e.printStackTrace();
         }
     }
 
