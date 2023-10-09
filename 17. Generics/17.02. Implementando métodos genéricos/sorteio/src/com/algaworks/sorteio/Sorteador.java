@@ -6,7 +6,8 @@ public class Sorteador {
 
     private static final Random RANDOM = new Random();
 
-    public static Cliente sortear(Cliente[] objetos) {
+    // trocar para Object
+    public static Object sortear(Object[] objetos) {
         if (objetos.length == 0) {
             throw new IllegalArgumentException("Mínimo de 1 objeto requerido");
         }
