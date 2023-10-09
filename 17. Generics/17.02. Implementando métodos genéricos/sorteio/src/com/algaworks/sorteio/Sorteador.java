@@ -15,10 +15,6 @@ public class Sorteador {
             throw new IllegalArgumentException("Mínimo de 1 objeto requerido");
         }
 
-        //Declarar com o objeto
-        T obj;
-        //System.out.println(obj);
-
         int posicao = RANDOM.nextInt(objetos.length);
         return objetos[posicao];
     }
