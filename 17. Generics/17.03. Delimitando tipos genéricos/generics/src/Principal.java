@@ -21,7 +21,7 @@ public class Principal {
         System.out.println(funcionarioEncontrado);
 
         // Não consegue passar Cliente
-        Cliente clienteEncontrado = Pesquisador.obterPorNome(clientes, "Posto Gasolina");
+        Cliente clienteEncontrado = Pesquisador.obterPorNome(clientes, "Posto Gasolina Boa");
         System.out.println(clienteEncontrado);
     }
 
