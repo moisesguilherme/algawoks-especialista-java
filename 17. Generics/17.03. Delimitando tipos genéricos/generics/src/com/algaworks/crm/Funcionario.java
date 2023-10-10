@@ -1,6 +1,6 @@
 package com.algaworks.crm;
 
-public class Funcionario {
+public class Funcionario implements Nomeavel {
 
     private String nome;
     private int idade;
@@ -10,6 +10,7 @@ public class Funcionario {
         this.idade = idade;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }

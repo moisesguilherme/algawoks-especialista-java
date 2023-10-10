@@ -17,6 +17,10 @@ public class Principal {
                 new Cliente("Javac Consultoria", 58_000_000)
         };
 
+        // String não é um array de nomeável.
+        //String[] nomes = {"João"};
+        //Pesquisador.obterPorNome(nomes, "João");
+
         Funcionario funcionarioEncontrado = Pesquisador.obterPorNome(funcionarios, "José");
         System.out.println(funcionarioEncontrado);
 
