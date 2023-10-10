@@ -1,6 +1,6 @@
 package com.algaworks.crm;
 
-public class Cliente  implements Nomeavel {
+public class Cliente  implements Nomeavel, PessoaJuridica {
 
     private String razaoSocial;
     private double faturamentoMensal;
