@@ -1,7 +1,11 @@
 package com.algaworks.estruturadedados;
 
+import com.algaworks.loja.Produto;
+
 import java.util.Arrays;
 
+// public class Pilha<T,D>
+//public class Pilha<T extends Produto>
 public class Pilha<T> {
     //LIFO -> Last In First Out
 
