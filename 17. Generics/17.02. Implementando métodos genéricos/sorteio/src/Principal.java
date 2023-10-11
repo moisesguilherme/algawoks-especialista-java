@@ -1,5 +1,4 @@
 import com.algaworks.sorteio.Cliente;
-import com.algaworks.sorteio.Conversor;
 import com.algaworks.sorteio.Sorteador;
 
 public class Principal {

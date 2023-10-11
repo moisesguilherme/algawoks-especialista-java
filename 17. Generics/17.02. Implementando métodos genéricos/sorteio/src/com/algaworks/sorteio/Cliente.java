@@ -26,4 +26,11 @@ public class Cliente {
         this.faturamentoMensal = faturamentoMensal;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "razaoSocial='" + razaoSocial + '\'' +
+                ", faturamentoMensal=" + faturamentoMensal +
+                '}';
+    }
 }

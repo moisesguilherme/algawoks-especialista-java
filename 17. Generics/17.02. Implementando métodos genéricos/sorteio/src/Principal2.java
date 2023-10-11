@@ -1,11 +1,12 @@
-import com.algaworks.sorteio.Conversor;
+import com.algaworks.sorteio.Cliente;
+import com.algaworks.sorteio.ObjectFactory;
 
 public class Principal2 {
 
     public static void main(String[] args) {
 
         //Test String
-        String nome = "José";
+        /*String nome = "José";
         String testeComString = Conversor.<String>tipo(nome);
         System.out.println(testeComString);
 
@@ -13,7 +14,23 @@ public class Principal2 {
         Integer number = 2;
         Integer testeComInteger = Conversor.<Integer>tipo(number);
         System.out.println(testeComInteger);
+        */
+        //Retornando Integer
+        Integer typeInteger = 2;
+        Integer n = (Integer) ObjectFactory.<Integer>tipo(typeInteger);
+        System.out.println(n instanceof  Integer);
+        System.out.println("value:" + n);
 
+        //Retornando String
+        String typeString = "Teste";
+        String s = (String) ObjectFactory.<String>tipo(typeString);
+        System.out.println(s instanceof  String);
+        System.out.println("value:" + s);
 
+        //Retornando Cliente
+        Cliente typeCliente = new Cliente("Supermercado Pague e Leve", 2_000_000);
+        Cliente c = (Cliente) ObjectFactory.<Cliente>tipo(typeCliente);
+        System.out.println(c instanceof  Cliente);
+        System.out.println("value:" + c);
     }
 }
