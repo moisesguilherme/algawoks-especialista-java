@@ -1,11 +1,12 @@
 import com.algaworks.estruturadedados.ColecaoVaziaException;
+import com.algaworks.estruturadedados.Fila;
 import com.algaworks.estruturadedados.Pilha;
 import com.algaworks.loja.Produto;
 
 public class Principal {
 
     public static void main(String[] args) {
-        Pilha<Produto> produtos = new Pilha<>();
+        Fila<Produto> produtos = new Fila<>();
         produtos.colocar(new Produto("Arroz"));
         produtos.colocar(new Produto("Feijão"));
         produtos.colocar(new Produto("Água de coco"));
@@ -13,7 +14,7 @@ public class Principal {
         retirarTodos(produtos);
     }
 
-    private static void retirarTodos(Pilha<Produto> produtos) {
+    private static void retirarTodos(Fila<Produto> produtos) {
         try {
             int i = 1;
             while (true) {
