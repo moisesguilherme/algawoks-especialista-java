@@ -14,14 +14,23 @@ public class Principal {
         produtos.colocar(new Produto("Água de coco"));
 
         retirarTodos(produtos);
+
+        Colecao<String> nomes = new Pilha<>();
+        nomes.colocar("João");
+        nomes.colocar("Maria");
+
+        retirarTodos(nomes);
+
+
     }
 
-    private static void retirarTodos(Colecao<Produto> produtos) {
+    // ? wildcard (curringa) tipo genérico é desconhecido
+    private static void retirarTodos(Colecao<?> objetos) {
         try {
             int i = 1;
             while (true) {
-                Produto produto = produtos.retirar();
-                System.out.printf("%d. %s%n", i, produto.getDescricao());
+                Object objeto = objetos.retirar();
+                System.out.printf("%d. %s%n", i, objeto.toString());
                 i++;
             }
         } catch (ColecaoVaziaException e) {
