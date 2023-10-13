@@ -25,7 +25,8 @@ public class Principal {
     }
 
     // ? wildcard (curringa) tipo genérico é desconhecido
-    private static void retirarTodos(Colecao<?> objetos) {
+    // Padrão: ? extends Object
+    private static void retirarTodos(Colecao<? extends Object> objetos) {
         try {
             int i = 1;
             while (true) {

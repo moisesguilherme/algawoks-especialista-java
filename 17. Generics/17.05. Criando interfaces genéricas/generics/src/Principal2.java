@@ -7,12 +7,17 @@ public class Principal2 {
         numeros.add(20d);
         numeros.add(10d);
         numeros.add(21d);
-
         System.out.println(calcularMedia(numeros));;
+
+        ArrayList<Integer> numeros2 = new ArrayList<>();
+        numeros2.add(20);
+        numeros2.add(10);
+        numeros2.add(21);
+        System.out.println(calcularMedia(numeros2));;
     }
 
-    // ainda não consegue passar o ArrayList
-    private static double calcularMedia(ArrayList<Number> numeros) {
+    // Recebe um array list do tipo parametrizado de Number
+    private static double calcularMedia(ArrayList<? extends Number> numeros) {
         double total = 0;
 
         for(Number numero: numeros) {
