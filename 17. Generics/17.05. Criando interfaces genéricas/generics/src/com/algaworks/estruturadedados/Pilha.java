@@ -1,8 +1,9 @@
 package com.algaworks.estruturadedados;
 
 import java.util.Arrays;
+import java.util.Collection;
 
-public class Pilha<E> {
+public class Pilha<E> implements Colecao<E> {
 
     private E[] itens;
 

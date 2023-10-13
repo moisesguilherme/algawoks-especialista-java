@@ -2,7 +2,8 @@ package com.algaworks.estruturadedados;
 
 import java.util.Arrays;
 
-public class Fila<T>{
+// Tipo da letra T é passado para o tipo parametrizado da Colecao<T>
+public class Fila<T> implements Colecao<T>{
 
     private T[] itens;
 
