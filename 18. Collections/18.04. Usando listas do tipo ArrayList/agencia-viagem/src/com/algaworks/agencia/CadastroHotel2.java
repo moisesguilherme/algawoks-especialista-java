@@ -13,7 +13,9 @@ public class CadastroHotel2 {
             throw new HotelJaExistenteException("Hotel já foi adicionado");
         }*/
 
+        // No último elemento da lista
         hoteis.add(hotel);
+        //hoteis.add(0, hotel);
     }
 
     public ArrayList<Hotel> obterTodos() {

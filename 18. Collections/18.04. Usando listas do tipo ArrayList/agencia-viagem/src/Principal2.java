@@ -11,21 +11,22 @@ public class Principal2 {
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
         cadastro.adicionar("Tivoli Ecoresort", "Fortim/CE", 1400);
         cadastro.adicionar("Hotel Fazenda Dona Carolina", "Fortim/CE", 1300);
-
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
 
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
+        hoteis.set(0, new Hotel("Substituiu", "Fortim/CE", 0));
+        hoteis.add(3, new Hotel("Adicionou", "Fortim/CE", 0));
+        imprimirHoteis(hoteis);
 
         // Comparacão entre nome e cidade (método equals em Hotel)
         // Se não existir retorna -1
         //int indice = hoteis.indexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
 
         // Do final para o início
-        int indice = hoteis.lastIndexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        System.out.println(indice);
-        System.out.println(hoteis.get(indice));
+        //int indice = hoteis.lastIndexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
+        //System.out.println(indice);
+        //System.out.println(hoteis.get(indice));
 
-        //imprimirHoteis(hoteis);
     }
 
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
