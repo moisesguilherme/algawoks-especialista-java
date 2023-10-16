@@ -1,5 +1,6 @@
 import com.algaworks.sorteio.Cliente;
 import com.algaworks.sorteio.ObjectFactory;
+import com.algaworks.sorteio.SomeContainer;
 
 public class Principal2 {
 
@@ -17,11 +18,14 @@ public class Principal2 {
         */
         //Retornando Integer
         Integer typeInteger = 2;
-        Integer n = (Integer) ObjectFactory.<Integer>tipo(typeInteger);
+        Integer n = (Integer) ObjectFactory.<Integer>tipo(Integer.class);
         System.out.println(n instanceof  Integer);
         System.out.println("value:" + n);
 
+        //SomeContainer<Integer> sc = new SomeContainer<>(Integer::new);
+
         //Retornando String
+        /*
         String typeString = "Teste";
         String s = (String) ObjectFactory.<String>tipo(typeString);
         System.out.println(s instanceof  String);
@@ -32,5 +36,6 @@ public class Principal2 {
         Cliente c = (Cliente) ObjectFactory.<Cliente>tipo(typeCliente);
         System.out.println(c instanceof  Cliente);
         System.out.println("value:" + c);
+         */
     }
 }

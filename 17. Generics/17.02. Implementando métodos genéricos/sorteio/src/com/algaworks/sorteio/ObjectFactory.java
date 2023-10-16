@@ -7,7 +7,7 @@ public class ObjectFactory<T> {
     // essa classe nào pode conhecer o tipo
 
     //Criar um objeto do tipo generico
-    public static <T> T tipo(T type){
+    public static<T> T tipo(Class<T> type){
         //Declarar com o objeto
         //Class<T> type = new<T>()
         /*if(type instanceof String){
@@ -19,8 +19,12 @@ public class ObjectFactory<T> {
         }*/
 
         //return new type.componentType();
-        T obj = (T) type; //Ainda não cria o obj, e sim retornar ele.
+        T obj = null;
+        try{
+            obj = type.newInstance();
+        }catch(Exception e){
+            System.out.println("Erro: " + e);
+        }
         return obj;
-
     }
 }
