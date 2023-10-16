@@ -59,6 +59,8 @@ public class Hotel {
 
         Hotel hotel = (Hotel) o;
 
+        //System.out.println("nome: " + nome + "hotel: "+  hotel.nome + " " + nome.equals(hotel.nome));
+
         if (!nome.equals(hotel.nome)) return false;
         return cidade.equals(hotel.cidade);
     }
