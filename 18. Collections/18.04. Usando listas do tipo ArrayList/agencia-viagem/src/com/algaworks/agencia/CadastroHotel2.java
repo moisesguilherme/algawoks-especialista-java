@@ -22,4 +22,23 @@ public class CadastroHotel2 {
         return hoteis;
     }
 
+    public void removerPorCidade(String cidade) {
+        for (int i = 0; i < hoteis.size(); i++) {
+            Hotel hotel = hoteis.get(i);
+            if (hotel.getCidade().equals(cidade)) {
+                hoteis.remove(i);
+                //problema do indice ao remover
+                i--;
+            }
+        }
+    }
+
+    public void remover(Hotel hotel) {
+        boolean removido = hoteis.remove(hotel);
+
+        if(!removido) {
+            throw new HotelNaoEncontradoException("Hotel não encontrado para remocão");
+        }
+    }
+
 }

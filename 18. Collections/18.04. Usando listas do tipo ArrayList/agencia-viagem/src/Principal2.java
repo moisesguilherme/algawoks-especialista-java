@@ -10,12 +10,15 @@ public class Principal2 {
         cadastro.adicionar("Jaguaribe Lodge", "Fortim/CE", 1300);
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
         cadastro.adicionar("Tivoli Ecoresort", "Fortim/CE", 1400);
-        cadastro.adicionar("Hotel Fazenda Dona Carolina", "Fortim/CE", 1300);
+        cadastro.adicionar("Hotel Fazenda Dona Carolina", "Ceara/CE", 1300);
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
 
+        cadastro.remover(new Hotel("Vila Selvagem", "Fortim/CE", 0));
+        //cadastro.removerPorCidade("Fortim/CE");
+
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
-        hoteis.set(0, new Hotel("Substituiu", "Fortim/CE", 0));
-        hoteis.add(3, new Hotel("Adicionou", "Fortim/CE", 0));
+        //hoteis.set(0, new Hotel("Substituiu", "Fortim/CE", 0));
+        //hoteis.add(3, new Hotel("Adicionou", "Fortim/CE", 0));
         imprimirHoteis(hoteis);
 
         // Comparacão entre nome e cidade (método equals em Hotel)
