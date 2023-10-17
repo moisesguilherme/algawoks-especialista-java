@@ -2,6 +2,7 @@ import com.algaworks.agencia.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class Principal2 {
 
@@ -14,24 +15,19 @@ public class Principal2 {
         cadastro.adicionar("Hotel Fazenda Dona Carolina", "Ceara/CE", 1300);
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
 
-        cadastro.removerPorCidade("Ceara/CE");
-
+        //cadastro.removerPorCidade("Ceara/CE");
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
         imprimirHoteis(hoteis);
     }
 
-    //Usando iterator
+    //Usando ListIterator (anda de trás para frente, consegue voltar na iteracão)
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
-        // Tipo parametrizado <Hotel>
-
-        Iterator<Hotel> hotelIterator = hoteis.iterator();
-        while (hotelIterator.hasNext()) {
-            Hotel hotel = hotelIterator.next();
+        // precisa indicar o final  (default inicia no index 0)
+        ListIterator<Hotel> hotelIterator = hoteis.listIterator(hoteis.size());
+        while (hotelIterator.hasPrevious()) {
+            Hotel hotel = hotelIterator.previous();
             System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(),
                     hotel.getCidade(), hotel.getPrecoDiaria());
-
-            // Com interator não consegue remover a lista
-            //hoteis.remove(0); // ConcurrentModificationException
         }
     }
 }
