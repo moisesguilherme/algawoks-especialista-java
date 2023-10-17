@@ -5,6 +5,9 @@ public class Cliente {
     private String razaoSocial;
     private double faturamentoMensal;
 
+    public Cliente() {
+    }
+
     public Cliente(String razaoSocial, double faturamentoMensal) {
         this.razaoSocial = razaoSocial;
         this.faturamentoMensal = faturamentoMensal;
