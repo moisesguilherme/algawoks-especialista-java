@@ -1,6 +1,7 @@
 import com.algaworks.agencia.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Principal2 {
 
@@ -13,32 +14,24 @@ public class Principal2 {
         cadastro.adicionar("Hotel Fazenda Dona Carolina", "Ceara/CE", 1300);
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
 
-        //cadastro.remover(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        //cadastro.removerPorCidade("Fortim/CE");
-        cadastro.removerTodos();
-
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
-        //hoteis.set(0, new Hotel("Substituiu", "Fortim/CE", 0));
-        //hoteis.add(3, new Hotel("Adicionou", "Fortim/CE", 0));
         imprimirHoteis(hoteis);
-
-        // Comparacão entre nome e cidade (método equals em Hotel)
-        // Se não existir retorna -1
-        //int indice = hoteis.indexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-
-        // Do final para o início
-        //int indice = hoteis.lastIndexOf(new Hotel("Vila Selvagem", "Fortim/CE", 0));
-        //System.out.println(indice);
-        //System.out.println(hoteis.get(indice));
-
     }
 
+    //Usando iterator
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
-        for (int i = 0; i < hoteis.size(); i++) {
+        // Tipo parametrizado <Hotel>
+        Iterator<Hotel> hotelIterator = hoteis.iterator();
+        // Somente chamar o next()
+        System.out.println(hotelIterator.next());
+        System.out.println(hotelIterator.next());
+        System.out.println(hotelIterator.next());
+
+        /*for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
             System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(),
                     hotel.getCidade(), hotel.getPrecoDiaria());
-        }
+        }*/
     }
 }
 
