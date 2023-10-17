@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 public class Principal2 {
-
+    // Essa classe foi criada para rever o conteúdo.
 
     public static void main(String[] args) {
         CadastroHotel2 cadastro = new CadastroHotel2();

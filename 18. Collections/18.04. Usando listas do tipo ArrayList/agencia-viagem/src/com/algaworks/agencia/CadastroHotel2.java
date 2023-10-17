@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CadastroHotel2 {
+    // Essa classe foi criada para rever o conteúdo.
 
     private final ArrayList<Hotel> hoteis = new ArrayList<>();
 

@@ -24,21 +24,23 @@ public class Principal {
     }
 
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
-        ListIterator<Hotel> hotelIterator = hoteis.listIterator(hoteis.size()); //precisa dizer que inicia no final
+        // enhanced for
+        int[] numeros = {1,2,3};
+        for (int numero : numeros) {
+
+        }
+
+        for(Hotel hotel: hoteis) {
+            System.out.printf("%s (%s) -> %.2f%n",
+                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
+        }
+
+        ListIterator<Hotel> hotelIterator = hoteis.listIterator(hoteis.size());
         while (hotelIterator.hasPrevious()) {
             Hotel hotel =  hotelIterator.previous();
             System.out.printf("%s (%s) -> %.2f%n",
                     hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
         }
-
-
-/*        Iterator<Hotel> hotelIterator = hoteis.iterator();
-        while (hotelIterator.hasNext()) {
-            Hotel hotel =  hotelIterator.next(); //precisa ter o next.
-            System.out.printf("%s (%s) -> %.2f%n",
-                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
-        }*/
-
     }
 
 }
