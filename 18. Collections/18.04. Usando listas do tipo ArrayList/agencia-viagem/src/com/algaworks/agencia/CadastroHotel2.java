@@ -1,6 +1,7 @@
 package com.algaworks.agencia;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CadastroHotel2 {
 
@@ -23,9 +24,18 @@ public class CadastroHotel2 {
     }
 
     public void removerPorCidade(String cidade) {
-        ArrayList<Hotel> hoteisParaRemocao = new ArrayList<>();
+        Iterator<Hotel> hotelIterator = hoteis.iterator();
+        while (hotelIterator.hasNext()) {
+            Hotel hotel = hotelIterator.next();
+            if (hotel.getCidade().equals(cidade)) {
+                hotelIterator.remove(); //remove o último
+                //hoteis.remove(hotel); //erro
+            }
+        }
 
-        for (int i = 0; i < hoteis.size(); i++) {
+
+        //ArrayList<Hotel> hoteisParaRemocao = new ArrayList<>();
+        /*for (int i = 0; i < hoteis.size(); i++) {
             Hotel hotel = hoteis.get(i);
             if (hotel.getCidade().equals(cidade)) {
                 hoteisParaRemocao.add(hotel);
@@ -33,9 +43,8 @@ public class CadastroHotel2 {
                 //problema do indice ao remover
                 //i--;
             }
-        }
-
-        hoteis.removeAll(hoteisParaRemocao);
+        }*/
+        //hoteis.removeAll(hoteisParaRemocao);
     }
 
     public void remover(Hotel hotel) {

@@ -14,6 +14,8 @@ public class Principal2 {
         cadastro.adicionar("Hotel Fazenda Dona Carolina", "Ceara/CE", 1300);
         cadastro.adicionar("Vila Selvagem", "Fortim/CE", 1300);
 
+        cadastro.removerPorCidade("Ceara/CE");
+
         ArrayList<Hotel> hoteis = cadastro.obterTodos();
         imprimirHoteis(hoteis);
     }
