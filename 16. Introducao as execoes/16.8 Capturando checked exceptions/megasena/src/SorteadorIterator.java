@@ -5,12 +5,17 @@ import java.util.Random;
 // Essa classe realmente vai iterar com algo, pode ser uma lista
 public class SorteadorIterator implements Iterator<Integer>{
 
-    private static final Random RANDOM = new Random();
-    private int quantidadeSortada;
+    public static final Random RANDOM = new Random();
+    private int quantidadeSortiada;
+
+
+    public SorteadorIterator() {
+        System.out.println(RANDOM);
+    }
 
     @Override
     public boolean hasNext() {
-        return quantidadeSortada < 6;
+        return quantidadeSortiada < 6;
     }
 
     @Override
@@ -19,7 +24,7 @@ public class SorteadorIterator implements Iterator<Integer>{
             throw new NoSuchElementException("Todos os números já foram sorteados");
         }
 
-        quantidadeSortada++;
+        quantidadeSortiada++;
         return RANDOM.nextInt(60);
     }
 
