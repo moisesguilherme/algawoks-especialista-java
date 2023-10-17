@@ -21,17 +21,16 @@ public class Principal2 {
     //Usando iterator
     private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
         // Tipo parametrizado <Hotel>
-        Iterator<Hotel> hotelIterator = hoteis.iterator();
-        // Somente chamar o next()
-        System.out.println(hotelIterator.next());
-        System.out.println(hotelIterator.next());
-        System.out.println(hotelIterator.next());
 
-        /*for (int i = 0; i < hoteis.size(); i++) {
-            Hotel hotel = hoteis.get(i);
+        Iterator<Hotel> hotelIterator = hoteis.iterator();
+        while (hotelIterator.hasNext()) {
+            Hotel hotel = hotelIterator.next();
             System.out.printf("%s (%s) -> %.2f%n", hotel.getNome(),
                     hotel.getCidade(), hotel.getPrecoDiaria());
-        }*/
+
+            // Com interator não consegue remover a lista
+            //hoteis.remove(0); // ConcurrentModificationException
+        }
     }
 }
 
