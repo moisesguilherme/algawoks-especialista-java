@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class CadastroHotel {
 
-    private final Vector<Hotel> hoteis = new LinkedList<>();
+    private final Vector<Hotel> hoteis = new Vector<>();
 
     public void adicionar(String nome, String cidade, double precoDiaria) {
         Hotel hotel = new Hotel(nome, cidade, precoDiaria);
