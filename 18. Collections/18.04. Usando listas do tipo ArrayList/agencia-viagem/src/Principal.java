@@ -1,10 +1,7 @@
 import com.algaworks.agencia.CadastroHotel;
 import com.algaworks.agencia.Hotel;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
+import java.util.*;
 
 public class Principal {
 
@@ -20,12 +17,12 @@ public class Principal {
 
         cadastro.removerPorCidade("Fortim/CE");
 
-        LinkedList<Hotel> hoteis = cadastro.obterTodos();
+        Vector<Hotel> hoteis = cadastro.obterTodos();
         //hoteis.addLast(); //mesmo do add, adiciona o final da lista. Add retorna um boolean
         imprimirHoteis(hoteis);
     }
 
-    private static void imprimirHoteis(LinkedList<Hotel> hoteis) {
+    private static void imprimirHoteis(Vector<Hotel> hoteis) {
         // Evitar ao máximo o for-i, com indice com LinkedList
         /*for (int i = 0; i < ; i++) {
         }*/
