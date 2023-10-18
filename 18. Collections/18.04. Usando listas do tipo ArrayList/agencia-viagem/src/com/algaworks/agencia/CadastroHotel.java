@@ -1,13 +1,11 @@
 package com.algaworks.agencia;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Vector;
+import java.util.*;
 
 public class CadastroHotel {
-
-    private final Vector<Hotel> hoteis = new Vector<>();
+    // Usando interface Collection, pode alterar o ArrayList para LinkedList
+    // e não precisa alterar o resto do código
+    private final Collection<Hotel> hoteis = new ArrayList<>();
 
     public void adicionar(String nome, String cidade, double precoDiaria) {
         Hotel hotel = new Hotel(nome, cidade, precoDiaria);
@@ -19,7 +17,7 @@ public class CadastroHotel {
         hoteis.add(hotel); //Final
     }
 
-    public Vector<Hotel> obterTodos() {
+    public Collection<Hotel> obterTodos() {
         return hoteis;
     }
 

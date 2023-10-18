@@ -17,25 +17,13 @@ public class Principal {
 
         cadastro.removerPorCidade("Fortim/CE");
 
-        Vector<Hotel> hoteis = cadastro.obterTodos();
+        Collection<Hotel> hoteis = cadastro.obterTodos();
         //hoteis.addLast(); //mesmo do add, adiciona o final da lista. Add retorna um boolean
         imprimirHoteis(hoteis);
     }
 
-    private static void imprimirHoteis(Vector<Hotel> hoteis) {
-        // Evitar ao máximo o for-i, com indice com LinkedList
-        /*for (int i = 0; i < ; i++) {
-        }*/
-
-        // Enhanced for usa o interator
+    private static void imprimirHoteis(Collection<Hotel> hoteis) {
         for(Hotel hotel: hoteis) {
-            System.out.printf("%s (%s) -> %.2f%n",
-                    hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
-        }
-
-        ListIterator<Hotel> hotelIterator = hoteis.listIterator(hoteis.size());
-        while (hotelIterator.hasPrevious()) {
-            Hotel hotel =  hotelIterator.previous();
             System.out.printf("%s (%s) -> %.2f%n",
                     hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
         }
