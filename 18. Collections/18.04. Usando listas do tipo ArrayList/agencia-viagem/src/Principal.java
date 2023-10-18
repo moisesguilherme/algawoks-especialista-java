@@ -17,12 +17,16 @@ public class Principal {
 
         cadastro.removerPorCidade("Fortim/CE");
 
-        Collection<Hotel> hoteis = cadastro.obterTodos();
+        List<Hotel> hoteis = cadastro.obterTodos();
         //hoteis.addLast(); //mesmo do add, adiciona o final da lista. Add retorna um boolean
         imprimirHoteis(hoteis);
     }
 
-    private static void imprimirHoteis(Collection<Hotel> hoteis) {
+    private static void imprimirHoteis(List<Hotel> hoteis) {
+        for (int i = 0; i < hoteis.size() ; i++) {
+            Hotel hotel = hoteis.get(i);
+        }
+
         for(Hotel hotel: hoteis) {
             System.out.printf("%s (%s) -> %.2f%n",
                     hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());

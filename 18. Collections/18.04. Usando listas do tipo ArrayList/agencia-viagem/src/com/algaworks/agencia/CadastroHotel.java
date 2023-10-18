@@ -5,7 +5,8 @@ import java.util.*;
 public class CadastroHotel {
     // Usando interface Collection, pode alterar o ArrayList para LinkedList
     // e não precisa alterar o resto do código
-    private final Collection<Hotel> hoteis = new ArrayList<>();
+    // usando uma interface menos abstrata como List
+    private final List<Hotel> hoteis = new ArrayList<>();
 
     public void adicionar(String nome, String cidade, double precoDiaria) {
         Hotel hotel = new Hotel(nome, cidade, precoDiaria);
@@ -17,7 +18,7 @@ public class CadastroHotel {
         hoteis.add(hotel); //Final
     }
 
-    public Collection<Hotel> obterTodos() {
+    public List<Hotel> obterTodos() {
         return hoteis;
     }
 
