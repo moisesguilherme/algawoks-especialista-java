@@ -3,6 +3,7 @@ import com.algaworks.agencia.Hotel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.ListIterator;
 
 public class Principal {
@@ -19,17 +20,17 @@ public class Principal {
 
         cadastro.removerPorCidade("Fortim/CE");
 
-        ArrayList<Hotel> hoteis = cadastro.obterTodos();
+        LinkedList<Hotel> hoteis = cadastro.obterTodos();
+        //hoteis.addLast(); //mesmo do add, adiciona o final da lista. Add retorna um boolean
         imprimirHoteis(hoteis);
     }
 
-    private static void imprimirHoteis(ArrayList<Hotel> hoteis) {
-        // enhanced for
-        int[] numeros = {1,2,3};
-        for (int numero : numeros) {
+    private static void imprimirHoteis(LinkedList<Hotel> hoteis) {
+        // Evitar ao máximo o for-i, com indice com LinkedList
+        /*for (int i = 0; i < ; i++) {
+        }*/
 
-        }
-
+        // Enhanced for usa o interator
         for(Hotel hotel: hoteis) {
             System.out.printf("%s (%s) -> %.2f%n",
                     hotel.getNome(), hotel.getCidade(), hotel.getPrecoDiaria());
