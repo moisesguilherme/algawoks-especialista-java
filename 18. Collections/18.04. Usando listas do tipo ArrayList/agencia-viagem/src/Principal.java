@@ -17,9 +17,14 @@ public class Principal {
 
         cadastro.removerPorCidade("Fortim/CE");
 
-        List<Hotel> hoteis = cadastro.obterTodos();
+        Hotel[] hoteis = cadastro.obterTodosComoArray();
+        System.out.println(Arrays.toString(hoteis));
+
+
+        //List<Hotel> hoteis = cadastro.obterTodos();
         //hoteis.addLast(); //mesmo do add, adiciona o final da lista. Add retorna um boolean
-        imprimirHoteis(hoteis);
+        //imprimirHoteis(hoteis);
+
     }
 
     private static void imprimirHoteis(List<Hotel> hoteis) {
