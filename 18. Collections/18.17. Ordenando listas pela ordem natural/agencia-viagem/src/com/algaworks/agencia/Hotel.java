@@ -74,10 +74,12 @@ public class Hotel implements Comparable<Hotel> {
     @Override
     public int compareTo(Hotel o) {
 
-        // Convertendo para Double que já possui o comparable
-        return Double.valueOf(getPrecoDiaria())
-                .compareTo(Double.valueOf(o.getPrecoDiaria()));
+        return Double.compare(getPrecoDiaria(), o.getPrecoDiaria());
 
+        // Convertendo para Double que já possui o comparable
+        /*return Double.valueOf(getPrecoDiaria())
+                .compareTo(Double.valueOf(o.getPrecoDiaria()));
+        */
         /*
         if(this.getPrecoDiaria() < o.getPrecoDiaria())
             return -1;
