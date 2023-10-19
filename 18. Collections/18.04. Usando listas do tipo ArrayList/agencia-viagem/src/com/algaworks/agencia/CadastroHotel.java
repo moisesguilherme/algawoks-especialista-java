@@ -24,11 +24,17 @@ public class CadastroHotel {
 
     // Converter uma lista para array
     public Hotel[] obterTodosComoArray() {
-        Hotel[] hoteis2 = new Hotel[hoteis.size()];
+
+        // tamanho 0 (valor menor q a lista), um novo array vai ser instanciado e retornado
+        // se for maior, vai retornar o um array com as posicões e preencher  resto com null
+        return hoteis.toArray(new Hotel[0]);
+        //return hoteis.toArray(new Hotel[10]);
+
+        /*Hotel[] hoteis2 = new Hotel[hoteis.size()];
         for (int i = 0; i < hoteis.size(); i++) {
             hoteis2[i] = hoteis.get(i);
         }
-        return hoteis2;
+        return hoteis2;*/
     }
 
     public void removerPorCidade(String cidade) {
