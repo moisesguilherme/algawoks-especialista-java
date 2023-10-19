@@ -27,6 +27,11 @@ public class CadastroHotel {
         return hoteis.toArray(new Hotel[0]);
     }
 
+    public void ordenar() {
+        // Não compila porque Hotel não implementa Comparable
+        Collections.sort(hoteis);
+    }
+
     public void removerPorCidade(String cidade) {
         Iterator<Hotel> hotelIterator = hoteis.iterator();
         while (hotelIterator.hasNext()) {

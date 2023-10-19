@@ -14,6 +14,9 @@ public class Principal {
         cadastro.adicionar("Mercure", "Uberlândia/MG", 400);
 
         List<Hotel> hoteis = cadastro.obterTodos();
+        // Ordem de preco
+        cadastro.ordenar();
+
         imprimirHoteis(hoteis);
     }
 

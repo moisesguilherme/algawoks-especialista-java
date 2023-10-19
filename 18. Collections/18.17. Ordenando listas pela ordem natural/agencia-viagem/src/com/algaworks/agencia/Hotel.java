@@ -2,7 +2,8 @@ package com.algaworks.agencia;
 
 import java.util.Objects;
 
-public class Hotel {
+// Comparar Hotel com qual outro tipo <Hotel>, no cao com ele mesmo hotel
+public class Hotel implements Comparable<Hotel> {
 
     private String nome;
     private String cidade;
@@ -70,4 +71,13 @@ public class Hotel {
         return result;
     }
 
+    @Override
+    public int compareTo(Hotel o) {
+        if(this.getPrecoDiaria() < o.getPrecoDiaria())
+            return -1;
+        else if(this.getPrecoDiaria() > o.getPrecoDiaria())
+            return 1;
+
+        return 0; //-1 menor, 1 maior, 0 igual
+    }
 }
