@@ -1,9 +1,6 @@
 package com.algaworks.agencia;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class CadastroHotel {
 
@@ -29,7 +26,7 @@ public class CadastroHotel {
 
     public void ordenar() {
         // Não compila porque Hotel não implementa Comparable
-        Collections.sort(hoteis);
+        Collections.sort(hoteis, Comparator.reverseOrder());
     }
 
     public void removerPorCidade(String cidade) {

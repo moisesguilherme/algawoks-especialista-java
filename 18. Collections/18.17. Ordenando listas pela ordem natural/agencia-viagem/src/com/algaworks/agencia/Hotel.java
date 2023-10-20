@@ -60,21 +60,21 @@ public class Hotel implements Comparable<Hotel> {
 
         Hotel hotel = (Hotel) o;
 
-        if (!nome.equals(hotel.nome)) return false;
-        return cidade.equals(hotel.cidade);
+        return Objects.equals(nome, hotel.nome);
     }
 
     @Override
     public int hashCode() {
-        int result = nome.hashCode();
-        result = 31 * result + cidade.hashCode();
-        return result;
+        return nome != null ? nome.hashCode() : 0;
     }
 
     @Override
     public int compareTo(Hotel o) {
 
-        return Double.compare(getPrecoDiaria(), o.getPrecoDiaria());
+        // Boa prática o compareTo seja baseado pelo nome, igual ao equals e hascode
+        return getNome().compareTo(o.getNome());
+
+        //return Double.compare(getPrecoDiaria(), o.getPrecoDiaria());
 
         // Convertendo para Double que já possui o comparable
         /*return Double.valueOf(getPrecoDiaria())
