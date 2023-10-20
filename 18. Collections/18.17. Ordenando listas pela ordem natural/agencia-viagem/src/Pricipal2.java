@@ -1,4 +1,4 @@
-package com.algaworks.agencia;
+import com.algaworks.agencia.Hotel;
 
 public class Pricipal2 {
 

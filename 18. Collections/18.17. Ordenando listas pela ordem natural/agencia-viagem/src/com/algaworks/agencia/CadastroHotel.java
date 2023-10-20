@@ -25,8 +25,13 @@ public class CadastroHotel {
     }
 
     public void ordenar() {
-        // Não compila porque Hotel não implementa Comparable
-        Collections.sort(hoteis, Comparator.reverseOrder());
+        Collections.sort(hoteis);
+    }
+
+    public void ordernarPorPreco() {
+        //Collections.sort(hoteis, new PrecoHotelComparator());
+        //Collections.sort é o mesmo que o ao sort.
+        hoteis.sort(new PrecoHotelComparator());
     }
 
     public void removerPorCidade(String cidade) {

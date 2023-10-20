@@ -15,7 +15,8 @@ public class Principal {
 
         List<Hotel> hoteis = cadastro.obterTodos();
         // Ordem de preco
-        cadastro.ordenar();
+        //cadastro.ordenar();
+        cadastro.ordernarPorPreco();
 
         imprimirHoteis(hoteis);
     }
