@@ -31,7 +31,8 @@ public class CadastroHotel {
     public void ordernarPorPreco() {
         //Collections.sort(hoteis, new PrecoHotelComparator());
         //Collections.sort é o mesmo que o ao sort.
-        hoteis.sort(new PrecoHotelComparator());
+        hoteis.sort(new PrecoHotelComparator().reversed()
+                .thenComparing(Comparator.naturalOrder()));
     }
 
     public void removerPorCidade(String cidade) {
