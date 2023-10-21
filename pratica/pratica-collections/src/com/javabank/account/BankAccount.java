@@ -1,3 +1,5 @@
+package com.javabank.account;
+
 import java.util.Objects;
 
 public class BankAccount {
@@ -7,9 +9,9 @@ public class BankAccount {
     private double balance;
 
     public BankAccount(String accountNumber, String name, double balance) {
-        this.accountNumber = accountNumber;
-        this.name = name;
-        this.balance = balance;
+        setAccountNumber(accountNumber);;
+        setName(name);
+        setBalance(balance);
     }
 
     public String getAccountNumber() {
@@ -34,15 +36,38 @@ public class BankAccount {
     }
 
     public void setBalance(double balance) {
+        if(balance < 0) {
+            throw new IllegalArgumentException("Balance cannot be negative");
+        }
         this.balance = balance;
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BankAccount that = (BankAccount) o;
+
+        if (!Objects.equals(accountNumber, that.accountNumber))
+            return false;
+        return Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accountNumber != null ? accountNumber.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
-        return "BankAccount{" +
+        return "com.javabank.account.BankAccount{" +
                 "accountNumber='" + accountNumber + '\'' +
                 ", name='" + name + '\'' +
                 ", balance=" + balance +
                 '}';
     }
+
 }
