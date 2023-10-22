@@ -28,8 +28,9 @@ public class testBank {
         //a1.withDraw(50);
 
         //a1.print();
-        a2.print();
+        //a2.print();
         //a3.print();
 
+        System.out.println(a1);
     }
 }

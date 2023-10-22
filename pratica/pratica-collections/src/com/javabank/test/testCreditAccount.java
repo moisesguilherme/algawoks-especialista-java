@@ -41,7 +41,8 @@ public class testCreditAccount {
         //a2.print();
         //a3.print();
         //c1.print();
-        c2.print();
+        //c2.print();
+        System.out.println(c2);
 
     }
 }

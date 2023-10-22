@@ -19,7 +19,6 @@ public class Account extends AbstractBankAccount{
 
     // implement abstract method
     public void deposit(int amt) {
-
         balance=balance+amt;
     }
 
@@ -74,12 +73,10 @@ public class Account extends AbstractBankAccount{
     }
 
 
+    @Override
     public String toString() {
-        return "Account {" +
-                "accountNumber='" + accountNumber + '\'' +
-                ", name='" + accountName + '\'' +
-                ", balance=" + balance +
-                '}';
+        return super.toString() +
+                "\nBonus Value= '" + bonusValue + '\'';
     }
 
 }

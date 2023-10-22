@@ -19,9 +19,10 @@ abstract public class AbstractBankAccount {
         this.balance = balance;
     }
 
-    // abstract method
-    abstract public void deposit(int amt);
+    // abstract method (remove this method)
+    // abstract public void deposit(int amt);
 
+    // abstract method
     abstract void withDraw(int amt);
 
     public double getBalance() {
@@ -64,4 +65,12 @@ abstract public class AbstractBankAccount {
         );
     }
 
+    // Virtual Method toString
+    @Override
+    public String toString() {
+        return "\n\nBank Name: " + getBankName() +
+                "\nAccount Number='" + accountNumber + '\'' +
+                "\nAccount Holder='" + accountName + '\'' +
+                "\nAccount Balance='" + balance;
+    }
 }

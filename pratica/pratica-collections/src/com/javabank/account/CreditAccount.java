@@ -1,12 +1,12 @@
 package com.javabank.account;
 
-public class CreditAccount extends Account {
+public class CreditAccount extends AbstractBankAccount {
 
     public int creditLimit;
 
     // Default constructor for CreditAccount
     public CreditAccount() {
-        super();
+        super("Empty", "Empty", 0);
         this.creditLimit = 100;
     }
 
@@ -28,11 +28,25 @@ public class CreditAccount extends Account {
     }
 
 
+    public void deposit(int amt) {
+        balance=balance+amt;
+    }
+
+    @Override
+    void withDraw(int amt) {
+        balance=balance-amt;
+    }
 
     // print method
     public void print() {
         super.print();
         System.out.println("Credit Limit: " + getCreditLimit());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nCredit Limit= '" + getCreditLimit() + '\'';
     }
 
 }
