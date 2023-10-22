@@ -23,9 +23,13 @@ public class testBank {
         a3.setAccountNumber("AAC-111-333");
         a3.setBalance(1000);
 
+        // test deposit
+        a1.deposit(100);
+        a1.withDraw(50);
+
         a1.print();
-        a2.print();
-        a3.print();
+        //a2.print();
+        //a3.print();
 
     }
 }

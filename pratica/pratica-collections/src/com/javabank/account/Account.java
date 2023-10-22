@@ -38,12 +38,12 @@ public class Account extends AbstractBankAccount{
         this.accountName = accountName;
     }
 
-    @Override
+    // implement abstract method
     public void deposit(int amt) {
         balance=balance+amt;
     }
 
-    @Override
+
     public void withDraw(int amt) {
         balance=balance-amt;
    }
@@ -59,12 +59,12 @@ public class Account extends AbstractBankAccount{
         this.balance = balance;
     }
 
-    @Override
+
     public String getBankName() {
         return InterfaceBankAccount.BANK;
     }
 
-    @Override
+
     public void print() {
         System.out.println("\nBank Name : " + getBankName() + "\n"
                            + "Account Number: " + accountNumber + "\n"
@@ -73,7 +73,7 @@ public class Account extends AbstractBankAccount{
         );
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -85,14 +85,14 @@ public class Account extends AbstractBankAccount{
         return Objects.equals(accountName, that.accountName);
     }
 
-    @Override
+
     public int hashCode() {
         int result = accountNumber != null ? accountNumber.hashCode() : 0;
         result = 31 * result + (accountName != null ? accountName.hashCode() : 0);
         return result;
     }
 
-    @Override
+
     public String toString() {
         return "Account {" +
                 "accountNumber='" + accountNumber + '\'' +

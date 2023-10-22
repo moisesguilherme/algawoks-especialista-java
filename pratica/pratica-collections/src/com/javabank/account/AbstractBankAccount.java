@@ -1,19 +1,18 @@
 package com.javabank.account;
 
-public class AbstractBankAccount {
+abstract public class AbstractBankAccount {
 
     public final String BANK = "JavaBank";
     private String accountNumber;
     private String accountName;
     private double balance;
 
-    public void deposit(int amt) {
-        balance=balance+amt;
-    }
+    private int bonusValue;
 
-    public void withDraw(int amt) {
-        balance=balance-amt;
-    }
+    // abstract method
+    abstract public void deposit(int amt);
+
+    abstract void withDraw(int amt);
 
     public double getBalance() {
         return balance;
