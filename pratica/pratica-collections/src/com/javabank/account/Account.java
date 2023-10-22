@@ -2,7 +2,8 @@ package com.javabank.account;
 
 import java.util.Objects;
 
-public class Account implements InterfaceBankAccount{
+// Now extends abastract class instead of interface
+public class Account extends AbstractBankAccount{
 
     private String accountNumber;
     private String accountName;
