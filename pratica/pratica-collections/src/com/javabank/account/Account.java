@@ -5,41 +5,21 @@ import java.util.Objects;
 // Now extends abastract class instead of interface
 public class Account extends AbstractBankAccount{
 
-    private String accountNumber;
-    private String accountName;
-    private double balance;
+    private int bonusValue;
 
     public Account() {
-        this.accountNumber = "EMPTY";
-        this.accountName = "EMPTY";
-        this.balance = 0;
+        super("Empty", "Empty", 0);
     }
 
     public Account(String accountNumber, String accountName, double balance) {
-        setAccountNumber(accountNumber);;
-        setAccountName(accountName);
-        setBalance(balance);
-    }
+        super(accountNumber, accountName, (balance + calculateInitialBonusValue(balance)));
+        bonusValue = calculateInitialBonusValue(balance);
 
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getAccountName() {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName) {
-        Objects.requireNonNull(accountName);
-        this.accountName = accountName;
     }
 
     // implement abstract method
     public void deposit(int amt) {
+
         balance=balance+amt;
     }
 
@@ -48,28 +28,29 @@ public class Account extends AbstractBankAccount{
         balance=balance-amt;
    }
 
-   public double getBalance() {
-        return balance;
-    }
+   // replace setBalance of super-classe abstract
+   public void setBalance(double balance){
+       super.setBalance(balance);
+       // Especific implementation in this classe
+       this.balance =  (balance + calculateInitialBonusValue(balance));
+       this.bonusValue = calculateInitialBonusValue(balance);
+   }
 
-    public void setBalance(double balance) {
-        if(balance < 0) {
-            throw new IllegalArgumentException("Balance cannot be negative");
-        }
-        this.balance = balance;
-    }
-
-
-    public String getBankName() {
-        return InterfaceBankAccount.BANK;
-    }
-
+   private static int calculateInitialBonusValue(double amt) {
+        if (amt >=1 && amt <= 100)
+            return 10;
+        else if(amt <= 300)
+            return 20;
+        else
+            return 30;
+   }
 
     public void print() {
         System.out.println("\nBank Name : " + getBankName() + "\n"
                            + "Account Number: " + accountNumber + "\n"
                            + "Account Holder: " + accountName + "\n"
-                           + "Account Balance: " + balance
+                           + "Account Balance: " + balance + "\n"
+                           + "Initial Bonus : " + bonusValue
         );
     }
 

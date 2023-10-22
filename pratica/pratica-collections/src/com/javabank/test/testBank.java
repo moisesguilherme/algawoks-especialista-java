@@ -17,18 +17,18 @@ public class testBank {
         // Set values of Instances created using default constructor
         a2.setAccountName("José Antônio");
         a2.setAccountNumber("AAA-101-203");
-        a2.setBalance(500);
+        a2.setBalance(300);
 
         a3.setAccountName("Marcos Cristiano");
         a3.setAccountNumber("AAC-111-333");
         a3.setBalance(1000);
 
         // test deposit
-        a1.deposit(100);
-        a1.withDraw(50);
+        //a1.deposit(100);
+        //a1.withDraw(50);
 
-        a1.print();
-        //a2.print();
+        //a1.print();
+        a2.print();
         //a3.print();
 
     }

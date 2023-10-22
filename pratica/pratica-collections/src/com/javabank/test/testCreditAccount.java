@@ -20,7 +20,7 @@ public class testCreditAccount {
         CreditAccount c1 = new CreditAccount();
 
         // Using constructor with values which will call constructor from super
-        CreditAccount c2 = new CreditAccount("AAA-222-001", "Marcus Silva", 200, 100);
+        CreditAccount c2 = new CreditAccount("AAA-222-001", "Marcus Silva", 301, 200);
 
         // Set values of Instances create using default constructor
         a2.setAccountName("Manoel");
@@ -37,10 +37,10 @@ public class testCreditAccount {
         c1.setCreditLimit(1000);
 
         // Print accounts
-        a1.print();
-        a2.print();
-        a3.print();
-        c1.print();
+        //a1.print();
+        //a2.print();
+        //a3.print();
+        //c1.print();
         c2.print();
 
     }
