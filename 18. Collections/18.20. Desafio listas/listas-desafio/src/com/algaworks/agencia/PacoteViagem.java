@@ -1,9 +1,8 @@
 package com.algaworks.agencia;
 
-import java.util.Comparator;
 import java.util.Objects;
 
-public class PacoteViagem implements Comparator<PacoteViagem> {
+public class PacoteViagem implements Comparable<PacoteViagem> {
 
     private String descricao;
     private double precoPorPessoa;
@@ -44,7 +43,7 @@ public class PacoteViagem implements Comparator<PacoteViagem> {
     }
 
 
-    // TODO implementar equals e hashCode
+    // DID implementar equals e hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,9 +59,14 @@ public class PacoteViagem implements Comparator<PacoteViagem> {
         return descricao != null ? descricao.hashCode() : 0;
     }
 
-    // TODO implementar compareTo
-    @Override
+    // DID implementar compareTo
+    /*@Override
     public int compare(PacoteViagem o1, PacoteViagem o2) {
         return 0;
+    }*/
+
+    @Override
+    public int compareTo(PacoteViagem o) {
+        return this.getDescricao().compareTo(o.getDescricao());
     }
 }

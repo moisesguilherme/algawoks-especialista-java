@@ -13,13 +13,13 @@ public class Principal {
         //cadastro.adicionar("Natal Luz em Gramado (5 noites)", 8_500);
 
 
-//        cadastro.removerPorDescricao("Disney (7 noites)");
+        //cadastro.removerPorDescricao("Disney (10 noites)");
 
-//        cadastro.ordenar();
-//        cadastro.ordenarPorPrecoDecrescente();
+        cadastro.ordenar();
+        cadastro.ordenarPorPrecoDecrescente();
 
-//        PacoteViagem pacoteEncontrado = cadastro.buscarPorDescricao("Disney (7 noites)");
-//        System.out.println(pacoteEncontrado);
+        PacoteViagem pacoteEncontrado = cadastro.buscarPorDescricao("Disney (1 noites)");
+        System.out.println(pacoteEncontrado);
 
         imprimirPacotes(cadastro.obterTodos());
     }

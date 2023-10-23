@@ -4,12 +4,12 @@ import java.util.*;
 
 public class CadastroPacoteViagem {
 
-    // TODO declarar lista de pacotes de viagem aqui
+    // DID declarar lista de pacotes de viagem aqui
     // Tipo parametrizado usando generics, list de PacoteViagem
     private final List<PacoteViagem> viagems = new ArrayList<>();
 
     public void adicionar(String descricao, double precoDiaria) {
-        // TODO adicionar pacote na lista, validando antes se
+        // DID adicionar pacote na lista, validando antes se
         // Se já existir lançar exceção, verificar usando contains.
         PacoteViagem pacoteViagem = new PacoteViagem(descricao, precoDiaria);
 
@@ -21,29 +21,49 @@ public class CadastroPacoteViagem {
     }
 
     public List<PacoteViagem> obterTodos() {
-        // TODO retornar lista de pacotes
+        // DID retornar lista de pacotes
         return viagems;
     }
 
     public void ordenar() {
-        // TODO ordenar pacotes pela ordem natural
+        // DID ordenar pacotes pela ordem natural
         // Pacote viagem vai precisar implementar comparable
+        Collections.sort(viagems);
     }
 
     public void ordenarPorPrecoDecrescente() {
-        // TODO ordenar pacotes pelo preço (decrescente)
+        // DID ordenar pacotes pelo preço (decrescente)
         // uma classe que implementa comparator
+        viagems.sort(new PrecoViagemComparator());
     }
 
     public void removerPorDescricao(String descricao) {
-        // TODO iterar nos pacotes com Iterator e remover aqueles com descrição informada,
+        // DID iterar nos pacotes com Iterator e remover aqueles com descrição informada,
         //  lançando exceção se nenhum pacote foi removido
+        int viagemsInitialSize = viagems.size();
+        Iterator<PacoteViagem> pacoteViagemIterator = viagems.iterator();
+        while (pacoteViagemIterator.hasNext()) {
+            PacoteViagem pacoteViagem = pacoteViagemIterator.next();
+            if(pacoteViagem.getDescricao().equals(descricao)) {
+                pacoteViagemIterator.remove();
+            }
+        }
+        if(viagemsInitialSize == viagems.size())
+            throw new PacoteViagemException("Nenhum pacote foi removido");
+
     }
 
     public PacoteViagem buscarPorDescricao(String descricao) {
-        // TODO iterar pacotes com enhanced for, localizar e retornar
+        // DID iterar pacotes com enhanced for, localizar e retornar
         //  pacote com descrição informada (ou lançar exceção se não encontrar)
-        return null;
+
+        for (PacoteViagem viagem : viagems) {
+            if(viagem.getDescricao().equals(descricao))
+                return viagem;
+        }
+
+        throw new PacoteViagemException("Nenhum pacote de viagem foi encontrado");
+
     }
 
 }
