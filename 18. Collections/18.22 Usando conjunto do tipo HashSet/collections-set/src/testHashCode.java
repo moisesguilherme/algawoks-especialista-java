@@ -2,12 +2,13 @@ import com.algaworks.crm.Contato;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
-public class testHashCode {
+public class testHashCode{
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
-        Set<Contato> contatos = new HashSet<>();
+        Set<Contato> contatos = new TreeSet<>();
 
         System.out.println("---");
         contatos.add(new Contato("Maria", "maria@algaworks.com", 40));
@@ -17,17 +18,14 @@ public class testHashCode {
         contatos.add(new Contato("João", "joao@algaworks.com", 70));
         System.out.println("---");
 
-        contatos.add(new Contato("Josefina", "josefina@algaworks.com", 70));
-        System.out.println("---");
-
-        contatos.add(new Contato("Josefina", "josefina@algaworks.com", 70));
         contatos.add(null);
-        System.out.println("---");
 
-        boolean resultado = contatos.contains(new Contato("Alaor", "alaor@algaworks.com", 70));
-        //System.out.println(contatos);
-        System.out.println(resultado);
+        // contatos.add(new Contato("Ana Silva", "ana@algaworks.com", 10));
 
+        // Ordem alfabética com o email
+        for (Contato contato : contatos) {
+            System.out.println(contato);
+        }
 
 
     }
