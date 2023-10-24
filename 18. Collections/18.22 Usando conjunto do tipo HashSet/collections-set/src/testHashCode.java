@@ -8,9 +8,10 @@ public class testHashCode {
         Contato contato3 = new Contato("João", "joao@algaworks.com", 25);
         Contato contato4 = new Contato("João da Silva", "joao@algaworks.com", 80);
 
-        //System.out.println(contato1.hashCode());
-        //System.out.println(contato2.hashCode());
-        //System.out.println(contato3.hashCode());
+        System.out.println(contato1.hashCode());
+        System.out.println(contato2.hashCode());
+        System.out.println(contato3.hashCode());
+        System.out.println(contato4.hashCode());
 
         // Método equals defini o email como igual
         //System.out.println(contato3.equals(contato4));
