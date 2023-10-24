@@ -55,11 +55,12 @@ public class Contato {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return Objects.equals(nome, contato.nome) && Objects.equals(email, contato.email);
+        return Objects.equals(email, contato.email);
     }
 
+    // Boa prática sempre sobrescrever o método hashCode quando for alter o equals
     @Override
     public int hashCode() {
-        return Objects.hash(nome, email);
+        return Objects.hash(email);
     }
 }
