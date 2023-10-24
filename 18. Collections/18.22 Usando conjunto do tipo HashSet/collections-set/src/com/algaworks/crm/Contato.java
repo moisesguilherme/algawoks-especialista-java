@@ -49,17 +49,17 @@ public class Contato {
                 '}';
     }
 
+    // equals e hashcode com template, java.utils.Object, java 7+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
-        return email.equals(contato.email);
+        return Objects.equals(nome, contato.nome) && Objects.equals(email, contato.email);
     }
 
     @Override
     public int hashCode() {
-        // hashcode com implementacao por email
-        return email.hashCode();
+        return Objects.hash(nome, email);
     }
 }
