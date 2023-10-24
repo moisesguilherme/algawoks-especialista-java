@@ -13,7 +13,13 @@ public class testHashCode {
         //System.out.println(contato3.hashCode());
 
         // Método equals defini o email como igual
-        System.out.println(contato3.equals(contato4));
+        //System.out.println(contato3.equals(contato4));
+        // Se o equal for true o hashcode também tem q ser true
+        //System.out.println(contato3.hashCode() == contato4.hashCode());
+
+        // Caso aonde o hascode é igual mais os os objetos são diferentes
+        System.out.println(contato2.equals(contato3));
+        System.out.println(contato2.hashCode() == contato3.hashCode());
     }
 
 
