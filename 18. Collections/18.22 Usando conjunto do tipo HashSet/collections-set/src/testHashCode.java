@@ -1,4 +1,5 @@
 import com.algaworks.crm.Contato;
+import com.algaworks.crm.IdadeContatoComparator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -7,8 +8,9 @@ import java.util.TreeSet;
 public class testHashCode{
 
     public static void main(String... args) {
-
-        Set<Contato> contatos = new TreeSet<>();
+        // Com o compartator vai ordernar pela idade, não vai usar o compareTo
+        // na classe Contato que implementa Comparable
+        Set<Contato> contatos = new TreeSet<>(new IdadeContatoComparator());
 
         System.out.println("---");
         contatos.add(new Contato("Maria", "maria@algaworks.com", 40));
@@ -18,7 +20,8 @@ public class testHashCode{
         contatos.add(new Contato("João", "joao@algaworks.com", 70));
         System.out.println("---");
 
-        contatos.add(null);
+        // TreeSet não aceita adicionar null
+        //contatos.add(null);
 
         // contatos.add(new Contato("Ana Silva", "ana@algaworks.com", 10));
 
