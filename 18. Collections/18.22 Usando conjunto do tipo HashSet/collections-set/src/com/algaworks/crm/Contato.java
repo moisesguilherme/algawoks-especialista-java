@@ -52,6 +52,7 @@ public class Contato {
     // equals e hashcode com template, java.utils.Object, java 7+
     @Override
     public boolean equals(Object o) {
+        System.out.printf("%s = %s%n", getEmail(), ((Contato) o).getEmail());
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contato contato = (Contato) o;
@@ -61,6 +62,9 @@ public class Contato {
     // Boa prática sempre sobrescrever o método hashCode quando for alter o equals
     @Override
     public int hashCode() {
-        return Objects.hash(email);
+        //System.out.println(">>> chamou hashCode");
+        // para demostrar o espalhamento
+        return email.charAt(0);
+        //return Objects.hash(email);
     }
 }
