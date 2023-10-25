@@ -8,7 +8,7 @@ import java.util.TreeSet;
 public class testHashCode{
 
     public static void main(String... args) {
-        // Com o compartator vai ordernar pela idade, não vai usar o compareTo
+        // Com o comparatator vai ordernar pela idade, não vai usar o compareTo
         // na classe Contato que implementa Comparable
         Set<Contato> contatos = new TreeSet<>(new IdadeContatoComparator());
 
@@ -19,6 +19,10 @@ public class testHashCode{
         contatos.add(new Contato("Rosa", "rosa@algaworks.com", 50));
         contatos.add(new Contato("João", "joao@algaworks.com", 70));
         System.out.println("---");
+
+        // vai adicionar, pois o comparator está como idade e não por email como no equals
+        // TreeSet não verifica o equals, com o comparator vai usar o compare
+        contatos.add(new Contato("Maria", "maria@algaworks.com", 41));
 
         // TreeSet não aceita adicionar null
         //contatos.add(null);
