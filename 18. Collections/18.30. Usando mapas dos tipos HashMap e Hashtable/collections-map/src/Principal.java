@@ -16,69 +16,21 @@ public class Principal {
         Carro ford = new Carro("JAV5A67", "Ford Ka");
         Carro porsche = new Carro("EJA0V44", "Porsche 911");
 
-        // Não pode colocar tipo primitivo
-        // Carro precisa ter equals e hashcode
-        //Map<Carro, Proprietario> proprietarios = new HashMap<>(); // Não permite nem valor e nem chave null
-        Map<Carro, Proprietario> proprietarios = new Hashtable<>();
+        // LinkedHashTable, tem a ordem de adição. E precisa de mais memória, pois usa uma lista ligada.
+        Map<Carro, Proprietario> proprietarios = new LinkedHashMap<>();
+
         proprietarios.put(bmw, maria);
         proprietarios.put(honda, ana);
         proprietarios.put(ford, jose);
         proprietarios.put(porsche, maria);
 
-        // Ele substitui quando a chave é igual, o Porche de jose passou a ser da maria
-        //proprietarios.put(porsche, jose);
+        // LinkedHashMap aceita null
+        proprietarios.put(null, joao);
+        proprietarios.put(porsche, null);
 
-        //proprietarios.remove(new Carro("JAV5A67", "XXXX"));
+        System.out.println(proprietarios);
 
-        //proprietarios.put(null , joao); // Pode ter uma chave nula
-        //proprietarios.put(null , jose); // somente uma chave nula
-
-        //null para os valores
-        //proprietarios.put(porsche , null);
-        //proprietarios.put(ford , null);
-
-
-        System.out.println(proprietarios); //toString em carro e proprietário
-
-        //System.out.println(proprietarios.get(ford));
-
-        // Pode ser por new, pois tem o equals e hashcode implementado
-        //System.out.println(proprietarios.get(new Carro("JAV5A67", "Ford Ka 2")));
-        
-        // Todas as chaves adicionadas no mapa
-        // HashMap não garante a ordem
-        /*Set<Carro> chaves = proprietarios.keySet();
-        for (Carro carro : chaves) {
-            System.out.println(carro);
-        }*/
-
-        // Conteúdo (valores) da collection
-        /*
-        Collection<Proprietario> proprietarioCollection = proprietarios.values();
-        for (Proprietario proprietario : proprietarioCollection) {
-            System.out.println(proprietario);
-        }
-        */
-
-        // Chave e valor
-        /*for (Carro carro : proprietarios.keySet()) {
-            Proprietario proprietario = proprietarios.get(carro);
-            System.out.printf("%s (%s) = %s%n", carro.getPlaca(), carro.getModelo(),
-                    proprietario.getNome());
-        }*/
-
-        //Fazer a iteracão chave e valor juntos
-        // Para criar no intelliJ proprietarios.entrySet().for
-        // Não faz a busca com get, fica mais rápido
-        /*for (Map.Entry<Carro, Proprietario> entry : proprietarios.entrySet()) {
-            System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
-                    entry.getValue().getNome());
-        }*/
-
-
-        // com var, ficar mais enxuto o código
-        /*
-        for (var entry : proprietarios.entrySet()) {
+        /*for (var entry : proprietarios.entrySet()) {
             System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
                     entry.getValue().getNome());
         }*/
