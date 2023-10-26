@@ -30,6 +30,15 @@ public class Principal {
 
         // Pode ser por new, pois tem o equals e hashcode implementado
         System.out.println(proprietarios.get(new Carro("JAV5A67", "Ford Ka 2")));
+        
+        // Todas as chaves adicionadas no mapa
+        // HashMap não garante a ordem
+        Set<Carro> chaves = proprietarios.keySet();
+        for (Carro carro : chaves) {
+            System.out.println(carro);
+        }
+
+        
     }
 
 }
