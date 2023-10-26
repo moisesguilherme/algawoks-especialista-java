@@ -29,15 +29,21 @@ public class Principal {
         //System.out.println(proprietarios.get(ford));
 
         // Pode ser por new, pois tem o equals e hashcode implementado
-        System.out.println(proprietarios.get(new Carro("JAV5A67", "Ford Ka 2")));
+        //System.out.println(proprietarios.get(new Carro("JAV5A67", "Ford Ka 2")));
         
         // Todas as chaves adicionadas no mapa
         // HashMap não garante a ordem
-        Set<Carro> chaves = proprietarios.keySet();
+        /*Set<Carro> chaves = proprietarios.keySet();
         for (Carro carro : chaves) {
             System.out.println(carro);
-        }
+        }*/
 
+        // Conteúdo (valores) da collection
+        Collection<Proprietario> proprietarioCollection = proprietarios.values();
+        for (Proprietario proprietario : proprietarioCollection) {
+            System.out.println(proprietario);
+        }
+        
         
     }
 
