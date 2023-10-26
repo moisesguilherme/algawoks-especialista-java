@@ -39,11 +39,19 @@ public class Principal {
         }*/
 
         // Conteúdo (valores) da collection
+        /*
         Collection<Proprietario> proprietarioCollection = proprietarios.values();
         for (Proprietario proprietario : proprietarioCollection) {
             System.out.println(proprietario);
         }
-        
+        */
+
+        // Chave e valor
+        for (Carro carro : proprietarios.keySet()) {
+            Proprietario proprietario = proprietarios.get(carro);
+            System.out.printf("%s (%s) = %s%n", carro.getPlaca(), carro.getModelo(),
+                    proprietario.getNome());
+        }
         
     }
 
