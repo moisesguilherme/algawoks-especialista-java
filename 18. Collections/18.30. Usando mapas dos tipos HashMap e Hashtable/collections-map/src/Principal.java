@@ -18,13 +18,27 @@ public class Principal {
 
         // Não pode colocar tipo primitivo
         // Carro precisa ter equals e hashcode
-        Map<Carro, Proprietario> proprietarios = new HashMap<>();
+        //Map<Carro, Proprietario> proprietarios = new HashMap<>(); // Não permite nem valor e nem chave null
+        Map<Carro, Proprietario> proprietarios = new Hashtable<>();
         proprietarios.put(bmw, maria);
         proprietarios.put(honda, ana);
         proprietarios.put(ford, jose);
         proprietarios.put(porsche, maria);
 
-        //System.out.println(proprietarios); //toString em carro e proprietário
+        // Ele substitui quando a chave é igual, o Porche de jose passou a ser da maria
+        //proprietarios.put(porsche, jose);
+
+        //proprietarios.remove(new Carro("JAV5A67", "XXXX"));
+
+        //proprietarios.put(null , joao); // Pode ter uma chave nula
+        //proprietarios.put(null , jose); // somente uma chave nula
+
+        //null para os valores
+        //proprietarios.put(porsche , null);
+        //proprietarios.put(ford , null);
+
+
+        System.out.println(proprietarios); //toString em carro e proprietário
 
         //System.out.println(proprietarios.get(ford));
 
@@ -56,15 +70,18 @@ public class Principal {
         //Fazer a iteracão chave e valor juntos
         // Para criar no intelliJ proprietarios.entrySet().for
         // Não faz a busca com get, fica mais rápido
-        for (Map.Entry<Carro, Proprietario> entry : proprietarios.entrySet()) {
+        /*for (Map.Entry<Carro, Proprietario> entry : proprietarios.entrySet()) {
             System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
                     entry.getValue().getNome());
-        }
+        }*/
+
+
         // com var, ficar mais enxuto o código
+        /*
         for (var entry : proprietarios.entrySet()) {
             System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
                     entry.getValue().getNome());
-        }
+        }*/
 
     }
 
