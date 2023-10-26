@@ -47,12 +47,25 @@ public class Principal {
         */
 
         // Chave e valor
-        for (Carro carro : proprietarios.keySet()) {
+        /*for (Carro carro : proprietarios.keySet()) {
             Proprietario proprietario = proprietarios.get(carro);
             System.out.printf("%s (%s) = %s%n", carro.getPlaca(), carro.getModelo(),
                     proprietario.getNome());
+        }*/
+
+        //Fazer a iteracão chave e valor juntos
+        // Para criar no intelliJ proprietarios.entrySet().for
+        // Não faz a busca com get, fica mais rápido
+        for (Map.Entry<Carro, Proprietario> entry : proprietarios.entrySet()) {
+            System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
+                    entry.getValue().getNome());
         }
-        
+        // com var, ficar mais enxuto o código
+        for (var entry : proprietarios.entrySet()) {
+            System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
+                    entry.getValue().getNome());
+        }
+
     }
 
 }
