@@ -16,24 +16,26 @@ public class Principal {
         Carro ford = new Carro("JAV5A67", "Ford Ka");
         Carro porsche = new Carro("EJA0V44", "Porsche 911");
 
-        // LinkedHashTable, tem a ordem de adição. E precisa de mais memória, pois usa uma lista ligada.
-        Map<Carro, Proprietario> proprietarios = new LinkedHashMap<>();
+        //Carro precisa implementar Comparable
+        Map<Carro, Proprietario> proprietarios = new TreeMap<>();
+        // Ordem natural de insercão das placas
 
         proprietarios.put(bmw, maria);
         proprietarios.put(honda, ana);
         proprietarios.put(ford, jose);
         proprietarios.put(porsche, maria);
 
-        // LinkedHashMap aceita null
-        proprietarios.put(null, joao);
+        //proprietarios.put(null, joao); //Não aceita chave nula
         proprietarios.put(porsche, null);
 
-        System.out.println(proprietarios);
+        //System.out.println(proprietarios);
 
-        /*for (var entry : proprietarios.entrySet()) {
+        for (var entry : proprietarios.entrySet()) {
+
+            var value = entry.getValue() == null ? "NENHUM" : entry.getValue().getNome();
             System.out.printf("%s (%s) = %s%n", entry.getKey().getPlaca(), entry.getKey().getModelo(),
-                    entry.getValue().getNome());
-        }*/
+                    value);
+        }
 
     }
 
