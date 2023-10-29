@@ -23,13 +23,23 @@ public class Principal {
         venda.adicionarItem(adaptadorUsb);
         //venda.adicionarItem(macbook);
 
+
         //Pode fazer isso, o método add do list.
         // vai conseguir adicionar e não passar pela validacao
         // do adicionarItem
-        venda.getItens().add(macbook);
+        //venda.getItens().add(macbook); // vai lancar um erro: UnsupportedOperationException
 
-        System.out.println(venda.getValorTotal());
-        System.out.println(venda.getItens());
+        List<ItemVenda> itensNaoModificaveis = venda.getItens();
+        //itensNaoModificaveis.add(macbook);
+
+        // Vai imprimir todos os itens
+        System.out.println(itensNaoModificaveis);
+        // ao adicionar vai ter reflexo no intensNaoModificaveis
+        venda.adicionarItem(limpaTela);
+        System.out.println(itensNaoModificaveis);
+
+        //System.out.println(venda.getValorTotal());
+        //System.out.println(venda.getItens());
     }
 
 }
