@@ -38,6 +38,9 @@ public class Principal {
         venda.adicionarItem(limpaTela);
         System.out.println(itensNaoModificaveis);
 
+        // vai adicionar em itens da Classe venda e não vai refletir em itensNaoModificaveis
+        System.out.println(venda.getItens());
+
         //System.out.println(venda.getValorTotal());
         //System.out.println(venda.getItens());
     }
