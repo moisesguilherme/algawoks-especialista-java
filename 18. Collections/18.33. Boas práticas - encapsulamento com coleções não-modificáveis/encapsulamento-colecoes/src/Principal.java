@@ -36,9 +36,10 @@ public class Principal {
         System.out.println(itensNaoModificaveis);
         // ao adicionar vai ter reflexo no intensNaoModificaveis
         venda.adicionarItem(limpaTela);
+        // agora vai refletir em itensNaoModificaveis
         System.out.println(itensNaoModificaveis);
 
-        // vai adicionar em itens da Classe venda e não vai refletir em itensNaoModificaveis
+
         System.out.println(venda.getItens());
 
         //System.out.println(venda.getValorTotal());

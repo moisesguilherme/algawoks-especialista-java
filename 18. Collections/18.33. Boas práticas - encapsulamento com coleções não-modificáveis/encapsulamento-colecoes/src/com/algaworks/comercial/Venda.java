@@ -37,11 +37,7 @@ public class Venda {
         //return new ArrayList<>(itens);
         // outra solucao retornar uma lista que não pode modificar
         // Importante: não é uma cópia da colecão. É um wrapper que vai embrulhar a colecao itens
-        //return Collections.unmodifiableList(itens);
-
-        //teste se for uma cópia
-        return new ArrayList<>(itens);
-
+        return Collections.unmodifiableList(itens);
     }
 
     public void adicionarItem(ItemVenda item) {
