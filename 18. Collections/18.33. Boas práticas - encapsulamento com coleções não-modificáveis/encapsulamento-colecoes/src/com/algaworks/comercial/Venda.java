@@ -22,6 +22,10 @@ public class Venda {
         return valorTotal;
     }
 
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public void setItens(List<ItemVenda> itens) {
         this.itens = itens;
     }

@@ -19,6 +19,16 @@ public class Principal {
         Cliente cliente = new Cliente("João da Silva", 2_000);
         Venda venda = new Venda(cliente);
 
+        List<ItemVenda> itens = new ArrayList<>();
+        itens.add(mouse);
+        itens.add(adaptadorUsb);
+        itens.add(macbook);
+
+        venda.setItens(itens);
+        venda.setValorTotal(16100);
+
+        System.out.println(venda.getValorTotal());
+        System.out.println(venda.getItens());
     }
 
 }
