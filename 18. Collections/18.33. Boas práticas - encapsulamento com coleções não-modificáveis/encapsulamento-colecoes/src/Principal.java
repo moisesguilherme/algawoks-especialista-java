@@ -19,13 +19,14 @@ public class Principal {
         Cliente cliente = new Cliente("João da Silva", 2_000);
         Venda venda = new Venda(cliente);
 
-        List<ItemVenda> itens = new ArrayList<>();
-        itens.add(mouse);
-        itens.add(adaptadorUsb);
-        itens.add(macbook);
+        venda.adicionarItem(mouse);
+        venda.adicionarItem(adaptadorUsb);
+        //venda.adicionarItem(macbook);
 
-        venda.setItens(itens);
-        venda.setValorTotal(16100);
+        //Pode fazer isso, o método add do list.
+        // vai conseguir adicionar e não passar pela validacao
+        // do adicionarItem
+        venda.getItens().add(macbook);
 
         System.out.println(venda.getValorTotal());
         System.out.println(venda.getItens());
