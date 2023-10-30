@@ -4,11 +4,11 @@ public class Principal {
         Pedido pedido = new Pedido();
         pedido.setNomeCliente("João da Silva");
 
-        // altera estatus para emitido
-        // forma ruim
-        pedido.setStatus(1);
+        // Não tem consistência
+        //pedido.setStatus(Pedido.EMITIDO);
+        pedido.setStatus(100);
 
-
+        System.out.println(pedido.getStatus());
     }
 
 }

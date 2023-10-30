@@ -1,13 +1,13 @@
 public class Pedido {
 
-    private String nomeCliente;
+    public static final int RASCUNHO = 0;
+    public static final int EMITIDO = 1;
+    public static final int FATURADO = 2;
+    public static final int DESPACHADO = 3;
+    public static final int CANCELADO = 4;
 
-    // 0 - rascunho
-    // 1 - emitido
-    // 2 - faturado
-    // 3 - despachado
-    // 4 - cancelado
-    private int status = 0;
+    private String nomeCliente;
+    private int status = RASCUNHO;
 
 
     public String getNomeCliente() {
