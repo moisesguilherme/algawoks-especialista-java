@@ -4,9 +4,9 @@ public class Principal {
         Pedido pedido = new Pedido();
         pedido.setNomeCliente("João da Silva");
 
-        // Não tem consistência
-        //pedido.setStatus(Pedido.EMITIDO);
-        pedido.setStatus(100);
+
+        pedido.setStatus(Pedido.EMITIDO);
+        pedido.setOrigem(Pedido.BALCAO);
 
         System.out.println(pedido.getStatus());
     }
