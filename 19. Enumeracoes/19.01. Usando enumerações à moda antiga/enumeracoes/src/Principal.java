@@ -17,7 +17,13 @@ public class Principal {
         String textoStatus = "CANCELADO";
         StatusPedido status = StatusPedido.valueOf(textoStatus);
         System.out.println(status.ordinal() + " - " + status.name());
-        
+
+        // com o value (número)
+        int numero = 3;
+        //StatusPedido status = (StatusPedido) numero //Não funciona
+        StatusPedido status2 = StatusPedido.values()[numero];
+        System.out.println(status2.ordinal() + " - " + status2.name());
+
     }
 
 }
