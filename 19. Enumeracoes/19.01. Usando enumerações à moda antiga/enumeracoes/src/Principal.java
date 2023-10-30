@@ -4,12 +4,20 @@ public class Principal {
         Pedido pedido = new Pedido();
         pedido.setNomeCliente("João da Silva");
 
-        pedido.setStatus(StatusPedido.EMITIDO);
-        pedido.setOrigem(OrigemPedido.BALCAO); //Type Safe
+        System.out.println(StatusPedido.EMITIDO.ordinal());
+        System.out.println(StatusPedido.EMITIDO.name());
 
+        System.out.println("\n ------------------------ \n");
 
-        System.out.println(pedido.getStatus());
-        System.out.println(pedido.getOrigem());
+        for (StatusPedido status : StatusPedido.values()) {
+            System.out.printf("%d - %s%n", status.ordinal(), status.name());
+        }
+
+        System.out.println("\n ------------------------ \n");
+        String textoStatus = "CANCELADO";
+        StatusPedido status = StatusPedido.valueOf(textoStatus);
+        System.out.println(status.ordinal() + " - " + status.name());
+        
     }
 
 }
