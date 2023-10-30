@@ -5,6 +5,8 @@ public class Pedido {
     public static final int STATUS_FATURADO = 2;
     public static final int STATUS_DESPACHADO = 3;
     public static final int STATUS_CANCELADO = 4;
+    //problema da fragilidade, caso usar uma classe compilada, caso
+    // alterar a contante e não compilar, vai ter o valor antigo
 
     // problema de ambiguidade, tem constantes para status e origem
     // colocar prefixo ORIGEM_ E STATUS_
