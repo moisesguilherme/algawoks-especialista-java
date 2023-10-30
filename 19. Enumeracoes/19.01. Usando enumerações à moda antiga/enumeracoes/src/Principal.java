@@ -5,10 +5,13 @@ public class Principal {
         pedido.setNomeCliente("João da Silva");
 
 
-        pedido.setStatus(Pedido.EMITIDO);
-        pedido.setOrigem(Pedido.BALCAO);
+        pedido.setStatus(Pedido.STATUS_EMITIDO);
+        pedido.setOrigem(Pedido.ORIGEM_BALCAO);
+        //Se inverter colocar status no pedido vai gerar o erro
+        //pedido.setOrigem(Pedido.STATUS_EMITIDO);
 
         System.out.println(pedido.getStatus());
+        System.out.println(pedido.getOrigem());
     }
 
 }
