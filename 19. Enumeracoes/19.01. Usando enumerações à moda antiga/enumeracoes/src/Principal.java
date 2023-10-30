@@ -5,11 +5,11 @@ public class Principal {
         pedido.setNomeCliente("João da Silva");
 
         // Problema da fragilidade
-        pedido.setStatus(Pedido.STATUS_EMITIDO);
+        pedido.setStatus(Pedido.STATUS_CANCELADO);
         pedido.setOrigem(Pedido.ORIGEM_BALCAO);
 
 
-        System.out.println(pedido.getStatus());
+        System.out.println(Pedido.getDescricaoStatus(pedido.getStatus()));
         System.out.println(pedido.getOrigem());
     }
 
