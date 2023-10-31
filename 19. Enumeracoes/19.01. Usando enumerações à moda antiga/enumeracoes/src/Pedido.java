@@ -4,6 +4,7 @@ public class Pedido {
     public static final int ORGIGEM_ONLINE = 101;
 
     private String nomeCliente;
+    private double valorTotal;
     private StatusPedido status = StatusPedido.RASCUNHO;
     private OrigemPedido origem = OrigemPedido.BALCAO;
 
@@ -20,9 +21,9 @@ public class Pedido {
         return status;
     }
 
-    public void setStatus(StatusPedido status) {
+    /*public void setStatus(StatusPedido status) {
         this.status = status;
-    }
+    }*/
 
     public OrigemPedido getOrigem() {
         return origem;
@@ -32,15 +33,26 @@ public class Pedido {
         this.origem = origem;
     }
 
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public int getTempoEntregaEmHoras() {
         return status.getTempoEntregaEmHoras();
-        // calcula com status, se adicionar um vai dar erro
-        /*return switch (status) {
-            case EMITIDO -> 12;
-            case FATURADO -> 10;
-            case DESPACHADO ->  6;
-            case ENTREGE -> 0;
-            default -> throw new IllegalArgumentException("Pedido não pode ser entregue");
-        };*/
+    }
+
+    public void cancelar() {
+        // if (getStatus().equals(StatusPedido.RASCUNHO)) // getSstatus pode ser null
+        // se o getStatus for null não vai dar nullpointexception
+        if(StatusPedido.RASCUNHO.equals(getStatus())
+            || (StatusPedido.EMITIDO.equals(getStatus())
+            && getValorTotal() < 100))
+            status = StatusPedido.CANCELADO;
+        else
+            throw new IllegalStateException("Pedido não pode ser cancelado");
     }
 }
