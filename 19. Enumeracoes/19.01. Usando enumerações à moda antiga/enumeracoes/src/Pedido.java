@@ -31,4 +31,14 @@ public class Pedido {
     public void setOrigem(OrigemPedido origem) {
         this.origem = origem;
     }
+
+    public int getTempoEntregaEmHoras() {
+        return switch (status) {
+            case EMITIDO -> 12;
+            case FATURADO -> 10;
+            case DESPACHADO ->  6;
+            case ENTREGE -> 0;
+            default -> throw new IllegalArgumentException("Pedido não pode ser entregue");
+        };
+    }
 }
