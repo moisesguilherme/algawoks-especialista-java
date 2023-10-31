@@ -1,5 +1,5 @@
 public enum StatusPedido {
-
-    RASCUNHO, EMITIDO, FATURADO, DESPACHADO, ENTREGE, CANCELADO
+    // problema ao adicionar um status, caso separado
+    RASCUNHO, EMITIDO, FATURADO, SEPARADO, DESPACHADO, ENTREGE, CANCELADO
 
 }

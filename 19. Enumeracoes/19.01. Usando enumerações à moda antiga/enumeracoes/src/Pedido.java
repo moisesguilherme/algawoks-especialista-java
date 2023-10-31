@@ -33,6 +33,7 @@ public class Pedido {
     }
 
     public int getTempoEntregaEmHoras() {
+        // calcula com status, se adicionar um vai dar erro
         return switch (status) {
             case EMITIDO -> 12;
             case FATURADO -> 10;
