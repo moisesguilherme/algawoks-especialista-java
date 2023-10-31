@@ -33,13 +33,14 @@ public class Pedido {
     }
 
     public int getTempoEntregaEmHoras() {
+        return status.getTempoEntregaEmHoras();
         // calcula com status, se adicionar um vai dar erro
-        return switch (status) {
+        /*return switch (status) {
             case EMITIDO -> 12;
             case FATURADO -> 10;
             case DESPACHADO ->  6;
             case ENTREGE -> 0;
             default -> throw new IllegalArgumentException("Pedido não pode ser entregue");
-        };
+        };*/
     }
 }
