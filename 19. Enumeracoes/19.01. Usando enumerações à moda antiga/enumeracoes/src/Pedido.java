@@ -45,12 +45,16 @@ public class Pedido {
         return status.getTempoEntregaEmHoras();
     }
 
+    public void marcarComoEntregue() {
+        status = StatusPedido.ENTREGE;
+    }
+
+    public void emitir() {
+        status = StatusPedido.EMITIDO;
+    }
+
     public void cancelar() {
-        // if (getStatus().equals(StatusPedido.RASCUNHO)) // getSstatus pode ser null
-        // se o getStatus for null não vai dar nullpointexception
-        if(StatusPedido.RASCUNHO.equals(getStatus())
-            || (StatusPedido.EMITIDO.equals(getStatus())
-            && getValorTotal() < 100))
+        if(getStatus().podeMudarParaCancelado(getValorTotal()))
             status = StatusPedido.CANCELADO;
         else
             throw new IllegalStateException("Pedido não pode ser cancelado");

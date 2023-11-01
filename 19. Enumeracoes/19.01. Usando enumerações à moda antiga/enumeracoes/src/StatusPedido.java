@@ -40,7 +40,8 @@ public enum StatusPedido {
     }
 
     public boolean podeMudarParaCancelado(double valorPedido) {
-        // implementar a lógica
-        return true;
+        return StatusPedido.RASCUNHO.equals(this)
+                || StatusPedido.EMITIDO.equals(this)
+                && valorPedido < 100;
     }
 }

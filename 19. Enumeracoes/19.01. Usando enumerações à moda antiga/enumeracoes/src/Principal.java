@@ -3,12 +3,13 @@ public class Principal {
     public static void main(String[] args) {
         Pedido pedido = new Pedido();
         pedido.setNomeCliente("João da Silva");
-        pedido.setValorTotal(90);
+        pedido.setValorTotal(100);
+        //pedido.marcarComoEntregue();
+        pedido.emitir();
+        System.out.println("Status antes: " + pedido.getStatus());
 
-        // Cancelar pedido
-        //pedido.setStatus(StatusPedido.CANCELADO);
         pedido.cancelar();
-        System.out.println(pedido.getStatus());
+        System.out.println("Status depois: " + pedido.getStatus());
 
     }
 
