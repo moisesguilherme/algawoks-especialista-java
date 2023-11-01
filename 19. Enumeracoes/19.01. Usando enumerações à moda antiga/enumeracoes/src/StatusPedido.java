@@ -35,10 +35,6 @@ public enum StatusPedido {
         return msg;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
     public boolean podeMudarParaCancelado(double valorPedido) {
         return StatusPedido.RASCUNHO.equals(this)
                 || StatusPedido.EMITIDO.equals(this)
