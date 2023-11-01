@@ -2,6 +2,7 @@ public enum StatusPedido {
     // problema ao adicionar um status, caso separado
     RASCUNHO,
     EMITIDO(12, "Mensagem emitido"),
+    EM_ANALISE(11),
     FATURADO(10),
     SEPARADO(8), // agora podemos adicionar um elemento
     DESPACHADO(6),
@@ -37,7 +38,7 @@ public enum StatusPedido {
 
     public boolean podeMudarParaCancelado(double valorPedido) {
         return StatusPedido.RASCUNHO.equals(this)
-                || StatusPedido.EMITIDO.equals(this)
-                && valorPedido < 100;
+                || (StatusPedido.EMITIDO.equals(this) && valorPedido < 100)
+                || (StatusPedido.EM_ANALISE.equals(this) && valorPedido < 100); //Precisa adicionar a regra aqui
     }
 }
