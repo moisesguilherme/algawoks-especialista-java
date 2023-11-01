@@ -38,4 +38,9 @@ public enum StatusPedido {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public boolean podeMudarParaCancelado(double valorPedido) {
+        // implementar a lógica
+        return true;
+    }
 }
