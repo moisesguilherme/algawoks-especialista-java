@@ -7,8 +7,8 @@ public class Principal {
         nf.emitir();
         System.out.println(nf.getDescricaoCompleta());
 
-        nf.cancelar(); // IllegalStateException
-        System.out.println(nf.getDescricaoCompleta());
+        //nf.cancelar(); // IllegalStateException
+        //System.out.println(nf.getDescricaoCompleta());
     }
 
 }

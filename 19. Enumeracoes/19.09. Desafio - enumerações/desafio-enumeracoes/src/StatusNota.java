@@ -1,0 +1,3 @@
+public enum StatusNota {
+    STATUS_NAO_EMITIDA, STATUS_EMITIDA, STATUS_CANCELADA
+}
