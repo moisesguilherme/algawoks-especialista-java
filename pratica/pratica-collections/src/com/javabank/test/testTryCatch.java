@@ -20,6 +20,8 @@ public class testTryCatch {
             System.out.println("Incorrect numeric value");
         } catch (Exception e) {
             System.out.println("Other exception");
+        } finally {
+            System.out.println("It will execute anyway");
         }
 
     }
