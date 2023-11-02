@@ -1,4 +1,4 @@
-package exemplo;
+package exemplo.codigoDDD;
 
 public enum CodigoDDD {
 

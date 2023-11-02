@@ -1,4 +1,4 @@
-package exemplo;
+package exemplo.codigoDDD;
 
 public class testDDD {
     public static void main(String[] args) {
