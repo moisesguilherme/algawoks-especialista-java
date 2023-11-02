@@ -7,9 +7,7 @@ public class Principal {
         pedido.setNomeCliente("João da Silva");
         pedido.setValorTotal(90);
 
-        //servico.cancelar(pedido, true);
         servico.cancelar(pedido, TipoUsuario.CLIENTE);
-        //servico.cancelar(pedido, null);
     }
 
 }
