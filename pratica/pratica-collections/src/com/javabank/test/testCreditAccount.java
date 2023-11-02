@@ -1,5 +1,6 @@
 package com.javabank.test;
 
+import com.javabank.account.AbstractBankAccount;
 import com.javabank.account.Account;
 import com.javabank.account.CreditAccount;
 
@@ -36,13 +37,14 @@ public class testCreditAccount {
         c1.setBalance(4000);
         c1.setCreditLimit(1000);
 
-        // Print accounts
-        //a1.print();
-        //a2.print();
-        //a3.print();
-        //c1.print();
-        //c2.print();
-        System.out.println(c2);
 
+        System.out.println(c1);
+
+        // Test Upcasting example
+        AbstractBankAccount credAct1 = (AbstractBankAccount) new CreditAccount("C00-001-00", "Ilya Mustafana", 44559, 1000);
+        System.out.println(credAct1);
+
+        System.out.println("--- Test Downcasting");
+        System.out.println( ((CreditAccount) credAct1).getCreditLimit());
     }
 }
