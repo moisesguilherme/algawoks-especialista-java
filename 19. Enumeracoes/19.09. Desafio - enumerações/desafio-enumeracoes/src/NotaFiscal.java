@@ -31,21 +31,24 @@ public class NotaFiscal {
         return status;
     }
 
-    public void cancelar() {
-        if ((StatusNota.STATUS_EMITIDA.equals(getStatus())  && getValor() >= 1_000)
-                || StatusNota.STATUS_CANCELADA.equals(getStatus())) {
-            throw new IllegalStateException("Não foi possível cancelar a nota fiscal");
-        }
+    // Somente para teste
+    public void setStatus(StatusNota status) {
+        this.status = status;
+    }
 
-        status = StatusNota.STATUS_CANCELADA;
+    public void cancelar() {
+        if (getStatus().podeMudarParaCancelado(getValor()))
+            status = StatusNota.STATUS_CANCELADA;
+        else
+            throw new IllegalStateException("Não foi possível cancelar a nota fiscal");
+
     }
 
     public void emitir() {
-        if (StatusNota.STATUS_EMITIDA.equals(getStatus()) || StatusNota.STATUS_CANCELADA.equals(getStatus())) {
+        if (getStatus().podeMudarParaEmitido())
+            status = StatusNota.STATUS_EMITIDA;
+        else
             throw new IllegalStateException("Não foi possível emitir a nota fiscal");
-        }
-
-        status = StatusNota.STATUS_EMITIDA;
     }
 
     public String getDescricaoCompleta() {
