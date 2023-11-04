@@ -39,6 +39,8 @@ public class Principal {
         for (Cliente cliente : clientes) {
             System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
         }
+
+
     }
 
 }
