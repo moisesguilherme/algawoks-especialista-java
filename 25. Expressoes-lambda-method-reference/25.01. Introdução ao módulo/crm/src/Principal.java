@@ -40,7 +40,6 @@ public class Principal {
             System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
         }
 
-
     }
 
 }
