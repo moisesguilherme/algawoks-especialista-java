@@ -26,12 +26,15 @@ public class Principal {
         // diretia é as acões que vai ser executada
         // Esquerda: (Cliente cliente) parâmetros da instrucão
 
-        Filtro<Cliente> filtro = (Cliente cliente) -> {
+        /*Filtro<Cliente> filtro = (Cliente cliente) -> {
             boolean resultado = cliente.getIdade() > 40;
             return resultado;
-        };
+        };*/
 
-        List<Cliente> clientes = cadastroCliente.consultar(filtro);
+        List<Cliente> clientes = cadastroCliente.consultar((Cliente cliente) -> {
+            boolean resultado = cliente.getIdade() > 40;
+            return resultado;
+        });
 
         for (Cliente cliente : clientes) {
             System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
