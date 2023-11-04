@@ -7,7 +7,7 @@ public class NotaFiscal {
     private final Integer numero;
     private final String descricao;
     private final double valor;
-    private StatusNota status = StatusNota.STATUS_NAO_EMITIDA;
+    private StatusNota status = StatusNota.NAO_EMITIDA;
 
     public NotaFiscal(Integer numero, String descricao, double valor) {
         this.numero = numero;
@@ -38,7 +38,7 @@ public class NotaFiscal {
 
     public void cancelar() {
         if (getStatus().podeMudarParaCancelado(getValor()))
-            status = StatusNota.STATUS_CANCELADA;
+            status = StatusNota.CANCELADA;
         else
             throw new IllegalStateException("Não foi possível cancelar a nota fiscal");
 
@@ -46,16 +46,16 @@ public class NotaFiscal {
 
     public void emitir() {
         if (getStatus().podeMudarParaEmitido())
-            status = StatusNota.STATUS_EMITIDA;
+            status = StatusNota.EMITIDA;
         else
             throw new IllegalStateException("Não foi possível emitir a nota fiscal");
     }
 
     public String getDescricaoCompleta() {
         String descricaoStatus = switch (status) {
-            case STATUS_NAO_EMITIDA -> "Não emitida";
-            case STATUS_EMITIDA -> "Emitida";
-            case STATUS_CANCELADA -> "Cancelada";
+            case NAO_EMITIDA -> "Não emitida";
+            case EMITIDA -> "Emitida";
+            case CANCELADA -> "Cancelada";
             default -> throw new RuntimeException("Status não tratado");
         };
 
