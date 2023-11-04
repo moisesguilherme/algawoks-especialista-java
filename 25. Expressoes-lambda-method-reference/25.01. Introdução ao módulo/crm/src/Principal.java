@@ -14,11 +14,21 @@ public class Principal {
         cadastroCliente.adicionar(new Cliente("Joaquina", 45));
         cadastroCliente.adicionar(new Cliente("Josefina", 25));
 
-        Filtro<Cliente> filtro = new Filtro<Cliente>() {
+        //Java 8 Lambda expression
+
+        /*Filtro<Cliente> filtro = new Filtro<Cliente>() {
             @Override
             public boolean avaliar(Cliente cliente) {
                 return cliente.getIdade() > 40;
             }
+        };*/
+        // Lambda é dividida em 2 partes, esquerda e direita.
+        // diretia é as acões que vai ser executada
+        // Esquerda: (Cliente cliente) parâmetros da instrucão
+
+        Filtro<Cliente> filtro = (Cliente cliente) -> {
+            boolean resultado = cliente.getIdade() > 40;
+            return resultado;
         };
 
         List<Cliente> clientes = cadastroCliente.consultar(filtro);
