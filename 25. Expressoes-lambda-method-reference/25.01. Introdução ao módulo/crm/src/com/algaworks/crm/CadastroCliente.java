@@ -2,6 +2,7 @@ package com.algaworks.crm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CadastroCliente {
 
@@ -15,11 +16,11 @@ public class CadastroCliente {
         clientes.add(cliente);
     }
 
-    public List<Cliente> consultar(Filtro<Cliente> filtro) {
+    public List<Cliente> consultar(Predicate<Cliente> filtro) {
         List<Cliente> clientesFiltrados = new ArrayList<>();
 
         for (Cliente cliente : clientes) {
-            if (filtro.avaliar(cliente)) {
+            if (filtro.test(cliente)) {
                 clientesFiltrados.add(cliente);
             }
         }

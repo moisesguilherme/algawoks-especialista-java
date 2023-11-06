@@ -1,8 +1,6 @@
 import com.algaworks.crm.CadastroCliente;
 import com.algaworks.crm.Cliente;
-import com.algaworks.crm.Filtro;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class Principal {
@@ -21,10 +19,11 @@ public class Principal {
         cadastroCliente.adicionar(new Cliente("Joaquina", 45));
         cadastroCliente.adicionar(new Cliente("Josefina", 25));
 
-        List<Cliente> clientes = cadastroCliente.getClientes();
+        List<Cliente> clientes = cadastroCliente.consultar(cliente -> cliente.getIdade() > 40);
 
+        // Comparator usando lamda expression
+        //clientes.sort((cliente1, clientes2) -> Integer.compare(cliente1.getIdade(), clientes2.getIdade()));
 
-        clientes.sort((cliente1, clientes2) -> Integer.compare(cliente1.getIdade(), clientes2.getIdade()));
 
         for (Cliente cliente : clientes) {
             System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
