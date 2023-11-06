@@ -7,7 +7,7 @@ public class NotaFiscal {
     private final Integer numero;
     private final String descricao;
     private final double valor;
-    private StatusNota status = StatusNota.STATUS_NAO_EMITIDA;
+    private StatusNota status = StatusNota.NAO_EMITIDA;
 
     public NotaFiscal(Integer numero, String descricao, double valor) {
         this.numero = numero;
@@ -52,15 +52,15 @@ public class NotaFiscal {
     }
 
     public String getDescricaoCompleta() {
-        String descricaoStatus = switch (status) {
-            case STATUS_NAO_EMITIDA -> "Não emitida";
+        /*String descricaoStatus = switch (status) {
+            case NAO_EMITIDA -> "Não emitida";
             case STATUS_EMITIDA -> "Emitida";
             case STATUS_CANCELADA -> "Cancelada";
             default -> throw new RuntimeException("Status não tratado");
-        };
+        };*/
 
         return String.format("Nota fiscal #%d (%s) no valor de R$%.2f está %s",
-                getNumero(), getDescricao(), getValor(), descricaoStatus);
+                getNumero(), getDescricao(), getValor(), status.getDescricao());
     }
 
 }
