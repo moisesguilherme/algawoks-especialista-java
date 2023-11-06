@@ -6,7 +6,13 @@ import java.util.List;
 
 public class Principal {
 
+    private String nome;
+
     public static void main(String[] args) {
+        new Principal().executar();
+    }
+
+    public void executar() {
         var cadastroCliente = new CadastroCliente();
         cadastroCliente.adicionar(new Cliente("João", 30));
         cadastroCliente.adicionar(new Cliente("Maria", 90));
@@ -14,32 +20,30 @@ public class Principal {
         cadastroCliente.adicionar(new Cliente("Joaquina", 45));
         cadastroCliente.adicionar(new Cliente("Josefina", 25));
 
-        //Java 8 Lambda expression
+        int y = 1;
 
-        /*Filtro<Cliente> filtro = new Filtro<Cliente>() {
+        Filtro<Cliente> filtro = new Filtro<Cliente>() {
             @Override
             public boolean avaliar(Cliente cliente) {
+                int y = 10; //Classe anônimas pode ter variáveis locais com o mesmo nome de variáveis de outro escopo
+                System.out.println(y);
                 return cliente.getIdade() > 40;
             }
-        };*/
-        // Lambda é dividida em 2 partes, esquerda e direita.
-        // diretia é as acões que vai ser executada
-        // Esquerda: (Cliente cliente) parâmetros da instrucão
+        };
 
-        /*Filtro<Cliente> filtro = (Cliente cliente) -> {
-            boolean resultado = cliente.getIdade() > 40;
-            return resultado;
-        };*/
+        List<Cliente> clientes = cadastroCliente.consultar(filtro);
 
+        /*
         List<Cliente> clientes = cadastroCliente.consultar((Cliente cliente) -> {
             boolean resultado = cliente.getIdade() > 40;
             return resultado;
         });
 
+
         for (Cliente cliente : clientes) {
             System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
         }
-
+         */
     }
 
 }
