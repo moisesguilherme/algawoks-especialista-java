@@ -15,13 +15,15 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-		Iterator<Produto> produtoIterator = produtos.iterator();
+		/*Iterator<Produto> produtoIterator = produtos.iterator();
 		while(produtoIterator.hasNext()) {
 			Produto produto = produtoIterator.next();
 			if(produto.getQuantidade() < 1) {
 				produtoIterator.remove();
 			}
-		}
+		}*/
+		// predicate
+		produtos.removeIf(produto -> produto.getQuantidade() < 1);
 
 		for (Produto produto : produtos) {
 			System.out.println(produto);
