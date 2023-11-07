@@ -3,6 +3,7 @@ import com.algaworks.estoque.Produto;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 public class Principal {
 
@@ -23,7 +24,13 @@ public class Principal {
 			}
 		}*/
 		// predicate
-		produtos.removeIf(produto -> produto.getQuantidade() < 1 || produto.getStatus().equals(Produto.Status.INATIVO));
+		//produtos.removeIf(produto -> produto.getQuantidade() < 1);
+
+		//Usando predicate
+		Predicate<Produto> predicateSemEstoque = produto -> produto.getQuantidade() < 1;
+		Predicate<Produto> predicateInativo = produto -> Produto.Status.INATIVO.equals(produto.getStatus());
+
+		produtos.removeIf(predicateSemEstoque.or(predicateInativo));
 
 		for (Produto produto : produtos) {
 			System.out.println(produto);
