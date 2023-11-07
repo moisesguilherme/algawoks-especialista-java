@@ -23,7 +23,7 @@ public class Principal {
 			}
 		}*/
 		// predicate
-		produtos.removeIf(produto -> produto.getQuantidade() < 1);
+		produtos.removeIf(produto -> produto.getQuantidade() < 1 || produto.getStatus().equals(Produto.Status.INATIVO));
 
 		for (Produto produto : produtos) {
 			System.out.println(produto);
