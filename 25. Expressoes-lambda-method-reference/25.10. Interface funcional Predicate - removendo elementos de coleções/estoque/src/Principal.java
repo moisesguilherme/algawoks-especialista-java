@@ -27,10 +27,20 @@ public class Principal {
 		//produtos.removeIf(produto -> produto.getQuantidade() < 1);
 
 		//Usando predicate
-		Predicate<Produto> predicateSemEstoque = produto -> produto.getQuantidade() < 1;
-		Predicate<Produto> predicateInativo = produto -> Produto.Status.INATIVO.equals(produto.getStatus());
+		//Predicate<Produto> predicateSemEstoque = produto -> produto.getQuantidade() < 1;
+		//Predicate<Produto> predicateInativo = produto -> Produto.Status.INATIVO.equals(produto.getStatus());
 
-		produtos.removeIf(predicateSemEstoque.or(predicateInativo));
+		//produtos.removeIf(predicateSemEstoque.or(predicateInativo));
+		//produtos.removeIf(predicateSemEstoque.negate());
+		//produtos.removeIf(Predicate.not(predicateSemEstoque));
+		//muito burocrático
+		//produtos.removeIf(((Predicate<Produto>) (produto -> produto.getQuantidade() < 1)).negate());
+
+		// remover os produtos que tem estoque
+		// não é muito legível
+		//produtos.removeIf(Predicate.not(produto -> produto.getQuantidade() < 1));
+		produtos.removeIf(produto -> produto.getQuantidade() > 0);
+
 
 		for (Produto produto : produtos) {
 			System.out.println(produto);
