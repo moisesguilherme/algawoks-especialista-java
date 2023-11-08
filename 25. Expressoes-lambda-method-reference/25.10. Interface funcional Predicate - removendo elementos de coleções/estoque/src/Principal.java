@@ -20,50 +20,17 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-        // consumer
-        /*
-        produtos.forEach(produto -> produto.setQuantidade(0));
-        produtos.forEach(produto -> System.out.println(produto));
-        */
+   		// interface funcional function
 
-        /*produtos.forEach(produto -> {
-            produto.setQuantidade(0);
-            System.out.println(produto);
-        });*/
+		produtos.sort((produto1, produto2) -> Integer.compare(produto1.getQuantidade(), produto2.getQuantidade()));
+		//produtos.sort((produto1, produto2) -> produto1.getPreco().compareTo(produto2.getPreco()));
 
-        //Consumer<Produto> consumerZeraEstoque = produto -> produto.setQuantidade(0);
-        //Consumer<Produto> consumerImprimir = produto -> System.out.println(produto);
-        // andThen
-        //produtos.forEach(consumerZeraEstoque.andThen(consumerImprimir));
-
-        /*for (Produto produto : produtos) {
+		/*
+		for (Produto produto : produtos) {
 			System.out.println(produto);
 		}*/
 
-        // Escopo
-        /*int x = 10;
-        produtos.forEach(produto -> {
-            System.out.println(x); // consegue ter acesso
-            produto.setQuantidade(0);
-            System.out.println(produto);
-        });
-
-        Consumer<Produto> consumer = p -> System.out.println(x++); // Não tem acesso*/
-
-		// BiConsumer
-		BiConsumer<Produto, String> biConsumer = (p, str) -> {
-			System.out.println(p.getNome() + " Promocão");
-			System.out.println(str + " Mensagem");
-		};
-
-		Produto p1 = new Produto("Sabão", new BigDecimal("9.9"), 11);
-		biConsumer.accept(p1, "Início");
-
-		//outros
-		// IntConsumer
-		// LongConsumer
-		// Double consumer
-		
+		produtos.forEach(produto -> System.out.println(produto));
 
 	}
 	
