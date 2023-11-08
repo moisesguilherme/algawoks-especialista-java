@@ -31,7 +31,9 @@ public class Principal {
 		}*/
 
 		Function<Produto, Integer> function1 = produto -> produto.getQuantidade();
-		produtos.sort(Comparator.comparing(function1)); //function1 é um get (extracão de um valor do objeto)
+		Function<Produto, String> function2 = produto -> produto.getNome();
+
+		produtos.sort(Comparator.comparing(function1).thenComparing(function2)); //function1 é um get (extracão de um valor do objeto)
 
 		produtos.forEach(produto -> System.out.println(produto));
 
