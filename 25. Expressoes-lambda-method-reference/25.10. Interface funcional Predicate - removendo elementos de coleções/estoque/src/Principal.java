@@ -21,7 +21,7 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.8"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-   		// interface funcional function
+   		// interface funcional function 
 
 		//produtos.sort((produto1, produto2) -> Integer.compare(produto1.getQuantidade(), produto2.getQuantidade()));
 		// -> com comparator precisa colocar a lógica de comparacão (compare)
