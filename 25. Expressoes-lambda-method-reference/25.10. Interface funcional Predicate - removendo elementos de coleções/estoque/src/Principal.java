@@ -28,15 +28,24 @@ public class Principal {
             System.out.println(produto);
         });*/
 
-        Consumer<Produto> consumerZeraEstoque = produto -> produto.setQuantidade(0);
-        Consumer<Produto> consumerImprimir = produto -> System.out.println(produto);
+        //Consumer<Produto> consumerZeraEstoque = produto -> produto.setQuantidade(0);
+        //Consumer<Produto> consumerImprimir = produto -> System.out.println(produto);
         // andThen
-        produtos.forEach(consumerZeraEstoque.andThen(consumerImprimir));
+        //produtos.forEach(consumerZeraEstoque.andThen(consumerImprimir));
 
         /*for (Produto produto : produtos) {
 			System.out.println(produto);
 		}*/
 
+        // Escopo
+        int x = 10;
+        produtos.forEach(produto -> {
+            System.out.println(x); // consegue ter acesso
+            produto.setQuantidade(0);
+            System.out.println(produto);
+        });
+
+        Consumer<Produto> consumer = p -> System.out.println(x++); // Não tem acesso
 
 	}
 	
