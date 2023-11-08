@@ -3,6 +3,7 @@ import com.algaworks.estoque.Produto;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Principal {
@@ -16,35 +17,12 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-		/*Iterator<Produto> produtoIterator = produtos.iterator();
-		while(produtoIterator.hasNext()) {
-			Produto produto = produtoIterator.next();
-			if(produto.getQuantidade() < 1) {
-				produtoIterator.remove();
-			}
-		}*/
-		// predicate
-		//produtos.removeIf(produto -> produto.getQuantidade() < 1);
+        // consumer
+        produtos.forEach(produto -> System.out.println(produto.getNome()));
 
-		//Usando predicate
-		//Predicate<Produto> predicateSemEstoque = produto -> produto.getQuantidade() < 1;
-		//Predicate<Produto> predicateInativo = produto -> Produto.Status.INATIVO.equals(produto.getStatus());
-
-		//produtos.removeIf(predicateSemEstoque.or(predicateInativo));
-		//produtos.removeIf(predicateSemEstoque.negate());
-		//produtos.removeIf(Predicate.not(predicateSemEstoque));
-		//muito burocrático
-		//produtos.removeIf(((Predicate<Produto>) (produto -> produto.getQuantidade() < 1)).negate());
-
-		// remover os produtos que tem estoque
-		// não é muito legível
-		//produtos.removeIf(Predicate.not(produto -> produto.getQuantidade() < 1));
-		produtos.removeIf(produto -> produto.getQuantidade() > 0);
-
-
-		for (Produto produto : produtos) {
+		/*for (Produto produto : produtos) {
 			System.out.println(produto);
-		}
+		}*/
 	}
 	
 }
