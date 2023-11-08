@@ -18,11 +18,26 @@ public class Principal {
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
         // consumer
-        produtos.forEach(produto -> System.out.println(produto.getNome()));
+        /*
+        produtos.forEach(produto -> produto.setQuantidade(0));
+        produtos.forEach(produto -> System.out.println(produto));
+        */
 
-		/*for (Produto produto : produtos) {
+        /*produtos.forEach(produto -> {
+            produto.setQuantidade(0);
+            System.out.println(produto);
+        });*/
+
+        Consumer<Produto> consumerZeraEstoque = produto -> produto.setQuantidade(0);
+        Consumer<Produto> consumerImprimir = produto -> System.out.println(produto);
+        // andThen
+        produtos.forEach(consumerZeraEstoque.andThen(consumerImprimir));
+
+        /*for (Produto produto : produtos) {
 			System.out.println(produto);
 		}*/
+
+
 	}
 	
 }
