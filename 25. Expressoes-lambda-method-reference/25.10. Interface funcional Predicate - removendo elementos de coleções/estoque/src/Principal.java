@@ -2,12 +2,10 @@ import com.algaworks.estoque.Produto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-import java.util.function.IntConsumer;
-import java.util.function.Predicate;
+import java.util.function.*;
 
 public class Principal {
 
@@ -22,13 +20,18 @@ public class Principal {
 
    		// interface funcional function
 
-		produtos.sort((produto1, produto2) -> Integer.compare(produto1.getQuantidade(), produto2.getQuantidade()));
+		//produtos.sort((produto1, produto2) -> Integer.compare(produto1.getQuantidade(), produto2.getQuantidade()));
+		// -> com comparator precisa colocar a lógica de comparacão (compare)
+
 		//produtos.sort((produto1, produto2) -> produto1.getPreco().compareTo(produto2.getPreco()));
 
 		/*
 		for (Produto produto : produtos) {
 			System.out.println(produto);
 		}*/
+
+		Function<Produto, Integer> function1 = produto -> produto.getQuantidade();
+		produtos.sort(Comparator.comparing(function1)); //function1 é um get (extracão de um valor do objeto)
 
 		produtos.forEach(produto -> System.out.println(produto));
 
