@@ -30,6 +30,10 @@ public class Produto {
 		return nome;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public BigDecimal getPreco() {
 		return preco;
 	}

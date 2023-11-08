@@ -30,12 +30,35 @@ public class Principal {
 			System.out.println(produto);
 		}*/
 
-		Function<Produto, Integer> function1 = produto -> produto.getQuantidade();
+		/*Function<Produto, Integer> function1 = produto -> produto.getQuantidade();
 		Function<Produto, String> function2 = produto -> produto.getNome();
 
 		produtos.sort(Comparator.comparing(function1).thenComparing(function2)); //function1 é um get (extracão de um valor do objeto)
+		 */
 
+		// getQuantidade é um tipo primitivo (int)
+		// vai fazer o boxing, converter o int primitivo para Integer
+		// function só trabalha com classe (objetos)
+		// produtos.sort(Comparator.comparing(produto -> produto.getQuantidade()));
+		// ToIntFunction
+
+		// Essa comparacão é mais rápida
+		//produtos.sort(Comparator.comparingInt(produto -> produto.getQuantidade()));
+		//ToLongFunction
+		//LongToDoubleFunction
+		//IntToLongFunction
+		//UnaryOperator -> recebe um objeto e retornar ele
+
+
+		UnaryOperator<Produto> functionModifica = produto -> {
+			produto.setQuantidade(0);
+			produto.setNome(produto.getNome() + " modificado");
+			return produto;
+		};
+
+		produtos.forEach(produto -> functionModifica.apply(produto));
 		produtos.forEach(produto -> System.out.println(produto));
+		//produtos.forEach(produto -> System.out.println(produto));
 
 	}
 	
