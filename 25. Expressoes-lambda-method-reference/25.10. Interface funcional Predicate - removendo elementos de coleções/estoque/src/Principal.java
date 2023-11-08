@@ -3,7 +3,10 @@ import com.algaworks.estoque.Produto;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.function.IntConsumer;
 import java.util.function.Predicate;
 
 public class Principal {
@@ -38,14 +41,29 @@ public class Principal {
 		}*/
 
         // Escopo
-        int x = 10;
+        /*int x = 10;
         produtos.forEach(produto -> {
             System.out.println(x); // consegue ter acesso
             produto.setQuantidade(0);
             System.out.println(produto);
         });
 
-        Consumer<Produto> consumer = p -> System.out.println(x++); // Não tem acesso
+        Consumer<Produto> consumer = p -> System.out.println(x++); // Não tem acesso*/
+
+		// BiConsumer
+		BiConsumer<Produto, String> biConsumer = (p, str) -> {
+			System.out.println(p.getNome() + " Promocão");
+			System.out.println(str + " Mensagem");
+		};
+
+		Produto p1 = new Produto("Sabão", new BigDecimal("9.9"), 11);
+		biConsumer.accept(p1, "Início");
+
+		//outros
+		// IntConsumer
+		// LongConsumer
+		// Double consumer
+		
 
 	}
 	
