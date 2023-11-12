@@ -1,4 +1,5 @@
 import com.algaworks.estoque.Produto;
+import com.algaworks.estoque.ServicoInativacaoProduto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-		produtos.forEach(Produto::inativar);
+		produtos.forEach(ServicoInativacaoProduto::processar); // não funciona
 
 		produtos.forEach(produto -> System.out.println(produto));
 	}
