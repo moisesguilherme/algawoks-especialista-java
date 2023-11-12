@@ -2,9 +2,8 @@ import com.algaworks.estoque.Produto;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Comparator;
 
-public class Principal2 {
+public class Principal {
 
 	public static void main(String[] args) {
 		var produtos = new ArrayList<Produto>();
@@ -15,10 +14,6 @@ public class Principal2 {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-		//produtos.sort(Comparator.comparingInt(produto -> produto.getQuantidade()));
-		produtos.sort(Comparator.comparingInt(Produto::getQuantidade));
-
-		//produtos.forEach(produto -> produto.inativar());
 		produtos.forEach(Produto::inativar);
 
 		produtos.forEach(produto -> System.out.println(produto));
