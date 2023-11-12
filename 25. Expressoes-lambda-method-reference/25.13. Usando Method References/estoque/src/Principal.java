@@ -16,10 +16,13 @@ public class Principal {
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
 		// com lambda
-		produtos.forEach(produto -> produto.inativar());
-		produtos.forEach(Produto::inativar);
+		//produtos.forEach(produto -> produto.inativar());
+		//produtos.forEach(Produto::inativar);
 
-		//var inativacaoProduto = new ServicoInativacaoProduto();
+		var inativacaoProduto = new ServicoInativacaoProduto();
+
+		// com lambda
+		produtos.forEach(produto -> inativacaoProduto.processar(produto));
 		//produtos.forEach(inativacaoProduto::processar); // colocar a referência da instância
 		//produtos.forEach(new ServicoInativacaoProduto()::processar);
 
