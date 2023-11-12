@@ -9,6 +9,11 @@ public class Principal1 {
 		ToIntFunction<Produto> function1 = produto -> produto.getQuantidade();
 		Consumer<Produto> consumer1 = produto -> produto.inativar();
 
+
+		// Não invoca o método e sim uma referência ao método :: getQuantidade
+		ToIntFunction<Produto> function2 = Produto::getQuantidade;
+		Consumer<Produto> consumer2 = Produto::inativar;
+
 	}
 	
 }
