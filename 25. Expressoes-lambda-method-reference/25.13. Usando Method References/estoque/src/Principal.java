@@ -21,6 +21,7 @@ public class Principal {
 		produtos.forEach(ServicoInativacaoProduto::processar);
 
 		produtos.forEach(System.out::println);
+
 	}
 	
 }
