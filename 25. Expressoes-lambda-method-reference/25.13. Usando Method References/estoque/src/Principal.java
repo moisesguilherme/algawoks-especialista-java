@@ -15,10 +15,9 @@ public class Principal {
 		produtos.add(new Produto("Arroz", new BigDecimal("15.9"), 0));
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
-		var inativacaoProduto = new ServicoInativacaoProduto();
 
-		//produtos.forEach(produto -> inativacaoProduto.processar(produto));
-		produtos.forEach(inativacaoProduto::processar);
+		produtos.forEach(produto -> ServicoInativacaoProduto.processar(produto));
+		//produtos.forEach(inativacaoProduto::processar);
 
 		produtos.forEach(System.out::println);
 	}
