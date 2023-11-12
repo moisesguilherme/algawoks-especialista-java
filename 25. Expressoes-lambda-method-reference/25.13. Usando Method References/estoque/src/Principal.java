@@ -16,8 +16,9 @@ public class Principal {
 		produtos.add(new Produto("Chocolate", new BigDecimal("25.1"), 10, Produto.Status.INATIVO));
 
 
-		produtos.forEach(produto -> ServicoInativacaoProduto.processar(produto));
-		//produtos.forEach(inativacaoProduto::processar);
+		//produtos.forEach(produto -> ServicoInativacaoProduto.processar(produto));
+		// processar como método estático
+		produtos.forEach(ServicoInativacaoProduto::processar);
 
 		produtos.forEach(System.out::println);
 	}
