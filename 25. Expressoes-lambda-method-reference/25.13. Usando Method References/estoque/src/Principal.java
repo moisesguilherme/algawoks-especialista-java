@@ -26,7 +26,8 @@ public class Principal {
 		produtos.forEach(inativacaoProduto::processar); // colocar a referência da instância
 		//produtos.forEach(new ServicoInativacaoProduto()::processar);
 
-		produtos.forEach(produto -> System.out.println(produto));
+		//produtos.forEach(produto -> System.out.println(produto));
+		produtos.forEach(System.out::println);
 	}
 	
 }
