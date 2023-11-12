@@ -22,8 +22,8 @@ public class Principal {
 		var inativacaoProduto = new ServicoInativacaoProduto();
 
 		// com lambda
-		produtos.forEach(produto -> inativacaoProduto.processar(produto));
-		//produtos.forEach(inativacaoProduto::processar); // colocar a referência da instância
+		//produtos.forEach(produto -> inativacaoProduto.processar(produto));
+		produtos.forEach(inativacaoProduto::processar); // colocar a referência da instância
 		//produtos.forEach(new ServicoInativacaoProduto()::processar);
 
 		produtos.forEach(produto -> System.out.println(produto));
