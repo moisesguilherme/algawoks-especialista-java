@@ -14,7 +14,7 @@ public class Principal {
         Stream<Produto> stream = produtos.stream();
         // Predicate -> interface funcional
         Stream<Produto> streamComEstoque =
-                stream.filter(produto -> produto.getQuantidade() > 0);
+                stream.filter(produto -> produto.temEstoque());
 
     }
 
