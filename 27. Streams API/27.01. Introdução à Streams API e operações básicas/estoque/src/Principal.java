@@ -11,9 +11,11 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-
         Stream<Produto> stream = produtos.stream();
-    
+        // Predicate -> interface funcional
+        Stream<Produto> streamComEstoque =
+                stream.filter(produto -> produto.getQuantidade() > 0);
+
     }
 
 }
