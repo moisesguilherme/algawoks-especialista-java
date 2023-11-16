@@ -23,6 +23,12 @@ public class Principal {
 
         //operacão terminal, executa toda a pipeline, as acões intermediárias não são executadas
         // até chamar a operacão terminal.
+
+        // forEach toda a pipeline é executada
+        streamComEstoqueInativo.forEach(produto -> {
+            produto.ativar();
+            System.out.println(produto);
+        });
     }
 
 }
