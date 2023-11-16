@@ -11,24 +11,29 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
+        // Method Reference
+        produtos.stream()
+                .filter(Produto::temEstoque)
+                .filter(Produto::isInativo)
+                .forEach(produto -> {
+                    System.out.println("Ativando " + produto);
+                    produto.ativar();
+                });
+        /*
         Stream<Produto> stream = produtos.stream();
-        // Predicate -> interface funcional
+
         Stream<Produto> streamComEstoque =
                 stream.filter(Produto::temEstoque);
 
         Stream<Produto> streamComEstoqueInativo =
                 streamComEstoque.filter(Produto::isInativo);
 
-        //pipeline - conjunto de operacões configuradas em sequencia
-
-        //operacão terminal, executa toda a pipeline, as acões intermediárias não são executadas
-        // até chamar a operacão terminal.
-
-        // forEach toda a pipeline é executada
         streamComEstoqueInativo.forEach(produto -> {
+            System.out.println("Ativando " + produto);
             produto.ativar();
-            System.out.println(produto);
         });
+        */
+
     }
 
 }
