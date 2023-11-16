@@ -14,8 +14,15 @@ public class Principal {
         Stream<Produto> stream = produtos.stream();
         // Predicate -> interface funcional
         Stream<Produto> streamComEstoque =
-                stream.filter(produto -> produto.temEstoque());
+                stream.filter(Produto::temEstoque);
 
+        Stream<Produto> streamComEstoqueInativo =
+                streamComEstoque.filter(Produto::isInativo);
+
+        //pipeline - conjunto de operacões configuradas em sequencia
+
+        //operacão terminal, executa toda a pipeline, as acões intermediárias não são executadas
+        // até chamar a operacão terminal.
     }
 
 }
