@@ -17,19 +17,20 @@ public class Principal {
         List<Produto> produtos = cadastroProduto.obterTodos();
 
         // Forma tradicional
-        for (Produto produto : produtos) {
+        /*for (Produto produto : produtos) {
             produto.ativar();
             System.out.println(produto);
-        }
+        }*/
 
-        // Interface Stream, com elementos da lista
+        // Interface Stream, com elementos da lista (não copia a lista)
+        // stream não duplica
         Stream<Produto> stream = produtos.stream();
         // Consumer
         stream.forEach(produto -> {
             produto.ativar();
             System.out.println(produto);
         });
-        
+
     }
 
 }
