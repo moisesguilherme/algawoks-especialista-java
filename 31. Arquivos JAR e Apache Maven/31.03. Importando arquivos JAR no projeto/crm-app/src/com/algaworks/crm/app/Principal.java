@@ -2,6 +2,7 @@ package com.algaworks.crm.app;
 
 import com.algaworks.crm.api.CadastroCliente;
 import com.algaworks.crm.api.Cliente;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class Principal {
         List<Cliente> clientes = cadastroCliente.consultar(cliente -> cliente.getIdade() > 40);
 
         for (Cliente cliente : clientes) {
-            System.out.printf("%s - %d%n", cliente.getNome(), cliente.getIdade());
+            System.out.printf("%s - %d%n", StringUtils.abbreviate(cliente.getNome(), 15), cliente.getIdade());
         }
     }
 
