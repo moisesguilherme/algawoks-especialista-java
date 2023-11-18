@@ -58,10 +58,12 @@ public class ContaCorrente {
         saldo = saldo.subtract(valorSaque);
 
         // níveis de logs
-        //logger.log(Level.INFO, "> Saque de R${0} realizado na conta {1}", valorSaque, getAgencia() + "/" + getNumero());
+        logger.log(Level.INFO, "Saque de R${0} realizado na conta {1}",
+                new Object[] { valorSaque, getAgencia() + "/" + getNumero()});
 
-        logger.info(String.format("Saque de R$%.2f realizado na conta %s",
+        /*logger.info(String.format("Saque de R$%.2f realizado na conta %s",
                 valorSaque, getAgencia() + "/" + getNumero()));
+        */
 
         // Não é uma boa prática uar o print para log
         /*System.out.printf("%s - %s - Saque de R$%.2f realizado na conta %s%n",
