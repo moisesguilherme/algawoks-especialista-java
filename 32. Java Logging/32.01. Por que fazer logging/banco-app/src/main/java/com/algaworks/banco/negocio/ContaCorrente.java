@@ -51,8 +51,9 @@ public class ContaCorrente {
 
         saldo = saldo.subtract(valorSaque);
 
-        System.out.printf("Saque de R$%.2f realizado na conta %s%n",
-                valorSaque, getAgencia() + "/" + getNumero());
+        // Não é uma boa prática uar o print para log
+        System.out.printf("%s - %s - Saque de R$%.2f realizado na conta %s%n",
+                LocalDateTime.now(), ContaCorrente.class.getName(), valorSaque, getAgencia() + "/" + getNumero());
     }
 
     public final void depositar(BigDecimal valorDeposito) {
@@ -64,8 +65,8 @@ public class ContaCorrente {
 
         saldo = saldo.add(valorDeposito);
 
-        System.out.printf("Depósito de R$%.2f realizado na conta %s%n",
-                valorDeposito, getAgencia() + "/" + getNumero());
+        System.out.printf("%s - %s - Depósito de R$%.2f realizado na conta %s%n",
+                LocalDateTime.now(), ContaCorrente.class.getName(), valorDeposito, getAgencia() + "/" + getNumero());
     }
 
     public void imprimirDemonstrativo() {
