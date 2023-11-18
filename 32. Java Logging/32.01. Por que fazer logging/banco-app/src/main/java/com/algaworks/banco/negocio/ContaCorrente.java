@@ -2,9 +2,15 @@ package com.algaworks.banco.negocio;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;;
 
 public class ContaCorrente {
+
+    // todo stático fica todo em MAÍUSCULO, LOGGER, nesse caso vai
+    // abrir uma excecão, para ficar com código mais elegante.
+    private static final Logger logger = Logger.getLogger(ContaCorrente.class.getName());
 
     private final Titular titular;
     private final int agencia;
@@ -51,9 +57,16 @@ public class ContaCorrente {
 
         saldo = saldo.subtract(valorSaque);
 
+        // níveis de logs
+        //logger.log(Level.INFO, "> Saque de R${0} realizado na conta {1}", valorSaque, getAgencia() + "/" + getNumero());
+
+        logger.info(String.format("Saque de R$%.2f realizado na conta %s",
+                valorSaque, getAgencia() + "/" + getNumero()));
+
         // Não é uma boa prática uar o print para log
-        System.out.printf("%s - %s - Saque de R$%.2f realizado na conta %s%n",
+        /*System.out.printf("%s - %s - Saque de R$%.2f realizado na conta %s%n",
                 LocalDateTime.now(), ContaCorrente.class.getName(), valorSaque, getAgencia() + "/" + getNumero());
+         */
     }
 
     public final void depositar(BigDecimal valorDeposito) {
@@ -65,8 +78,13 @@ public class ContaCorrente {
 
         saldo = saldo.add(valorDeposito);
 
-        System.out.printf("%s - %s - Depósito de R$%.2f realizado na conta %s%n",
+        logger.info(String.format("Depósito de R$%.2f realizado na conta %s",
+                valorDeposito, getAgencia() + "/" + getNumero()));
+
+        /*System.out.printf("%s - %s - Depósito de R$%.2f realizado na conta %s%n",
                 LocalDateTime.now(), ContaCorrente.class.getName(), valorDeposito, getAgencia() + "/" + getNumero());
+
+         */
     }
 
     public void imprimirDemonstrativo() {
