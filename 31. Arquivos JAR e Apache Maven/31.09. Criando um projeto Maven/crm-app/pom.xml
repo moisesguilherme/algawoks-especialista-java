@@ -14,6 +14,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <build>
+        <directory>saida</directory>
+    </build>
+
+
     <dependencies>
         <dependency>
             <groupId>com.algaworks.crm</groupId>
