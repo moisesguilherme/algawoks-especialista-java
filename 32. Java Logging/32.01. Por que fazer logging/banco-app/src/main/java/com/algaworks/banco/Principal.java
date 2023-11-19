@@ -20,13 +20,17 @@ public class Principal {
             logger.fine("Manipulando conta corrente...");
             contaCorrente.depositar(new BigDecimal("200"));
             contaCorrente.sacar(new BigDecimal("50.5"));
-            contaCorrente.sacar(new BigDecimal("300"));
+            //contaCorrente.sacar(new BigDecimal("300"));
+            contaCorrente.sacar(new BigDecimal("-10"));
         } catch (SaldoInsuficienteException e){
             // passando a excecão
             logger.log(Level.WARNING, "Pedido de saque com saldo insuficiente para conta "
                     + contaCorrente.getAgencia() + "/" + contaCorrente.getNumero(), e );
             //logger.warning("Pedido de saque com saldo insuficiente para conta "
             //        + contaCorrente.getAgencia() + "/" + contaCorrente.getNumero());
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Erro administrando conta corrente" +
+                    contaCorrente.getAgencia() + "/" + contaCorrente.getNumero(), e);
         }
 
     }
