@@ -5,6 +5,7 @@ import com.algaworks.banco.negocio.SaldoInsuficienteException;
 import com.algaworks.banco.negocio.Titular;
 
 import java.math.BigDecimal;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Principal {
@@ -21,8 +22,11 @@ public class Principal {
             contaCorrente.sacar(new BigDecimal("50.5"));
             contaCorrente.sacar(new BigDecimal("300"));
         } catch (SaldoInsuficienteException e){
-            logger.warning("Pedido de saque com saldo insuficiente para conta "
-                    + contaCorrente.getAgencia() + "/" + contaCorrente.getNumero());
+            // passando a excecão
+            logger.log(Level.WARNING, "Pedido de saque com saldo insuficiente para conta "
+                    + contaCorrente.getAgencia() + "/" + contaCorrente.getNumero(), e );
+            //logger.warning("Pedido de saque com saldo insuficiente para conta "
+            //        + contaCorrente.getAgencia() + "/" + contaCorrente.getNumero());
         }
 
     }
