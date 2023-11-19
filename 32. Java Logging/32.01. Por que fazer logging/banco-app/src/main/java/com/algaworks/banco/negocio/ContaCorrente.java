@@ -47,6 +47,7 @@ public class ContaCorrente {
     }
 
     public void sacar(BigDecimal valorSaque) {
+        logger.fine("Realizando saque...");
         Objects.requireNonNull(valorSaque);
 
         if (valorSaque.compareTo(BigDecimal.ZERO) <= 0) {
@@ -72,6 +73,7 @@ public class ContaCorrente {
     }
 
     public final void depositar(BigDecimal valorDeposito) {
+        logger.fine("Realizando deposito...");
         Objects.requireNonNull(valorDeposito);
 
         if (valorDeposito.compareTo(BigDecimal.ZERO) <= 0) {
