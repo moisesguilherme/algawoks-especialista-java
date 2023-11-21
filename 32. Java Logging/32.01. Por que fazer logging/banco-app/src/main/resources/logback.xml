@@ -1,28 +1,13 @@
 <configuration>
     <appender name="saidaPadrao" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%date %level %logger - %msg %n</pattern>
+            <!--%-5level (alinhar com (-) esquerda ou %5level (direita) -->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{15}) - %msg %n</pattern>
         </encoder>
     </appender>
-    <!---
-    Vai impactar até o nível de negocio (com.algaworks.banco.negocio)
 
-    Log é organizado de forma hierarquica
-    root (raiz)
-    - com
-      - algaworks
-        - banco
-            - negocio (pai)
-                - ContaCorrente
-                - Titular
-            - Principal
-
-    -->
     <logger name="com.algaworks.banco.negocio" level="TRACE" />
 
-    <!--
-        A classe principal vai ser de INFO para cima
-    -->
     <root level="INFO">
         <appender-ref ref="saidaPadrao"/>
     </root>
