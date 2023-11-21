@@ -10,6 +10,17 @@ import java.math.BigDecimal;
 
 public class Principal {
     /*
+
+    Log é organizado de forma hierarquica
+    root (raiz)
+    - com
+      - algaworks
+        - banco
+            - negocio (pai)
+                - ContaCorrente
+                - Titular
+            - Principal
+
     Error - mais crítico
     Warn - Uma alerta
     INFO - Apenas uma informação, não é um erro
