@@ -9,6 +9,13 @@ import org.slf4j.LoggerFactory;
 import java.math.BigDecimal;
 
 public class Principal {
+    /*
+    Error - mais crítico
+    Warn - Uma alerta
+    INFO - Apenas uma informação, não é um erro
+    DEBUG - Para efetuar debug, geralmente fica desativado
+    TRACE - Nível granular (pode deixar lento pela quantidade de logs)
+    */
 
     private static final Logger logger = LoggerFactory.getLogger(Principal.class);
 
