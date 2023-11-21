@@ -1,12 +1,13 @@
 package com.algaworks.banco.negocio;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Titular {
 
-    private static final Logger logger = Logger.getLogger(Titular.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(Titular.class);
 
     private String nome;
     private final String cpf;
@@ -19,7 +20,7 @@ public class Titular {
         this.cpf = cpf;
 
         if (this.nome.length() < 5) {
-            logger.log(Level.WARNING, "Nome do titular ''{0}'' muito curto", this.nome);
+            logger.warn("Nome do titular '{}' muito curto", this.nome);
         }
     }
 

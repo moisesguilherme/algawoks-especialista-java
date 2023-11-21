@@ -1,16 +1,18 @@
 package com.algaworks.banco.negocio;
 
+import com.algaworks.banco.Principal;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.logging.Level;
-import java.util.logging.Logger;;
+
 
 public class ContaCorrente {
 
-    // todo stático fica todo em MAÍUSCULO, LOGGER, nesse caso vai
-    // abrir uma excecão, para ficar com código mais elegante.
-    private static final Logger logger = Logger.getLogger(ContaCorrente.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(ContaCorrente.class);
 
     private final Titular titular;
     private final int agencia;
@@ -47,7 +49,7 @@ public class ContaCorrente {
     }
 
     public void sacar(BigDecimal valorSaque) {
-        logger.fine("Realizando saque...");
+        logger.debug("Realizando saque...");
         Objects.requireNonNull(valorSaque);
 
         if (valorSaque.compareTo(BigDecimal.ZERO) <= 0) {
@@ -58,22 +60,13 @@ public class ContaCorrente {
 
         saldo = saldo.subtract(valorSaque);
 
-        // níveis de logs
-        logger.log(Level.INFO, "Saque de R${0} realizado na conta {1}",
-                new Object[] { valorSaque, getAgencia() + "/" + getNumero()});
+        logger.info("Saque de R${} realizado na conta {}",
+                 valorSaque, getAgencia() + "/" + getNumero());
 
-        /*logger.info(String.format("Saque de R$%.2f realizado na conta %s",
-                valorSaque, getAgencia() + "/" + getNumero()));
-        */
-
-        // Não é uma boa prática uar o print para log
-        /*System.out.printf("%s - %s - Saque de R$%.2f realizado na conta %s%n",
-                LocalDateTime.now(), ContaCorrente.class.getName(), valorSaque, getAgencia() + "/" + getNumero());
-         */
     }
 
     public final void depositar(BigDecimal valorDeposito) {
-        logger.fine("Realizando deposito...");
+        logger.debug("Realizando deposito...");
         Objects.requireNonNull(valorDeposito);
 
         if (valorDeposito.compareTo(BigDecimal.ZERO) <= 0) {
@@ -82,13 +75,8 @@ public class ContaCorrente {
 
         saldo = saldo.add(valorDeposito);
 
-        logger.info(String.format("Depósito de R$%.2f realizado na conta %s",
-                valorDeposito, getAgencia() + "/" + getNumero()));
-
-        /*System.out.printf("%s - %s - Depósito de R$%.2f realizado na conta %s%n",
-                LocalDateTime.now(), ContaCorrente.class.getName(), valorDeposito, getAgencia() + "/" + getNumero());
-
-         */
+        logger.info("Depósito de R${} realizado na conta {}",
+                valorDeposito, getAgencia() + "/" + getNumero());
     }
 
     public void imprimirDemonstrativo() {
