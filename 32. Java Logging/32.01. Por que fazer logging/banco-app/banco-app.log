@@ -1,0 +1,8 @@
+Nov 20, 2023 9:31:04 PM com.algaworks.banco.negocio.Titular <init>
+WARNING: Nome do titular 'João' muito curto
+Nov 20, 2023 9:31:04 PM com.algaworks.banco.Principal main
+SEVERE: Erro administrando conta corrente100/9999
+java.lang.IllegalArgumentException: Valor do saque deve ser maior que 0
+	at com.algaworks.banco.negocio.ContaCorrente.sacar(ContaCorrente.java:54)
+	at com.algaworks.banco.Principal.main(Principal.java:27)
+

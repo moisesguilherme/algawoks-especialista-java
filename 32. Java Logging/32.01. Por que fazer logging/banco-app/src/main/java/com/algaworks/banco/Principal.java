@@ -13,6 +13,9 @@ public class Principal {
     private static final Logger logger = Logger.getLogger(Principal.class.getName());
 
     public static void main(String[] args) {
+
+        logger.config("Teste config");
+
         var titular = new Titular("João", "12312312399");
         var contaCorrente = new ContaCorrente(titular, 100, 9999);
 
