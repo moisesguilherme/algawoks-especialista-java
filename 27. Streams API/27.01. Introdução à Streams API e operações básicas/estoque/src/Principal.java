@@ -11,30 +11,18 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        // Method Reference
         produtos.stream()
-                //.filter(produto -> produto.temEstoque() && produto.isInativo())
+                //Problema: Não consegue colocar em primeiro lugar (forEach é um op terminal, preciser o útlimo)
+                //.forEach(produto -> produto.setNome(produto.getNome().toLowerCase()));
                 .filter(Produto::temEstoque)
                 .filter(Produto::isInativo)
                 .forEach(produto -> {
                     System.out.println("Ativando " + produto);
                     produto.ativar();
                 });
-        /*
-        Stream<Produto> stream = produtos.stream();
-
-        Stream<Produto> streamComEstoque =
-                stream.filter(Produto::temEstoque);
-
-        Stream<Produto> streamComEstoqueInativo =
-                streamComEstoque.filter(Produto::isInativo);
-
-        streamComEstoqueInativo.forEach(produto -> {
-            System.out.println("Ativando " + produto);
-            produto.ativar();
-        });
-        */
 
     }
+
+
 
 }
