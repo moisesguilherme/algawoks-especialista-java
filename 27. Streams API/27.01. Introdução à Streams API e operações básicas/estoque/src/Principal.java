@@ -13,16 +13,15 @@ public class Principal {
 
         produtos.stream()
                 //Problema: Não consegue colocar em primeiro lugar (forEach é um op terminal, preciser o útlimo)
-                //.forEach(produto -> produto.setNome(produto.getNome().toLowerCase()));
+                //colocar o peek -> ideal para debug
+                .peek(produto -> produto.setNome(produto.getNome().toUpperCase()))
+                .peek(System.out::println) // .peek(produto -> System.out.println(produto))
                 .filter(Produto::temEstoque)
                 .filter(Produto::isInativo)
                 .forEach(produto -> {
                     System.out.println("Ativando " + produto);
                     produto.ativar();
                 });
-
     }
-
-
 
 }
