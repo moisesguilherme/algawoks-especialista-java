@@ -14,24 +14,14 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        // ordernar a lista
-        //.sorted() -> precisa implementar comparable
-        // ou usar o Comparator.comparing....
-        /*produtos.stream()
-                .sorted(Comparator.comparingInt(Produto::getQuantidade)) // Não altera a ordem da lista e sim do stream
+        boolean temProdutosComEstoque = produtos.stream()
+                .peek(System.out::println)
                 .filter(Produto::temEstoque)
-                .forEach(produto -> System.out.printf("%s = %d unidades%n",
-                        produto.getNome(), produto.getQuantidade()));
-        */
+                //passa por todos os elementos -> stateful (mantém estado ao ordenar os elementos)
+                //.sorted(Comparator.comparingInt(Produto::getQuantidade))
+                .anyMatch(Produto::temEstoque); //curto circuito
 
-        List<Produto> produtosOrdenado = produtos.stream()
-                .peek(produto -> System.out.println(produto.getNome() + " quantidade: " + produto.getQuantidade()))
-                .sorted(Comparator.comparingInt(Produto::getQuantidade))
-                .collect(Collectors.toList());
-
-        System.out.println("--------");
-
-        produtosOrdenado.forEach(System.out::println);
+        System.out.println(temProdutosComEstoque);
 
     }
 
