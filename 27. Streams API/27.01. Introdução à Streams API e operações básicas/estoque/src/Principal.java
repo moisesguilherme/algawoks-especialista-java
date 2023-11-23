@@ -11,23 +11,15 @@ public class Principal {
     public static void main(String[] args) {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
-        Optional<Produto> produtoOptional = produtos.stream()
+
+        // Predicate -> interface funcional
+        // anyMatch(Predicate<>) pode passar uma lambda expression
+        boolean temProdutoNoEstoque = produtos.stream()
                 .peek(System.out::println)
-                .filter(Produto::temEstoque)
-                .filter(Produto::isInativo)
-                //.findFirst();
-                .findAny(); // Op Terminal, pega qualquer um
+                .anyMatch(Produto::temEstoque);
 
-        //Quando encontra o elemento ele já retorna e para a operacão
-        // curto-circuito short-circuiting
+        System.out.println(temProdutoNoEstoque);
 
-        System.out.println("-------");
-
-        Produto produto = produtoOptional.orElseThrow(
-                () -> new RuntimeException("Produto não encontrado")
-        );
-
-        System.out.println(produto);
     }
 
 }
