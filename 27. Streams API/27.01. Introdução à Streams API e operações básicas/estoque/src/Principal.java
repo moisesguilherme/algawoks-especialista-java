@@ -14,11 +14,16 @@ public class Principal {
 
         // Predicate -> interface funcional
         // anyMatch(Predicate<>) pode passar uma lambda expression
-        boolean temProdutoNoEstoque = produtos.stream()
+        /*boolean temProdutoNoEstoque = produtos.stream()
                 .peek(System.out::println)
                 .anyMatch(Produto::temEstoque);
 
         System.out.println(temProdutoNoEstoque);
+        */
+        boolean todosProdutosPossuemEstoque = produtos.stream()
+                //.peek(System.out::println)
+                .allMatch(Produto::temEstoque);
+        System.out.println(todosProdutosPossuemEstoque);
 
     }
 
