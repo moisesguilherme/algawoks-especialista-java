@@ -12,32 +12,13 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        // Predicate -> interface funcional
-        // anyMatch(Predicate<>) pode passar uma lambda expression
-        /*boolean temProdutoNoEstoque = produtos.stream()
-                .peek(System.out::println)
-                .anyMatch(Produto::temEstoque);
+        // ordernar a lista
+        //.sorted() -> precisa implementar comparable
+        produtos.stream()
+                .filter(Produto::temEstoque)
+                .forEach(produto -> System.out.printf("%s = %d unidades%n",
+                        produto.getNome(), produto.getQuantidade()));
 
-        System.out.println(temProdutoNoEstoque);
-        */
-
-        /*boolean todosProdutosPossuemEstoque = produtos.stream()
-                //.peek(System.out::println)
-                .allMatch(Produto::temEstoque);
-        System.out.println(todosProdutosPossuemEstoque);*/
-
-        /*boolean nenhumProdutosPossuemEstoque = produtos.stream()
-                //.peek(System.out::println)
-                .noneMatch(Produto::temEstoque);
-        System.out.println(nenhumProdutosPossuemEstoque);
-        */
-
-        boolean nenhumProdutosAtivos = produtos.stream()
-                //.peek(System.out::println)
-                .noneMatch(Produto::isAtivo);
-        System.out.println(nenhumProdutosAtivos);
     }
-
-
 
 }
