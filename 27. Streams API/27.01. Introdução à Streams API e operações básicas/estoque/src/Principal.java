@@ -20,11 +20,24 @@ public class Principal {
 
         System.out.println(temProdutoNoEstoque);
         */
-        boolean todosProdutosPossuemEstoque = produtos.stream()
+
+        /*boolean todosProdutosPossuemEstoque = produtos.stream()
                 //.peek(System.out::println)
                 .allMatch(Produto::temEstoque);
-        System.out.println(todosProdutosPossuemEstoque);
+        System.out.println(todosProdutosPossuemEstoque);*/
 
+        /*boolean nenhumProdutosPossuemEstoque = produtos.stream()
+                //.peek(System.out::println)
+                .noneMatch(Produto::temEstoque);
+        System.out.println(nenhumProdutosPossuemEstoque);
+        */
+
+        boolean nenhumProdutosAtivos = produtos.stream()
+                //.peek(System.out::println)
+                .noneMatch(Produto::isAtivo);
+        System.out.println(nenhumProdutosAtivos);
     }
+
+
 
 }
