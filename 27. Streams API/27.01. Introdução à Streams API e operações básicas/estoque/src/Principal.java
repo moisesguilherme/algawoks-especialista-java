@@ -1,4 +1,5 @@
 import com.algaworks.estoque.CadastroProduto;
+import com.algaworks.estoque.Fabricante;
 import com.algaworks.estoque.Produto;
 
 import java.util.Collections;
@@ -14,14 +15,14 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        boolean temProdutosComEstoque = produtos.stream()
-                .peek(System.out::println)
-                .filter(Produto::temEstoque)
-                //passa por todos os elementos -> stateful (mantém estado ao ordenar os elementos)
-                //.sorted(Comparator.comparingInt(Produto::getQuantidade))
-                .anyMatch(Produto::temEstoque); //curto circuito
+        for (Produto produto : produtos) {
 
-        System.out.println(temProdutosComEstoque);
+            if(produto.temEstoque()) {
+                Fabricante fabricante = produto.getFabricante();
+                System.out.println(fabricante);
+            }
+
+        }
 
     }
 
