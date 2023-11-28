@@ -5,6 +5,7 @@ import com.algaworks.estoque.Produto;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Principal {
@@ -13,13 +14,14 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        // Faz o boxing -> transforma o int em Integer
-        Stream<Integer> stream = produtos.stream()
+        // Fluxo de tipos primitivo int
+        IntStream stream = produtos.stream()
                .filter(Produto::temEstoque)
-               .map(Produto::getQuantidade);
+               .mapToInt(Produto::getQuantidade) //ToIntFunction recebe um tipo e retorna um int
+               .sorted();
 
-        // (num * 2) -> faz o unboxing
-        stream.forEach((Integer num) -> System.out.println(num * 2));
+        // (num * 2) -> não vai fazer o unboxing
+        stream.forEach(num -> System.out.println(num * 2));
 
     }
 
