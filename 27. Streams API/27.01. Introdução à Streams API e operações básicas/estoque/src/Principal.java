@@ -16,7 +16,8 @@ public class Principal {
         // "Achatar" -> converter vários stream em um único stream
         Stream<Categoria> stream = produtos.stream()
                .filter(Produto::temEstoque)
-               .flatMap(produto -> produto.getCategorias().stream());
+               .flatMap(produto -> produto.getCategorias().stream())
+               .distinct();
 
         stream.forEach(obj -> {
             System.out.println(obj.getClass().getName() + " - " + obj);;
