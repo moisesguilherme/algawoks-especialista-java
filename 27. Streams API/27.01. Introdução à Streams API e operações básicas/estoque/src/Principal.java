@@ -23,12 +23,10 @@ public class Principal {
             }
         }*/
 
-        Stream<Fabricante> stream = produtos.stream()
+        produtos.stream()
                 .filter(Produto::temEstoque)
-                //.map(produto -> produto.getFabricante());
-                .map(Produto::getFabricante); //faz a transformacão o mapeamento
-
-        stream.forEach(System.out::println);
+                .map(Produto::getFabricante) //faz a transformacão o mapeamento
+                .forEach(System.out::println);
 
     }
 
