@@ -15,17 +15,11 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        /*
-        for (Produto produto : produtos) {
-            if(produto.temEstoque()) {
-                Fabricante fabricante = produto.getFabricante();
-                System.out.println(fabricante);
-            }
-        }*/
-
+        // problema, elementos duplicados - Coca-cola
         produtos.stream()
                 .filter(Produto::temEstoque)
-                .map(Produto::getFabricante) //faz a transformacão o mapeamento
+                .map(Produto::getFabricante) // retorna fabricante
+                .distinct() // operacão state obs.. pode percorrer todos os elementos - chama o hashcode
                 .forEach(System.out::println);
 
     }
