@@ -13,12 +13,13 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        // "Achatar" -> converter vários stream em um único stream
-        produtos.stream()
-               //.filter(Produto::temEstoque)
-               .flatMap(produto -> produto.getCategorias().stream())
-               .distinct()
-               .forEach(System.out::println);
+        // Faz o boxing -> transforma o int em Integer
+        Stream<Integer> stream = produtos.stream()
+               .filter(Produto::temEstoque)
+               .map(Produto::getQuantidade);
+
+        // (num * 2) -> faz o unboxing
+        stream.forEach((Integer num) -> System.out.println(num * 2));
 
     }
 
