@@ -13,9 +13,10 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        Stream<Set<Categoria>> stream = produtos.stream()
+        Stream<Stream<Categoria>> stream = produtos.stream()
                .filter(Produto::temEstoque)
-               .map(Produto::getCategorias); // retorna um set - Set<Categoria>
+               .map(produto -> produto.getCategorias().stream()); // retorna um stream - Stream<Categoria>
+
 
         //stream.forEach(System.out::println);
         //stream.forEach(obj -> System.out.println(obj.getClass().getName() + " - " + obj.toString()));
@@ -23,7 +24,7 @@ public class Principal {
         // percorrer
         // não fica muito bom! Código ruim.
         stream.forEach(obj -> {
-            obj.stream().forEach(System.out::println);
+            obj.forEach(System.out::println);
         });
 
     }
