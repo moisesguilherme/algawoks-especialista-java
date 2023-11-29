@@ -17,7 +17,7 @@ public class Principal {
 
         int totalEstoque = produtos.stream()
                 .mapToInt(Produto::getQuantidade)
-                .reduce(0, (subtotal, valor) ->  subtotal + valor);
+                .reduce(0, (x, y) ->  x + y);
 
         System.out.println(totalEstoque);
     }
