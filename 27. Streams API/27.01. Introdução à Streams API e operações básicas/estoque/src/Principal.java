@@ -15,11 +15,9 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        IntBinaryOperator operacaoSoma = (subtotal, valor) ->  subtotal + valor;
-
         int totalEstoque = produtos.stream()
                 .mapToInt(Produto::getQuantidade)
-                .reduce(0, operacaoSoma);
+                .reduce(0, (subtotal, valor) ->  subtotal + valor);
 
         System.out.println(totalEstoque);
     }
