@@ -13,17 +13,14 @@ public class Principal2 {
         List<Produto> produtos = cadastroProduto.obterTodos();
 
         // código equivalente
-        Set<Categoria> categorias = new HashSet<>();
+        int maximoEstoque = 0;
         for (Produto produto : produtos) {
-            if (produto.temEstoque()) {
-                System.out.println(">>>> " + produto.getCategorias());
-                categorias.addAll(produto.getCategorias());
+            if (produto.getQuantidade() > maximoEstoque) {
+                maximoEstoque = produto.getQuantidade();
             }
         }
 
-        for (Categoria categoria : categorias) {
-            System.out.println(categoria);
-        }
+        System.out.println(maximoEstoque);
 
     }
 

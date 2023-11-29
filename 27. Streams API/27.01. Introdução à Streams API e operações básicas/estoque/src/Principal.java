@@ -15,15 +15,16 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
+        /*
         int totalEstoque = produtos.stream()
+
                 .mapToInt(Produto::getQuantidade)
                 .reduce(0, Integer::sum);
+        */
 
-        //
-        int a = 1;
-        int b = 2;
-        int z = Integer.sum(a,b);
-        System.out.println(z);
+        int totalEstoque = produtos.stream()
+                .mapToInt(Produto::getQuantidade)
+                .reduce(0, Integer::min); //min e max
 
 
         System.out.println(totalEstoque);
