@@ -17,7 +17,14 @@ public class Principal {
 
         int totalEstoque = produtos.stream()
                 .mapToInt(Produto::getQuantidade)
-                .reduce(0, (x, y) ->  x + y);
+                .reduce(0, Integer::sum);
+
+        //
+        int a = 1;
+        int b = 2;
+        int z = Integer.sum(a,b);
+        System.out.println(z);
+
 
         System.out.println(totalEstoque);
     }
