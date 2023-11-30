@@ -1,9 +1,9 @@
 import com.javabank.account.Account;
 import com.javabank.account.InterfaceBankAccount;
+import com.javabank.cardholder.People;
 import com.javabank.cardholder.CardHolder;
 import com.javabank.cardholder.Filter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class JavaBank {
@@ -25,6 +25,15 @@ public class JavaBank {
         System.out.println("*** CardHolder with balance filter ***");
 
         printCardHolders(accountsFilter);
+
+        Filter<People> filterTeste = new Filter<People>() {
+            @Override
+            public boolean check(People object) {
+                return false;
+            }
+        };
+
+
     }
 
     private static void printCardHolders(List<Account> bankAccounts) {
