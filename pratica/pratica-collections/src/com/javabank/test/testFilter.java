@@ -18,11 +18,15 @@ public class testFilter {
         peopleList.add(new People("Alcione", 20));
 
 
+        int y = 1;
         // Filter is a SAM (Single Abstract Method) it is a functional interface
+        // Anonymous Class
         Filter<People> filterTest = new Filter<People>() {
             @Override
-            public boolean check(People object) {
-                return false;
+            public boolean check(People people) {
+                int y = 10; //The same name variable y in other scope
+                System.out.println(y);
+                return people.getAge() > 20;
             }
 
             @Override
@@ -35,9 +39,13 @@ public class testFilter {
         filterTest.hello();
 
         // Using filter
+        List<People> names = testFilter.withFilter(filterTest, peopleList);
+
+/*
         List<People> names = testFilter.withFilter((People people) -> {
             return people.getName().startsWith("M");
         }, peopleList);
+*/
 
         // Using Predicate
 /*
