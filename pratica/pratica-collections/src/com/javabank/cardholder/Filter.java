@@ -1,5 +1,6 @@
 package com.javabank.cardholder;
 
+@FunctionalInterface
 public interface Filter<T> {
 
     // SAM Single Abstract method

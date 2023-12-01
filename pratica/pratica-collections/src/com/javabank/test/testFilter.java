@@ -17,17 +17,33 @@ public class testFilter {
         peopleList.add(new People("Maria", 22));
         peopleList.add(new People("Alcione", 20));
 
-        // Using filter
-/*
-        Filter<People> filter = (People people) -> {
-                return people.getName().startsWith("M");
+
+        // Filter is a SAM (Single Abstract Method) it is a functional interface
+        Filter<People> filterTest = new Filter<People>() {
+            @Override
+            public boolean check(People object) {
+                return false;
+            }
+
+            @Override
+            public void hello() {
+                //Filter.super.hello();
+                System.out.println("haha!");
+            }
         };
-        List<People> names = testFilter.withFilter(filter, peopleList);
-*/
+
+        filterTest.hello();
+
+        // Using filter
+        List<People> names = testFilter.withFilter((People people) -> {
+            return people.getName().startsWith("M");
+        }, peopleList);
 
         // Using Predicate
+/*
         Predicate<People> predicate = (People peoople) -> peoople.getName().startsWith("M");
         List<People> names = testFilter.withPredicate(predicate, peopleList);
+*/
 
         for (People name : names) {
             System.out.println(name.getName() + " " + name.getAge());
