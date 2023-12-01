@@ -8,8 +8,13 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class testFilter {
+    private String singleName = "Cairo";
 
     public static void main(String[] args) {
+        new testFilter().execute();
+    }
+
+    public void execute() {
 
         List<People> peopleList = new ArrayList<>();
         peopleList.add(new People("Moisés", 43));
@@ -18,14 +23,12 @@ public class testFilter {
         peopleList.add(new People("Alcione", 20));
 
 
-        int y = 1;
         // Filter is a SAM (Single Abstract Method) it is a functional interface
         // Anonymous Class
         Filter<People> filterTest = new Filter<People>() {
             @Override
             public boolean check(People people) {
-                int y = 10; //The same name variable y in other scope
-                System.out.println(y);
+                // System.out.println(this.singleName); // Don't have access
                 return people.getAge() > 20;
             }
 
@@ -39,7 +42,16 @@ public class testFilter {
         filterTest.hello();
 
         // Using filter
-        List<People> names = testFilter.withFilter(filterTest, peopleList);
+        //List<People> names = testFilter.withFilter(filterTest, peopleList);
+
+        System.out.println(this.singleName);
+        System.out.println("-------");
+
+        List<People> names = testFilter.withFilter((People people) -> {
+            System.out.println(this.singleName); // can get this property because ru in the same scope
+            boolean result = people.getAge() > 20;
+            return result;
+        }, peopleList);
 
 /*
         List<People> names = testFilter.withFilter((People people) -> {
