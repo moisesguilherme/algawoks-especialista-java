@@ -17,13 +17,17 @@ public class testFilter {
         peopleList.add(new People("Maria", 22));
         peopleList.add(new People("Alcione", 20));
 
+        // Using filter
+/*
+        Filter<People> filter = (People people) -> {
+                return people.getName().startsWith("M");
+        };
+        List<People> names = testFilter.withFilter(filter, peopleList);
+*/
 
-        /*Filter<People> filter = (People people) -> {
-                return people.getName().equals("Maria");
-        };*/
-
+        // Using Predicate
         Predicate<People> predicate = (People peoople) -> peoople.getName().startsWith("M");
-        List<People> names = testFilter.filter(predicate, peopleList);
+        List<People> names = testFilter.withPredicate(predicate, peopleList);
 
         for (People name : names) {
             System.out.println(name.getName() + " " + name.getAge());
@@ -31,16 +35,26 @@ public class testFilter {
 
     }
 
-    public static List<People> filter(Predicate<People> filter, List<People> peopleList ) {
+    public static List<People> withFilter(Filter<People> filter, List<People> peopleList ) {
         List<People> nameFiltered = new ArrayList<>();
 
         for(People people: peopleList) {
-            if(filter.test(people))
+            if(filter.check(people))
             nameFiltered.add(people);
         }
 
         return nameFiltered;
+    }
 
+    public static List<People> withPredicate(Predicate<People> predicate, List<People> peopleList ) {
+        List<People> nameFiltered = new ArrayList<>();
+
+        for(People people: peopleList) {
+            if(predicate.test(people)) // Don't need create other class like filter
+                nameFiltered.add(people);
+        }
+
+        return nameFiltered;
     }
 
 }
