@@ -18,11 +18,21 @@ public class Principal {
 
         //BigDecimal
         //Stream de produtos para bigdecimal, valor total do estoque
-
+/*
         BigDecimal valorEmEstoque = produtos.stream()
                 .map(produto -> produto.getPreco()
                         .multiply(new BigDecimal(produto.getQuantidade())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add); // (x,y) -> x.add
+
+        System.out.println(valorEmEstoque);
+*/
+
+        BigDecimal valorEmEstoque = produtos.stream()
+                .reduce(BigDecimal.ZERO, (subtotal, produto) -> {
+                    BigDecimal valorEstoqueProduto = produto.getPreco()
+                            .multiply(new BigDecimal((produto.getQuantidade())));
+                    return subtotal.add(valorEstoqueProduto);
+                }, BigDecimal::add);
 
         System.out.println(valorEmEstoque);
 
