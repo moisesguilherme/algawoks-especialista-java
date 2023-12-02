@@ -3,6 +3,7 @@ import com.algaworks.estoque.Categoria;
 import com.algaworks.estoque.Fabricante;
 import com.algaworks.estoque.Produto;
 
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.function.IntBinaryOperator;
 import java.util.stream.Collectors;
@@ -15,19 +16,16 @@ public class Principal {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        /*
-        int totalEstoque = produtos.stream()
+        //BigDecimal
+        //Stream de produtos para bigdecimal, valor total do estoque
 
-                .mapToInt(Produto::getQuantidade)
-                .reduce(0, Integer::sum);
-        */
+        BigDecimal valorEmEstoque = produtos.stream()
+                .map(produto -> produto.getPreco()
+                        .multiply(new BigDecimal(produto.getQuantidade())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add); // (x,y) -> x.add
 
-        int totalEstoque = produtos.stream()
-                .mapToInt(Produto::getQuantidade)
-                .reduce(0, Integer::min); //min e max
+        System.out.println(valorEmEstoque);
 
-
-        System.out.println(totalEstoque);
     }
 
 }

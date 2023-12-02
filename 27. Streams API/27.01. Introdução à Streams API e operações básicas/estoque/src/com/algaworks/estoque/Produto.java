@@ -93,6 +93,11 @@ public class Produto {
 		this.categorias.remove(categoria);
 	}
 
+	// poderia criar um método
+	public BigDecimal getValorEstoque() {
+		return getPreco().multiply(new BigDecimal(getQuantidade()));
+	}
+
 	public boolean temEstoque() {
 		return getQuantidade() > 0;
 	}
