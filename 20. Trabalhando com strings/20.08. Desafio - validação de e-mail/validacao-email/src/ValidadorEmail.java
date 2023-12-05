@@ -59,7 +59,8 @@ public class ValidadorEmail {
             String letraAtual = palavra.substring(i, i+1);
             String letraMaiuscula = palavra.substring(i, i+1);
             Character numero = letraAtual.charAt(0);
-            if(!Character.isDigit(numero) && !letraAtual.equals(".")) {
+            // TODO: Colocar outra funcão ver ser é caracter
+            if(!Character.isDigit(numero) && !letraAtual.equals(".") && !letraAtual.equals("-")) {
                 letraMaiuscula = letraMaiuscula.toUpperCase();
                 if(letraAtual.equals(letraMaiuscula))
                     return true;

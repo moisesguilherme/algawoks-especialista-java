@@ -1,15 +1,12 @@
 public class Principal {
 
     public static void main(String[] args) {
-        /*String[] emailsValidos = { "joao@algaworks.com", "joao_silva@algaworks.com",
+        String[] emailsValidos = { "joao@algaworks.com", "joao_silva@algaworks.com",
                 "joao.silva@algaworks.com", "joao-silva@algaworks.com",
                 "joao123@algaworks.com", "joao@algaworks123.com",
                 "joao@java.algaworks.com", "joao@alga-works.com", "joao@email.me",
                 "Joao@algaworks.com"
-        };*/
-
-        String[] emailsValidos = { "joao@java.algaworks.com" };
-
+        };
 
         String[] emailsInvalidos = { "", " joao@algaworks.com", "joao@algaworks.com ",
             "joao @algaworks.com", "joao@ algaworks.com", "joao@algaworks .com",
