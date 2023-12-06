@@ -10,7 +10,10 @@ public class WebScraper {
   //      System.out.println(html);
 
         //String regex = "<strong>(.*)</strong>";
-        String regex = "<strong>([\\w.-]+@[a-z\\d.-]+\\.[a-z]{2,3})</strong>";
+        // <.*> -> vai * (qualquer coisa até o último>
+        // <.*?> -> até encontrar o >
+        // \\s* espacos
+        String regex = "<.*?>\\s*([\\w.-]+@[a-z\\d.-]+\\.[a-z]{2,3})\\s*</.*?>";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(html);
 
