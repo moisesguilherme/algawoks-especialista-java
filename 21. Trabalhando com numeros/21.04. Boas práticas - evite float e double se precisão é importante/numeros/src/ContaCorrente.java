@@ -1,21 +1,27 @@
+import java.math.BigDecimal;
+
 public class ContaCorrente {
 
-    private double saldo;
+    // como é um objeto precisa instanciar, poderia ser. -> new BigDecimal("0");
+    private BigDecimal saldo = BigDecimal.ZERO;
 
-    public void depositar(double valor) {
-        saldo += valor;
+    public void depositar(BigDecimal valor) {
+        //saldo += valor;
+        saldo = saldo.add(valor);
     }
 
-    public void sacar(double valorSaque) {
-        if (valorSaque > saldo) {
+    public void sacar(BigDecimal valorSaque) {
+        //valorSaque > saldo
+        if (valorSaque.compareTo(saldo) > 0) {
             throw new RuntimeException(
                     String.format("Saque: %s, Saldo: %s", valorSaque, saldo));
         }
 
-        saldo -= valorSaque;
+        //saldo -= valorSaque;
+        saldo = saldo.subtract(valorSaque);
     }
 
-    public double getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
