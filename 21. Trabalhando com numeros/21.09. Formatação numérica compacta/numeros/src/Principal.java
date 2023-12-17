@@ -8,9 +8,12 @@ public class Principal {
         BigDecimal a = new BigDecimal("398.22");
         BigDecimal b = new BigDecimal("2469.44");
         BigDecimal c = new BigDecimal("4142298.42");
-        BigDecimal d = new BigDecimal("8404142298.0");
+        BigDecimal d = new BigDecimal("8404142298.0"); // 8 bi
 
-        NumberFormat formatador = null;
+        // Java 12
+        // TL DR - (Forma curta)
+        //NumberFormat formatador = NumberFormat.getCompactNumberInstance();
+        NumberFormat formatador = NumberFormat.getCompactNumberInstance(Locale.US, NumberFormat.Style.SHORT);
 
         System.out.println(formatador.format(a));
         System.out.println(formatador.format(b));
