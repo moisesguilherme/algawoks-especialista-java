@@ -20,8 +20,10 @@ public class Principal {
         BigDecimal d = new BigDecimal("45.362");
 
         // Formatar apenas um decimal format, não global
-        DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
-        NumberFormat formatador = new DecimalFormat("¤ #,##0.00;(¤ #,##0.00)", symbols);
+        //DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
+        //NumberFormat formatador = new DecimalFormat("¤ #,##0.00;(¤ #,##0.00)", symbols);
+
+        NumberFormat formatador = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 
         System.out.println(formatador.format(a));
         System.out.println(formatador.format(b));
