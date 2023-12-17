@@ -13,11 +13,24 @@ public class Principal {
         //String texto = "1000.43";
 
         //double valor = Double.valueOf(texto); //java.lang.NumberFormatException:
-        NumberFormat formatador = new DecimalFormat("#,##0.00");
-        Number valor = formatador.parse(texto);
+        DecimalFormat formatador = new DecimalFormat("#,##0.00");
+        formatador.setParseBigDecimal(true);
 
-        System.out.println(valor.getClass());
-        System.out.println(valor);
+        //Number valor = formatador.parse(texto);
+        //Double valor = (Double) formatador.parse(texto);
+        //double valor = formatador.parse(texto).doubleValue();
+        //double total = valor + 1000;
+
+        //Big decimal
+        BigDecimal valor = (BigDecimal) formatador.parse(texto);
+        BigDecimal total = valor.add(new BigDecimal("1000"));
+
+        // ERRO class java.lang.Double cannot be cast to class java.math.BigDecimal
+        // (java.lang.Double and java.math.BigDecimal are in module java.base
+        // of loader 'bootstrap')
+
+        //System.out.println(valor.getClass());
+        System.out.println(total);
 
     }
 
