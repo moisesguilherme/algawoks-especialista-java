@@ -1,6 +1,7 @@
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Calandar {
     public static void main(String[] args) {
@@ -9,7 +10,7 @@ public class Calandar {
 
         Calendar calendar = Calendar.getInstance();
 
-        System.out.println(calendar); // Verboso
+        //System.out.println(calendar); // Verboso
         // java.util.GregorianCalendar
         // [time=1702982563448,
         // areFieldsSet=true,
@@ -40,6 +41,12 @@ public class Calandar {
         // MILLISECOND=448,
         // ZONE_OFFSET=-10800000,
         // DST_OFFSET=0]
+
+        //System.out.println(formatador.format(calendar)); // Erro  Cannot format given Object as a Date
+        // Precisa extrair o date
+
+        Date data = calendar.getTime();
+        System.out.println(formatador.format(data));
 
     }
 }
