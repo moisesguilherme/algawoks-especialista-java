@@ -11,8 +11,8 @@ public class Principal3 {
 
         // horário de verão, 2018
         ZoneOffset offsetSaoPaulo = fusoSaoPaulo.getRules()
-                .getOffset(LocalDateTime.parse("2018-02-17T00:00:00")); // horário de versão -02:00
-                //.getOffset(LocalDateTime.parse("2018-02-18T00:00:00")); // horário de versão -03:00
+                .getOffset(LocalDateTime.parse("2018-02-17T00:00:00")); // horário de verão -02:00
+                //.getOffset(LocalDateTime.parse("2018-02-18T00:00:00")); // horário de verão -03:00
 
         System.out.println(offsetSaoPaulo);
     }
