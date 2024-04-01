@@ -1,3 +1,5 @@
+package exemplo1;
+
 // Vantagem da classes aninhadas, aumenta o encapsulamento.
 // A classe acessa membros privados internos, membros protegidos
 // A classe Mensagem foi criada para ser usada junto com ServicoEmail
@@ -15,7 +17,8 @@ public class ServicoEmail {
 
 
     // Cola a classe Mensagem aqui
-    public static class Mensagem {
+    // private static class Mensagem { // somente e a classe superior vai acessar, não externo.
+       public static class Mensagem {
 
         private final String remetente;
         private final String destinatario;
