@@ -7,17 +7,8 @@ public class Principal {
 
 
     public static void main(String[] args) {
-
-        List<Cliente> clientes = new ArrayList<>();
-        clientes.add(new Cliente("João", 41));
-        clientes.add(new Cliente("Maria", 37));
-        clientes.add(new Cliente("Sebastião", 27));
-
-        Cliente.ordernarPorIdade(clientes);
-        //Cliente.IdadeComparator();
-
-        System.out.println(clientes);
-
+        Cliente cliente = new Cliente("João", 42);
+        cliente.setStatus(Cliente.Status.BLOQUEADO);
     }
 
 

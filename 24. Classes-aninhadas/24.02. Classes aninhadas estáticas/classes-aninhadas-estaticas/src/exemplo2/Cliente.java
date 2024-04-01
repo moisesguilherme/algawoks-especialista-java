@@ -4,12 +4,30 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Cliente {
+
+    // Um enum como membro estático de uma classe
+    // Somente o nome Status e não StatusCliente, não tem necessidade
+    // Sempre vai ser static -> public static enum Status
+    public enum Status {
+        ATIVO, BLOQUEADO
+
+    }
+
     private final String nome;
     private final int idade;
+    private Status status = Status.ATIVO;
 
     public Cliente(String nome, int idade) {
         this.nome = nome;
         this.idade = idade;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public String getNome() {
