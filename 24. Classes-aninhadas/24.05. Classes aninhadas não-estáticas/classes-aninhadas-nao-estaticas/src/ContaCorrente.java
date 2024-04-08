@@ -29,14 +29,20 @@ public class ContaCorrente {
 
         private String descricao;
         private BigDecimal valor;
+        // private BigDecimal saldo; //Shadowing (não pega da classe superior)
 
         public Transacao(String descricao, BigDecimal valor) {
             this.descricao = descricao;
             this.valor = valor;
+
             // A classe aninhada consegue acessar a variável de instância
             // da classe superior.
-            saldo = saldo.subtract(valor);
-            transacoes.add(this); // a própria instância
+            // com shading (não vai mais pegar)
+            // apertar com ctrl sobre o saldo para ver qual está pegando
+            //this.saldo = saldo.subtract(valor);
+            ContaCorrente.this.saldo = ContaCorrente.this.saldo.subtract(valor);
+            //transacoes.add(this); // a própria instância
+            ContaCorrente.this.transacoes.add(this); // a própria instância
         }
 
         public String getDescricao() {

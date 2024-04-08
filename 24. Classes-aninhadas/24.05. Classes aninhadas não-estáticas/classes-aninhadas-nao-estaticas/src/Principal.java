@@ -23,8 +23,6 @@ public class Principal {
             System.out.printf("%s = %s%n", transacao.getDescricao(), transacao.getValor());
         }
 
-
-
     }
 
 }
