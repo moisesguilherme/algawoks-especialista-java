@@ -1,6 +1,7 @@
 public class Principal {
 
     public static void main(String[] args) {
+
         NotaFiscal nf = new NotaFiscal(123, "Macbook Pro", 800);
         System.out.println(nf.getDescricaoCompleta());
 

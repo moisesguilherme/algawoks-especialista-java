@@ -52,15 +52,16 @@ public class NotaFiscal {
     }
 
     public String getDescricaoCompleta() {
+
         String descricaoStatus = switch (status) {
             case NAO_EMITIDA -> "Não emitida";
             case EMITIDA -> "Emitida";
             case CANCELADA -> "Cancelada";
             default -> throw new RuntimeException("Status não tratado");
-        };
+        };*/
 
         return String.format("Nota fiscal #%d (%s) no valor de R$%.2f está %s",
-                getNumero(), getDescricao(), getValor(), descricaoStatus);
+                getNumero(), getDescricao(), getValor(), status.getDescricao());
     }
 
 }
