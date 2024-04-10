@@ -1,39 +1,28 @@
 public enum StatusNota {
-    NAO_EMITIDA("Não emitida"){
+    NAO_EMITIDA {
         @Override
         public boolean podeMudarParaCancelado(double valorNota) {
-            return true;
-        }
-
-        @Override
-        public boolean podeMudarParaEmitido() {
-            return true;
-        }
-    },
-    STATUS_EMITIDA("Emitida"){
-        @Override
-        public boolean podeMudarParaCancelado(double valorNota) {
-            return valorNota < 1_000;
-        }
-
-        @Override
-        public boolean podeMudarParaEmitido() {
             return false;
         }
     },
-    STATUS_CANCELADA("Cancelada") {
+    EMITIDA {
         @Override
         public boolean podeMudarParaCancelado(double valorNota) {
-            return true;
+            return valorNota > 1_000;
         }
-
+    },
+    CANCELADA {
         @Override
-        public boolean podeMudarParaEmitido() {
+        public boolean podeMudarParaCancelado(double valorNota) {
             return true;
         }
     };
 
     private String descricao;
+
+    StatusNota() {
+
+    }
 
     StatusNota(String descricao) {
         this.descricao = descricao;
@@ -43,9 +32,7 @@ public enum StatusNota {
         return descricao;
     }
 
-    public abstract boolean podeMudarParaCancelado(double valorNota);
-
-    public abstract boolean podeMudarParaEmitido();
+    public abstract  boolean podeMudarParaCancelado(double valorNota);
 
     /*public boolean podeMudarParaCancelado(double valorNota) {
         return (StatusNota.STATUS_EMITIDA.equals(this)
@@ -53,8 +40,8 @@ public enum StatusNota {
                || StatusNota.STATUS_CANCELADA.equals(this);
     }*/
 
-    /*public boolean podeMudarParaEmitido() {
-        return !(StatusNota.STATUS_EMITIDA.equals(this)
-                || StatusNota.STATUS_CANCELADA.equals(this));
-    }*/
+    public boolean podeMudarParaEmitido() {
+        return !(StatusNota.EMITIDA.equals(this)
+                || StatusNota.CANCELADA.equals(this));
+    }
 }
