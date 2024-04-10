@@ -37,6 +37,8 @@ public class Conta {
         saldo = saldo.subtract(valor);
 
         return new Transacao() {
+            //Classe anônima implementa interface transacao
+            //Não tem como criar um construtor
 
             @Override
             public BigDecimal getValorTotal() {
