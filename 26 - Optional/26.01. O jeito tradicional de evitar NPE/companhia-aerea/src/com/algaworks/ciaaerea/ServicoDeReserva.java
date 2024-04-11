@@ -20,14 +20,18 @@ public class ServicoDeReserva {
         }
     }
 
+    // Optional a partir Java 8
     public Optional<Reserva> buscar(String codigo) {
-        Reserva reservaEncontrada = null;
+        //Reserva reservaEncontrada = null;
 
         for (Reserva reserva : reservas) {
             if (reserva.getCodigo().equals(codigo)) {
                 //Sempre vai retornar um valor
                 // diferenca entre of e ofNullable, o Nullable pode retornar vazio
                 // já of precisa ser um valor.
+
+                ///Optional.ofNullable(reservaEncontrada); // se for null, vai ser vazio
+
                 return Optional.of(reserva);
                 //reservaEncontrada = reserva;
                 //break;
