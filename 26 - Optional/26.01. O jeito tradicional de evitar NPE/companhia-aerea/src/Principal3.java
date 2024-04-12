@@ -1,4 +1,5 @@
 import com.algaworks.ciaaerea.Reserva;
+import com.algaworks.ciaaerea.ReservaNaoEncontradaException;
 import com.algaworks.ciaaerea.ServicoDeReserva;
 import com.algaworks.ciaaerea.Voo;
 
@@ -17,9 +18,17 @@ public class Principal3 {
                 .ifPresent(reserva -> reserva.adicionarBagagens(10));
         */
 
-        servicoDeReserva.buscar("28A888x") // retorna reserva
+        /*servicoDeReserva.buscar("28A888x") // retorna reserva
                 .ifPresentOrElse(reserva -> reserva.adicionarBagagens(10),
                         () -> System.out.println("Reserva não encontrada")); //Interface Runnable -> somente executa
+        */
+
+        // Lançar exceção
+        servicoDeReserva.buscar("28A888x") // retorna reserva
+                .ifPresentOrElse(r -> r.adicionarBagagens(10),
+                        () -> { throw new ReservaNaoEncontradaException("Não encontrado"); });
+
+
 
         servicoDeReserva.getReservas().forEach(System.out::println);
 
