@@ -12,18 +12,16 @@ public class Principal4 {
         servicoDeReserva.adicionar(new Reserva("74F877", voo, "Sebastião Coelho"));
 
         servicoDeBagagem.contratar("28A888", 1);
+        //Passageiro passageiro = reserva.getPassageiro();
 
-        Reserva reserva = servicoDeReserva.buscar("28A888")
+        Passageiro passageiro = servicoDeReserva.buscar("28A888") //Com código inválido lança a execeção
                 .filter(r -> r.getQuantidadeBagagens() > 0) //Filtro true ou false //Interface funcional Predicate
-                        .orElseThrow(RuntimeException::new); // se for false, retorna empty. O filter retorna um optional
+                //.map(r -> r.getPassageiro()) //retorna passageiro
+                .map(Reserva::getPassageiro) //usando o method reference
+                .orElseThrow(RuntimeException::new); // se for false, retorna empty. O filter retorna um optional
 
-        // Equivalente, usando o filter acima
-        /*if (reserva.getQuantidadeBagagens() > 0 ){
-            System.out.println(reserva);
-        }*/
-        System.out.println(reserva);
+        System.out.println(passageiro);
 
-        servicoDeReserva.getReservas().forEach(System.out::println);
 
     }
 
