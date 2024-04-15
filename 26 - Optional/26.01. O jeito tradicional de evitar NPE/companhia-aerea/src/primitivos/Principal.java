@@ -1,15 +1,21 @@
 package primitivos;
 
+import java.util.Optional;
+
 public class Principal {
 
     public static void main(String[] args) {
-        int resultado = dividir(10, 0);
+        Optional<Integer> resultadoOptional = dividir(10, 0);
 
-        System.out.println("Resultado: " + resultado);
+        resultadoOptional.ifPresentOrElse(resultado -> System.out.println("Resultado " + resultado),
+                ()-> System.out.println("Sem resultado"));
+
     }
 
-    private static int dividir(int x, int y) {
-        return x / y;
+    // Optional<int> não tem como para tipos primitivos
+    private static Optional<Integer> dividir(int x, int y) {
+        if(y == 0) return Optional.empty();
+        return Optional.of(x / y);
     }
 
 }
