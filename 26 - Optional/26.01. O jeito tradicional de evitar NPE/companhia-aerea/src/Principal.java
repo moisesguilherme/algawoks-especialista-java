@@ -1,7 +1,6 @@
-import com.algaworks.ciaaerea.Reserva;
-import com.algaworks.ciaaerea.ServicoDeBagagem;
-import com.algaworks.ciaaerea.ServicoDeReserva;
-import com.algaworks.ciaaerea.Voo;
+import com.algaworks.ciaaerea.*;
+
+import java.util.Optional;
 
 public class Principal {
 
@@ -17,6 +16,15 @@ public class Principal {
          servicoDeBagagem.contratar("28A888", 2);
 
         servicoDeReserva.getReservas().forEach(System.out::println);
+
+
+        //Não complicar usando o optinal, mais simples com if(passageiro != null)
+        Passageiro passageiro = null;
+        //Passageiro passageiro = new Passageiro("Teste");
+
+        if(Optional.ofNullable(passageiro).isPresent()) {
+            System.out.println(passageiro);
+        }
     }
 
 }
