@@ -1,14 +1,21 @@
 package com.algaworks.ciaaerea;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Reserva {
+    // Boas práticas ao usar Optional
+    // Não usar em tudo exemplo:
+    // private final Optional<String> codigo;
 
     private final String codigo;
     private final Voo voo;
     private final Passageiro passageiro;
     private int quantidadeBagagens;
 
+    // Não colocar no métodos/construtor, vai complicar o uso da sua api.
+    //public Reserva(Optional<String> codigo, Optional<Voo> voo, Optional<String> nomePassageiro) {
+    // Local ideal, retorno do método q pode retornar null
     public Reserva(String codigo, Voo voo, String nomePassageiro) {
         Objects.requireNonNull(codigo);
         Objects.requireNonNull(voo);
@@ -26,8 +33,8 @@ public class Reserva {
         return voo;
     }
 
-    public Passageiro getPassageiro() {
-        return passageiro;
+    public Optional<Passageiro> getPassageiro() {
+        return Optional.of(passageiro);
     }
 
     public String getNomePassageiro() {

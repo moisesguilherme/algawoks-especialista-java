@@ -18,14 +18,23 @@ public class ServicoDeBagagem {
         }
         // aqui poderia ter outras regras de negócio
 
-        Optional<Reserva> reservaOptional = servicoDeReserva.buscar(codigoReserva);
+        //orElseThrow();
+        servicoDeReserva.buscar(codigoReserva)
+                //.orElseThrow(ReservaNaoEncontradaException::new) // Method reference
+                .orElseThrow( () -> new ReservaNaoEncontradaException("Reserva não existe")) // lambda retorna o objeto
+                .adicionarBagagens(quantidadeBagagens);
+
+
+        //Optional<Reserva> reservaOptional = servicoDeReserva.buscar(codigoReserva);
         // se tiver vazio ainda vai lancar o NoSuchElementException - No value present
         // precisa sempre validar se existe um valor
+        //
+        /*
         if (reservaOptional.isPresent()) {
             reservaOptional.get().adicionarBagagens(quantidadeBagagens);
         } else {
             throw new ReservaNaoEncontradaException("Reserva não existe");
-        }
+        }*/
 
     }
 
