@@ -102,6 +102,10 @@ public class Produto {
 		return getQuantidade() > 0;
 	}
 
+	public boolean naoTemEstoque() {
+		return getQuantidade() == 0;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

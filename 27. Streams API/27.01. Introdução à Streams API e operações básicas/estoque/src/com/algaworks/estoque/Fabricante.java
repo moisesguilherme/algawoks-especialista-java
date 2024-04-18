@@ -9,7 +9,7 @@ public record Fabricante(String nome) {
     // Implementei para saber se vai chamar
     @Override
     public int hashCode() {
-        System.out.println(">>>>" + nome);
+        //System.out.println(">>>>" + nome);
         return Objects.hash(nome);
     }
 }
