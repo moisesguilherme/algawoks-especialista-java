@@ -9,14 +9,18 @@ public class Principal {
 
     public static void main(String[] args) {
         var cadastroProduto = new CadastroProduto();
-        //List<Produto> produtos = cadastroProduto.obterTodos();
-        List<Produto> produtos = new ArrayList<>(); // lista vazia
+        List<Produto> produtos = cadastroProduto.obterTodos();
+        //List<Produto> produtos = new ArrayList<>(); // lista vazia
 
-        int totalEstoque = produtos.stream()
+        OptionalInt maiorQuantidadeOptional = produtos.stream()
                 .mapToInt(Produto::getQuantidade)
-                .reduce(0,Integer::max);
+                .reduce(Integer::max);
+                //.reduce(0,Integer::max);
 
-        System.out.println(totalEstoque);
+        int maiorQuantidade = maiorQuantidadeOptional
+                .orElseThrow( () -> new RuntimeException("Quantidade não encontrada"));
+
+        System.out.println(maiorQuantidadeOptional);
     }
 
 }
