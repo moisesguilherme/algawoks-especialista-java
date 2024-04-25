@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CadastroProduto {
 
-    private final List<Produto> produtos;
+    private List<Produto> produtos;
 
     public CadastroProduto() {
         Categoria categoriaChurrasco = new Categoria("Churrasco");

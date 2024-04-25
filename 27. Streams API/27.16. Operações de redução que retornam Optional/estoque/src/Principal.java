@@ -1,6 +1,7 @@
 import com.algaworks.estoque.CadastroProduto;
 import com.algaworks.estoque.Produto;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalInt;
@@ -12,6 +13,7 @@ public class Principal {
         List<Produto> produtos = cadastroProduto.obterTodos();
         //List<Produto> produtos = new ArrayList<>(); // lista vazia
 
+
         OptionalInt maiorQuantidadeOptional = produtos.stream()
                 .mapToInt(Produto::getQuantidade)
                 .reduce(Integer::max);
@@ -21,6 +23,7 @@ public class Principal {
                 .orElseThrow( () -> new RuntimeException("Quantidade não encontrada"));
 
         System.out.println(maiorQuantidadeOptional);
+
     }
 
 }
