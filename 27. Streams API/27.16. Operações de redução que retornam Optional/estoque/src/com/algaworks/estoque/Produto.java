@@ -112,6 +112,7 @@ public class Produto {
 				", preco=" + preco +
 				", quantidade=" + quantidade +
 				", status=" + status +
+				", categorias=" + categorias +
 				'}';
 	}
 
