@@ -12,9 +12,14 @@ public class PrincipalCollect8_Map {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        Map<String, List<Produto>> produtosPorFabricante = produtos.stream()
-                .filter(Produto::temEstoque)
-                .collect(Collectors.groupingBy(produto -> produto.getFabricante().nome()));
+
+        /*Map<Fabricante, List<Produto>> produtosPorFabricante = produtos.stream()
+                .collect(Collectors.groupingBy(produto -> produto.getFabricante());
+        */
+
+        //partitioningBy - particionar em dois grupos, um verdadeiro e falso
+        Map<Boolean, List<Produto>> produtosPorFabricante = produtos.stream()
+                .collect(Collectors.partitioningBy(Produto::temEstoque));
 
         produtosPorFabricante.forEach((chave, valor) -> {
             System.out.println();
@@ -22,7 +27,6 @@ public class PrincipalCollect8_Map {
             System.out.println("---------");
             valor.forEach(System.out::println);
         });
-
 
     }
 }
