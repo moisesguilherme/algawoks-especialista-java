@@ -15,7 +15,7 @@ public class StreamBoasPraticas {
         var cadastroProduto = new CadastroProduto();
         List<Produto> produtos = cadastroProduto.obterTodos();
 
-        List<Fabricante> fabricantes = new ArrayList<>();
+        //List<Fabricante> fabricantes = new ArrayList<>();
 
 
         // Sempre q for trabalhar com stream não deve gerar
@@ -24,13 +24,20 @@ public class StreamBoasPraticas {
 
         // não pode ter dependência de variável externa
 
-        produtos.stream()
+        /*produtos.stream()
                 .filter(Produto::temEstoque)
                 .forEach(produto -> {
                     if(!fabricantes.contains(produto.getFabricante())){
                         fabricantes.add(produto.getFabricante()); //Altera o estado de um objeto, de uma variável externa
                     }
                 });
+        */
+
+        List<Fabricante> fabricantes = produtos.stream()
+                .filter(Produto::temEstoque)
+                .map(Produto::getFabricante)
+                .distinct()
+                .toList();
 
         System.out.println(fabricantes);
     }
