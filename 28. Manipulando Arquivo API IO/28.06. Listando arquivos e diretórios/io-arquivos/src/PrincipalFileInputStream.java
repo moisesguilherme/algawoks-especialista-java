@@ -4,11 +4,12 @@ public class PrincipalFileInputStream {
 
     public static void main(String[] args) {
         File arquivoOrigem = new File("docs/contrato.txt");
-        InputStream inputStream = null;
-
-        try {
-            inputStream = new FileInputStream(arquivoOrigem);
-
+        //InputStream inputStream = null;
+        //Declarar no try
+        // pode colocar mais de um new
+        try (InputStream inputStream = new FileInputStream(arquivoOrigem);
+             InputStream inputStream2 = new FileInputStream(arquivoOrigem)) {
+            //inputStream = new FileInputStream(arquivoOrigem);
             int conteudo;
 
             while ((conteudo = inputStream.read()) != -1) {
@@ -23,7 +24,7 @@ public class PrincipalFileInputStream {
         } catch (IOException e) {
             /// Se der problema no read
             throw new RuntimeException(e);
-        } finally {
+        }/* finally {
             if (inputStream != null) {
                 try {
                     inputStream.close();
@@ -33,7 +34,7 @@ public class PrincipalFileInputStream {
                     //throw new RuntimeException(e);
                 }
             }
-        }
-
+        }*/
+        // Classe AutoCloseble -> usada para try-with-resources
     }
 }
