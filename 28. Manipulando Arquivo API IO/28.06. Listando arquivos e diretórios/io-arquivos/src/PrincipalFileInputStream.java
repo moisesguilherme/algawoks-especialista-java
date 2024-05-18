@@ -9,13 +9,14 @@ public class PrincipalFileInputStream {
         try (InputStream inputStream = new FileInputStream(arquivoOrigem);
              OutputStream outputStream = new FileOutputStream(arquivoDestino)) {
 
-            int conteudo;
+            byte[] conteudo = new byte[1024]; // 1kb
+            int quantidadeBytes;
+            int n = 0;
 
-            while ((conteudo = inputStream.read()) != -1) {
-                System.out.println(conteudo);
-                outputStream.write(conteudo);
+            while ((quantidadeBytes = inputStream.read(conteudo)) > 0) {
+                System.out.println(quantidadeBytes);
+                outputStream.write(conteudo, 0, quantidadeBytes);
             }
-
         } catch (FileNotFoundException e) {
             throw new RuntimeException("Arquivo não encontrado", e);
         } catch (IOException e) {
