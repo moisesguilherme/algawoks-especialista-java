@@ -1,10 +1,15 @@
 import javax.crypto.spec.PSource;
 import java.math.BigDecimal;
 import java.sql.*;
+import java.util.Scanner;
 
 public class Principal {
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.printf("Pesquisa por nome: ");
+        String nomePesquisa = scanner.nextLine();
 
         //Connection é um AutoCloseble
         //try-with-research
@@ -12,7 +17,10 @@ public class Principal {
                 .getConnection("jdbc:mysql://localhost:3306/ej_comercial", "root", "Root@123");
              Statement comando = conexao.createStatement();
              // ResultSet é fechado automaticamente, quando o Statement é fechado
-             ResultSet resultado = comando.executeQuery("select * from venda");
+             // não é uma boa prática concatenar a string com select, problema com ' e SQL Injection
+             ResultSet resultado = comando.executeQuery(
+                     "select * from venda where nome_cliente like '%"
+                             + nomePesquisa + "%'");
         ) {
             // Ideal no try
             //Statement comando = conexao.createStatement();
@@ -32,9 +40,11 @@ public class Principal {
             // ideal é no try
             //comando.close();
             //resultado.close();
+            /*
             System.out.println(conexao.getClass());
             System.out.println(comando.getClass());
             System.out.println(resultado.getClass());
+             */
         } catch (SQLException e) {
             System.out.println("Erro de banco de dados");
             e.printStackTrace();
