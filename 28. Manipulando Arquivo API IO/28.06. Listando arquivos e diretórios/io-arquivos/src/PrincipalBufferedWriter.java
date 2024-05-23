@@ -10,10 +10,10 @@ public class PrincipalBufferedWriter {
 
         // Por padrão ele carrega 8k
         try (Reader leitor = new FileReader(arquivoOrigem);
-            Writer escritor = new FileWriter(arquivoDestino)) {
-
+            Writer escritor = new BufferedWriter(new FileWriter(arquivoDestino))) {
+            // precia "Embrulhar o FileWriter com BufferedWriter
             int conteudo;
-            while((conteudo = leitor.read()) != -1) { //caracter por caracter
+            while((conteudo = leitor.read()) != -1) { //via buffer
                 escritor.write(conteudo);
             }
         } catch (IOException e) {
