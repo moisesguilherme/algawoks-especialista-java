@@ -7,7 +7,10 @@ public class Funcionario implements Serializable {
 
     private String nome;
     private LocalDate dataNascimento;
-    private BigDecimal salario;
+    // propriedade transient (não vai serializar essa propriedade)
+    // não vai salvar esse dado e vai desserializar vai aparecer como null
+    // salario=null
+    private transient BigDecimal salario;
 
     public Funcionario(String nome, LocalDate dataNascimento, BigDecimal salario) {
         this.nome = nome;
