@@ -5,9 +5,16 @@ import java.time.LocalDate;
 
 // Serializable é uma interface de marcação não tem nenhum método
 public class Funcionario implements Serializable {
+    //Quando usar o serializable, precisa tomar cuidado para manter a compatibilidade
+    //Outros desenvolvedores estarem usando essa classe para desserializar.
 
+    // Gerado pela id (um algoritmo de hash com as propriedades da classe)
     @Serial
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1368037426920664611L;
+
+    // Boa prática, sempre usar o serialVersionUID
+    //@Serial
+    //private static final long serialVersionUID = 1;
 
     private Integer codigo;
     private String nome;
