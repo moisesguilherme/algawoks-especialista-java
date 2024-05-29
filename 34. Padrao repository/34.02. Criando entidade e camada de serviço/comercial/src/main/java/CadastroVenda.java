@@ -1,5 +1,6 @@
 import com.algaworks.NegocioException;
 import com.algaworks.PersistenciaException;
+import com.algaworks.Venda;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -7,7 +8,7 @@ import java.time.LocalDate;
 
 public class CadastroVenda {
 
-    public Long cadastrar(String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
+    public Venda cadastrar(String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
         if (valorTotal.compareTo(BigDecimal.ZERO) <= 0) {
             throw new NegocioException("Valor total deve ser maior que 0");
         }
@@ -36,9 +37,9 @@ public class CadastroVenda {
             codigoGeradoResultSet.next();
             Long codigoGerado = codigoGeradoResultSet.getLong(1);
 
-            return codigoGerado;
-            // Problema de infraestrutura (perssistência dos dados)
-        } catch (SQLException e) {
+            //return codigoGerado;
+            return new Venda(codigoGerado, nomeCliente, valorTotal, dataPagamento);
+        } catch (SQLException e) { // Problema de infraestrutura (perssistência dos dados)
             throw new PersistenciaException(e);
         }
     }
