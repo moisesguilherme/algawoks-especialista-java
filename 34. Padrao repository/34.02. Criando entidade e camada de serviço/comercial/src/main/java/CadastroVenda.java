@@ -1,3 +1,6 @@
+import com.algaworks.NegocioException;
+import com.algaworks.PersistenciaException;
+
 import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
@@ -6,10 +9,10 @@ public class CadastroVenda {
 
     public Long cadastrar(String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
         if (valorTotal.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new RuntimeException("Valor total deve ser maior que 0");
+            throw new NegocioException("Valor total deve ser maior que 0");
         }
         if (dataPagamento.isAfter(LocalDate.now())) {
-            throw new RuntimeException("Data do pagamento não pode ser uma data futura");
+            throw new NegocioException("Data do pagamento não pode ser uma data futura");
         }
 
         String dml = """
@@ -34,8 +37,9 @@ public class CadastroVenda {
             Long codigoGerado = codigoGeradoResultSet.getLong(1);
 
             return codigoGerado;
+            // Problema de infraestrutura (perssistência dos dados)
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new PersistenciaException(e);
         }
     }
 
