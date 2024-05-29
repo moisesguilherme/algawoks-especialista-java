@@ -1,4 +1,4 @@
-package com.algaworks;
+package com.algaworks.entidade;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

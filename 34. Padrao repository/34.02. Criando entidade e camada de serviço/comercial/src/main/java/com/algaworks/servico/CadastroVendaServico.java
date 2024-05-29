@@ -1,12 +1,15 @@
-import com.algaworks.NegocioException;
+package com.algaworks.servico;
+
 import com.algaworks.PersistenciaException;
-import com.algaworks.Venda;
+import com.algaworks.entidade.Venda;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
 
-public class CadastroVenda {
+// Ideia é não ter nenhum código de infra (conexão com banco)
+// Apenas regras de negócios serviços
+public class CadastroVendaServico {
 
     public Venda cadastrar(String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
         if (valorTotal.compareTo(BigDecimal.ZERO) <= 0) {
