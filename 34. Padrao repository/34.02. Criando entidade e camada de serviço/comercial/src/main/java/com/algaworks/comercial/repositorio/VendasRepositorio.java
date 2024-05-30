@@ -2,11 +2,14 @@ package com.algaworks.comercial.repositorio;
 
 import com.algaworks.comercial.entidade.Venda;
 
+import java.math.BigDecimal;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VendasRepositorio {
 
-    public Venda adicionar(Venda venda) {
+    public Venda adicionar( Venda venda) {
         String dml = """
             insert into venda (
                 nome_cliente,
@@ -33,6 +36,33 @@ public class VendasRepositorio {
         } catch (SQLException e) { // Problema de infraestrutura (perssistência dos dados)
             throw new PersistenciaException(e);
         }
+    }
+
+    public List<Venda> consultar() {
+
+        var vendas = new ArrayList<Venda>();
+
+        try (Connection conexao = DriverManager
+                .getConnection("jdbc:mysql://localhost:3306/ej_comercial", "root", "Root@123")){
+            var comando = conexao.createStatement();
+            var resultado = comando.executeQuery("select * from venda");
+            while (resultado.next()) {
+                Long id = resultado.getLong("id");
+                String nomeCliente = resultado.getString("nome_cliente");
+                BigDecimal valorTotal = resultado.getBigDecimal("valor_total");
+                Date dataPagamento = resultado.getDate("data_pagamento");
+
+                var venda = new Venda(id, nomeCliente, valorTotal, dataPagamento.toLocalDate());
+                vendas.add(venda);
+            }
+
+            return vendas;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 
