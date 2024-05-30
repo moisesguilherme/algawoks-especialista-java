@@ -1,5 +1,5 @@
-import com.algaworks.entidade.Venda;
-import com.algaworks.servico.CadastroVendaServico;
+import com.algaworks.comercial.entidade.Venda;
+import com.algaworks.comercial.servico.CadastroVendaServico;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

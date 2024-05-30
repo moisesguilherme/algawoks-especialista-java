@@ -1,4 +1,4 @@
-package com.algaworks.entidade;
+package com.algaworks.comercial.entidade;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,6 +13,12 @@ public class Venda {
 
     public Venda(Long id, String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
         this.id = id;
+        this.nomeCliente = nomeCliente;
+        this.valorTotal = valorTotal;
+        this.dataPagamento = dataPagamento;
+    }
+
+    public Venda(String nomeCliente, BigDecimal valorTotal, LocalDate dataPagamento) {
         this.nomeCliente = nomeCliente;
         this.valorTotal = valorTotal;
         this.dataPagamento = dataPagamento;
