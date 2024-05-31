@@ -9,7 +9,16 @@ import java.util.List;
 
 public class VendasRepositorio {
 
-    public Venda adicionar( Venda venda) {
+    // inverter o controle, outra classe vai ser responsável pela conexão
+    // injeção de dependência é um tipo de inversão de controle
+    private final Connection conexao;
+
+    public VendasRepositorio(Connection conexao) {
+        this.conexao = conexao;
+    }
+
+
+    public Venda adicionar(Venda venda) {
         String dml = """
             insert into venda (
                 nome_cliente,
@@ -19,9 +28,8 @@ public class VendasRepositorio {
             values (?, ?, ?)
             """;
 
-        try (Connection conexao = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/ej_comercial", "root", "Root@123");
-             PreparedStatement comando = conexao.prepareStatement(dml, Statement.RETURN_GENERATED_KEYS)) {
+        try (
+            PreparedStatement comando = conexao.prepareStatement(dml, Statement.RETURN_GENERATED_KEYS)) {
             comando.setString(1, venda.getNomeCliente());
             comando.setBigDecimal(2, venda.getValorTotal());
             comando.setDate(3, Date.valueOf(venda.getDataPagamento()));
@@ -38,12 +46,14 @@ public class VendasRepositorio {
         }
     }
 
+
+
+
     public List<Venda> consultar() {
 
         var vendas = new ArrayList<Venda>();
 
-        try (Connection conexao = DriverManager
-                .getConnection("jdbc:mysql://localhost:3306/ej_comercial", "root", "Root@123")){
+        try {
             var comando = conexao.createStatement();
             var resultado = comando.executeQuery("select * from venda");
             while (resultado.next()) {
