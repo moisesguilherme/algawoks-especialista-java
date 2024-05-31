@@ -7,13 +7,13 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VendasRepositorio {
+public class VendaRepositorio {
 
     // inverter o controle, outra classe vai ser responsável pela conexão
     // injeção de dependência é um tipo de inversão de controle
     private final Connection conexao;
 
-    public VendasRepositorio(Connection conexao) {
+    public VendaRepositorio(Connection conexao) {
         this.conexao = conexao;
     }
 

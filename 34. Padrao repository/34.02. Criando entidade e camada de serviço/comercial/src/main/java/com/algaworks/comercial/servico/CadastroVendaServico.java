@@ -1,20 +1,18 @@
 package com.algaworks.comercial.servico;
 
 import com.algaworks.comercial.entidade.Venda;
-import com.algaworks.comercial.repositorio.VendasRepositorio;
+import com.algaworks.comercial.repositorio.VendaRepositorio;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.time.LocalDate;
 
 // Ideia é não ter nenhum código de infra (conexão com banco)
 // Apenas regras de negócios serviços
 public class CadastroVendaServico {
 
-    private final VendasRepositorio vendasRepositorio;
+    private final VendaRepositorio vendasRepositorio;
 
-    public CadastroVendaServico(VendasRepositorio vendasRepositorio) {
+    public CadastroVendaServico(VendaRepositorio vendasRepositorio) {
         this.vendasRepositorio = vendasRepositorio;
     }
 
