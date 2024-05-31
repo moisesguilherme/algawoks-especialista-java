@@ -2,6 +2,7 @@ package com.algaworks.comercial.servico;
 
 import com.algaworks.comercial.entidade.Venda;
 import com.algaworks.comercial.repositorio.VendaRepositorio;
+import com.algaworks.comercial.repositorio.mysql.MySQLVendaRepositorio;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

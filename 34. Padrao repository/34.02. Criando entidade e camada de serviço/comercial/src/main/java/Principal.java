@@ -1,11 +1,10 @@
 import com.algaworks.comercial.entidade.Venda;
 import com.algaworks.comercial.repositorio.FabricaDeRepositorio;
 import com.algaworks.comercial.repositorio.VendaRepositorio;
+import com.algaworks.comercial.repositorio.mysql.MySQLVendaRepositorio; //forte acoplamento
 import com.algaworks.comercial.servico.CadastroVendaServico;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
@@ -17,9 +16,9 @@ public class Principal {
             // Inverteu o controle do fluxo, a classe VendaRepositorio que fazia a conxecao
             // quem estabelece a conexao agora está de fora da classe
             // injeta a conexao
-            var vendaRepositorio = fabriacaDeRepositorio.criarVendaRepositorio();
+            VendaRepositorio mySQLVendaRepositorio = fabriacaDeRepositorio.criarVendaRepositorio();
             // injeta o vendaRepositorio
-            var cadastroVendaServico = new CadastroVendaServico(vendaRepositorio);
+            var cadastroVendaServico = new CadastroVendaServico(mySQLVendaRepositorio);
 
 
             Venda vendaCadastrada = cadastroVendaServico.cadastrar("Moisés Paschoalick",
@@ -28,7 +27,7 @@ public class Principal {
             System.out.println("Venda cadastrada: " + vendaCadastrada);
 
             System.out.println("Listando todas as vendas:");
-            var todasVendas = vendaRepositorio.consultar(); //não passa pela classe de serviço
+            var todasVendas = mySQLVendaRepositorio.consultar(); //não passa pela classe de serviço
             todasVendas.forEach(System.out::println);
         }
     }
