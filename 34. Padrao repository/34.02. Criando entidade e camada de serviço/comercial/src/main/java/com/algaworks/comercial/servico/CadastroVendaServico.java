@@ -10,6 +10,8 @@ import java.time.LocalDate;
 // Apenas regras de negócios serviços
 public class CadastroVendaServico {
 
+    // A classe CadastroVendaServico tem um forte aclopamento com
+    // a classe vendasRepositorio
     private final VendaRepositorio vendasRepositorio;
 
     public CadastroVendaServico(VendaRepositorio vendasRepositorio) {

@@ -4,7 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 // permite fechar a conexão com AutoCloseable
-public class FabricaDeRepositorio implements AutoCloseable{
+// usando o try-with-resource
+public class FabricaDeRepositorio implements AutoCloseable {
 
     private final Connection conexao;
 
