@@ -19,7 +19,6 @@ public class MySQLFabricaDeRepositorio implements FabricaDeRepositorio {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override
