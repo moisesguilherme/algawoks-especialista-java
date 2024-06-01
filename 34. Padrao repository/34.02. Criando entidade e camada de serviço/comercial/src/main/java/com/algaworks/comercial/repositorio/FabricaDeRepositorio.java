@@ -2,6 +2,7 @@ package com.algaworks.comercial.repositorio;
 
 import com.algaworks.comercial.repositorio.memoria.MemoriaFabricaDeRepositorio;
 import com.algaworks.comercial.repositorio.mysql.MySQLFabricaDeRepositorio;
+import com.algaworks.comercial.repositorio.oracle.OracleFabricaDeRepositorio;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -22,6 +23,8 @@ public interface FabricaDeRepositorio extends AutoCloseable {
             return new MySQLFabricaDeRepositorio(properties);
         } else if("memoria".equals(properties.getProperty("repositorio"))) {
             return new MemoriaFabricaDeRepositorio();
+        } else if("oracle".equals(properties.getProperty("repositorio"))) {
+            return new OracleFabricaDeRepositorio(properties);
         }
 
         throw new PersistenciaException("Implementação de repositório não existe");
