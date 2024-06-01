@@ -7,17 +7,21 @@ import com.algaworks.comercial.repositorio.VendaRepositorio;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class MySQLFabricaDeRepositorio implements FabricaDeRepositorio {
 
     private final Connection conexao;
 
-    public MySQLFabricaDeRepositorio() {
+    public MySQLFabricaDeRepositorio(Properties properties) {
         try {
             this.conexao = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3306/ej_comercial", "root", "Root@123");
+                    .getConnection(
+                            properties.getProperty("conexao.url"),
+                            properties.getProperty("conexao.usuario"),
+                            properties.getProperty("conexao.senha"));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new PersistenciaException("Erro estabelecendo conexão", e);
         }
     }
 

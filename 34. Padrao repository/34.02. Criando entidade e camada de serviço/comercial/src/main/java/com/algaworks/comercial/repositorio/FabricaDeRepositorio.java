@@ -19,7 +19,7 @@ public interface FabricaDeRepositorio extends AutoCloseable {
         }
 
         if("mysql".equals(properties.getProperty("repositorio"))) {
-            return new MySQLFabricaDeRepositorio();
+            return new MySQLFabricaDeRepositorio(properties);
         } else if("memoria".equals(properties.getProperty("repositorio"))) {
             return new MemoriaFabricaDeRepositorio();
         }
