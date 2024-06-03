@@ -16,5 +16,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Campo {
 
+    public boolean maiusculo() default false; //somente tipo primitivo não pode Boolean
 
 }

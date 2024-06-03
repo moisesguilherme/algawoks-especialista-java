@@ -31,10 +31,12 @@ public class GeradorCSV {
         try {
             for (Field propriedade : propriedades) {
                if(propriedade.isAnnotationPresent(Campo.class)) {
+                   Campo anotacaoCampo = propriedade.getAnnotation(Campo.class);
                    propriedade.setAccessible(true);
-                   Object resultado = propriedade.get(cliente);
 
-                   valores.add(resultado == null ? "" : resultado.toString());
+                   Object resultado = propriedade.get(cliente);
+                   String resultadoString = resultado == null ? "" : resultado.toString();
+                   valores.add(anotacaoCampo.maiusculo() ? resultadoString.toUpperCase() : resultadoString.toLowerCase());
                }
             }
             //System.out.println(valores.stream().collect(Collectors.joining(";")));

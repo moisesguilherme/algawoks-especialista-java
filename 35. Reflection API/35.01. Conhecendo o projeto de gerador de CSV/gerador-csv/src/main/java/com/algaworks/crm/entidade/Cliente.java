@@ -7,11 +7,10 @@ import java.time.LocalDate;
 
 public class Cliente {
 
-    @Campo
+    @Campo()
     private final Long codigo;
-    @Campo
+    @Campo(maiusculo = true)
     private final String nome;
-    @Campo
     private final LocalDate dataNascimento;
     private BigDecimal limiteCredito = new BigDecimal("120000");
 
