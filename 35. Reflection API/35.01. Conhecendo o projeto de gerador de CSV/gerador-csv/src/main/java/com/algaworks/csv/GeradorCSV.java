@@ -32,9 +32,21 @@ public class GeradorCSV {
         objetos.forEach(GeradorCSV::imprimir);
     }
 
-    private static void imprimir(Cliente cliente) {
-        System.out.printf("%d;%s;%s%n", cliente.getCodigo(),
-                cliente.getNome(), cliente.getDataNascimento());
+    private static void imprimir(Cliente cliente)  {
+        Field[] propriedades = Cliente.class.getDeclaredFields();
+
+            try {
+                for (Field propriedade : propriedades) {
+                    System.out.println(propriedade.getName());
+                    Object resultato = propriedade.get(cliente);
+                    System.out.println(resultato);
+                }
+            } catch (IllegalAccessException e) { // Check Exception (precisa tratar)
+                throw new RuntimeException(e); // Uncheck Exception (Não precisa tratar)
+            }
+
+        /*System.out.printf("%d;%s;%s%n", cliente.getCodigo(),
+                cliente.getNome(), cliente.getDataNascimento());*/
     }
 
 }

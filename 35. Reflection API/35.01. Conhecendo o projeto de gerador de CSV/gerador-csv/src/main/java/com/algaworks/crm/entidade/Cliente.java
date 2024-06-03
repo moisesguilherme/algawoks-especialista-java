@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class Cliente {
 
-    private final Long codigo;
+    public final Long codigo; //se colocar public consegue pegar o valor
     private final String nome;
     private final LocalDate dataNascimento;
     // adicionando propriedade
