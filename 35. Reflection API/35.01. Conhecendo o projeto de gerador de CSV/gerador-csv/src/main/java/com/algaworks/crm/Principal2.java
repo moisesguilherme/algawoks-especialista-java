@@ -13,7 +13,7 @@ public class Principal2 {
                 new Produto(2L, "iPhone", new BigDecimal("12300"), 7),
                 new Produto(4L, "Monitor", new BigDecimal("1800"), 18));
 
-
+        GeradorCSV.imprimir(Produto.class, produtos);
     }
 
 }

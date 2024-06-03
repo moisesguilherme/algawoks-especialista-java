@@ -14,7 +14,7 @@ public class Principal1 {
                 new Cliente(3L,"Manoel", LocalDate.parse("1986-11-30")),
                 new Cliente(4L,"Ana", LocalDate.parse("1992-05-02")));
 
-        GeradorCSV.imprimir(clientes);
+        GeradorCSV.imprimir(Cliente.class, clientes);
     }
 
 }
