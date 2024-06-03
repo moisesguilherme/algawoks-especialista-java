@@ -11,6 +11,7 @@ public class Cliente {
     private final Long codigo;
     @Campo
     private final String nome;
+    @Campo
     private final LocalDate dataNascimento;
     private BigDecimal limiteCredito = new BigDecimal("120000");
 

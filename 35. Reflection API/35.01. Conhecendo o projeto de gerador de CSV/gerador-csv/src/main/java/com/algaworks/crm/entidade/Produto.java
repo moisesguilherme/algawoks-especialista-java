@@ -1,11 +1,16 @@
 package com.algaworks.crm.entidade;
 
+import com.algaworks.csv.Campo;
+
 import java.math.BigDecimal;
 
 public class Produto {
 
+    @Campo
     private final Long codigo;
+    @Campo
     private String descricao;
+    @Campo
     private BigDecimal precoUnitario;
     private Integer quantidadeEstoque;
 

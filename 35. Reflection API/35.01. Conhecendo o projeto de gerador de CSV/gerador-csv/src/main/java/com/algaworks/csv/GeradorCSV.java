@@ -12,11 +12,11 @@ public class GeradorCSV {
     // Reflection API
     // Class é palavra reservada, por isso o nome clazz (com z)
     public static <T> void imprimir(Class<T> clazz, List<T> objetos) {
-
         Field[] propriedades = clazz.getDeclaredFields();
 
         System.out.println(
                 Arrays.stream(propriedades)
+                        .filter(propriedade -> propriedade.isAnnotationPresent(Campo.class)) // retorna um booleano
                         .map(Field::getName)
                         .collect(Collectors.joining(";"))
         );
@@ -30,13 +30,13 @@ public class GeradorCSV {
 
         try {
             for (Field propriedade : propriedades) {
-                //System.out.println(propriedade.getName());
-                propriedade.setAccessible(true);
-                Object resultado = propriedade.get(cliente);
-                //System.out.println(resultado);
-                valores.add(resultado == null ? "" : resultado.toString());
-            }
+               if(propriedade.isAnnotationPresent(Campo.class)) {
+                   propriedade.setAccessible(true);
+                   Object resultado = propriedade.get(cliente);
 
+                   valores.add(resultado == null ? "" : resultado.toString());
+               }
+            }
             //System.out.println(valores.stream().collect(Collectors.joining(";")));
             System.out.println(String.join(";", valores));
 
