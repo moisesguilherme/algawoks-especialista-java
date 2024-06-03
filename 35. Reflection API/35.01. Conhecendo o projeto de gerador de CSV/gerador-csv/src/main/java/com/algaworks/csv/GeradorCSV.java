@@ -3,6 +3,7 @@ package com.algaworks.csv;
 import com.algaworks.crm.entidade.Cliente;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,16 +35,23 @@ public class GeradorCSV {
 
     private static void imprimir(Cliente cliente)  {
         Field[] propriedades = Cliente.class.getDeclaredFields();
+        List<String> valores = new ArrayList<>();
 
-            try {
-                for (Field propriedade : propriedades) {
-                    System.out.println(propriedade.getName());
-                    Object resultato = propriedade.get(cliente);
-                    System.out.println(resultato);
-                }
-            } catch (IllegalAccessException e) { // Check Exception (precisa tratar)
-                throw new RuntimeException(e); // Uncheck Exception (Não precisa tratar)
+        try {
+            for (Field propriedade : propriedades) {
+                //System.out.println(propriedade.getName());
+                propriedade.setAccessible(true);
+                Object resultado = propriedade.get(cliente);
+                //System.out.println(resultado);
+                valores.add(resultado == null ? "" : resultado.toString());
             }
+
+            //System.out.println(valores.stream().collect(Collectors.joining(";")));
+            System.out.println(String.join(";", valores));
+
+        } catch (IllegalAccessException e) { // Check Exception (precisa tratar)
+            throw new RuntimeException(e); // Uncheck Exception (Não precisa tratar)
+        }
 
         /*System.out.printf("%d;%s;%s%n", cliente.getCodigo(),
                 cliente.getNome(), cliente.getDataNascimento());*/
