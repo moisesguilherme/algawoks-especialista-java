@@ -7,7 +7,7 @@ public class PrincipalCaminhoAbsoluto {
         //Path arquivo = Path.of("/home/moises/Desktop/DEV/AlgaWorks/EspecialistaJava/29. Arquivos NIO2/nio-arquivos/docs/contrato.txt");
 
         // Caminho relativo
-        Path arquivo = Path.of("docs/contrato.txt");
+        Path arquivo = Path.of("../contrato.txt");
 
         Path arquivoAbsoluto = arquivo.toAbsolutePath();
 
@@ -16,6 +16,15 @@ public class PrincipalCaminhoAbsoluto {
 
         System.out.println(arquivo.isAbsolute());
         System.out.println(arquivoAbsoluto.isAbsolute()); //true
+
+        ///home/moises/Desktop/DEV/AlgaWorks/EspecialistaJava/29. Arquivos NIO2/nio-arquivos/../contrato.txt
+        // Equivalente a linha abaixo
+        //home/moises/Desktop/DEV/AlgaWorks/EspecialistaJava/29. Arquivos NIO2/contrato.txt
+
+        //Normalizar o arquivo
+        System.out.println("------ [ Normalizar o arquivo ] --------" );
+        Path arquivoNormalizado = arquivoAbsoluto.normalize();
+        System.out.println(arquivoNormalizado);
 
     }
 
