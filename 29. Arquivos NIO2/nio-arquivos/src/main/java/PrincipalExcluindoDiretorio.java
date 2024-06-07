@@ -20,7 +20,9 @@ public class PrincipalExcluindoDiretorio {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 // Callback
-                return super.visitFile(file, attrs);
+                System.out.printf("Excluido arquivo: %s%n", file);
+                // Consegue percorrer todos os arquivos incluindo em sub-diretórios
+                return FileVisitResult.CONTINUE; //super.visitFile(file, attrs);
             }
         });
 
