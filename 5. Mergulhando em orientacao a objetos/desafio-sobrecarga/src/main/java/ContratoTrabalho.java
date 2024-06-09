@@ -11,5 +11,9 @@ public class ContratoTrabalho {
         this.funcionario = funcionario;
     }
 
+    boolean temAdicional() {
+        return funcionario.possuiFilhos();
+    }
+
 
 }

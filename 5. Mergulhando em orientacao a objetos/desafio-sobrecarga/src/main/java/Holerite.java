@@ -5,8 +5,9 @@ public class Holerite {
     double valorTotalHorasExtras;
     double valorAdicionalFilhos;
 
-    public Holerite(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public Holerite(ContratoTrabalho contratoTrabalho) {
+        this.funcionario = contratoTrabalho.funcionario;
+
     }
 
     public double calcularValorTotal() {
