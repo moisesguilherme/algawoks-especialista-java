@@ -27,7 +27,7 @@ public class DecodificarByteBuffer {
         Charset charSet = StandardCharsets.UTF_8;
         CharBuffer charBuffer = charSet.decode(buffer);
         System.out.println(charBuffer);
-        
+
         // a -> 97
         // á -> [-61, -95]
         //System.out.println(Arrays.toString("á".getBytes()));
