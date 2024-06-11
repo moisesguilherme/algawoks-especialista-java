@@ -12,17 +12,21 @@ public class LendoByteChannel {
     public static void main(String[] args) throws IOException {
 
         Path path = Path.of("docs/poema.txt");
-        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        //Lendo arquivos com buffers menores
+
+        // melhor estratégia ler linha a linha com /n
+        ByteBuffer buffer = ByteBuffer.allocate(3);
 
         try (ByteChannel channel = Files.newByteChannel(path, StandardOpenOption.READ)) {
-            channel.read(buffer);
+            while (channel.read(buffer) > 0) {
+                buffer.flip();
+                //System.out.println(buffer.limit());
+                CharBuffer charBuffer = StandardCharsets.UTF_8.decode(buffer);
+                System.out.print(charBuffer);
 
-            buffer.flip();
-            System.out.println(buffer.position());
-            System.out.println(buffer.limit());
-
-            CharBuffer charBuffer = StandardCharsets.UTF_8.decode(buffer);
-            System.out.println(charBuffer);
+                buffer.clear(); // define o limite do buffer para 20 bytes (capacidade)
+                //System.out.println(buffer.position());
+            }
 
         }
 
