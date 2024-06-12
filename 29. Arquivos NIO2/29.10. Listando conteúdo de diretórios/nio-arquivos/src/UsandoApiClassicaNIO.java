@@ -14,7 +14,7 @@ public class UsandoApiClassicaNIO {
     public static void main(String[] args) throws IOException {
 
         Path path = Path.of("docs/poema.txt");
-        
+
         try(BufferedReader reader = Files.newBufferedReader(path)) {
             reader.lines()
                     .forEach(System.out::println); // Ler linha a linha
