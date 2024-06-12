@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -18,6 +19,8 @@ public class EscrevendoArquivosComByteChanel {
         buffer.put((byte) 108);
         buffer.put((byte) -61);
         buffer.put((byte) -95);
+
+        buffer.put(" essa string é UTF 8".getBytes(StandardCharsets.UTF_8));
 
         System.out.println(Arrays.toString(buffer.array()));
 
