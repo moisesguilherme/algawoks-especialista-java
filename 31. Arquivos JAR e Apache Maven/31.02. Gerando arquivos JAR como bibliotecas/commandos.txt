@@ -1,0 +1,4 @@
+Pasta -> out/artifacts/crm_api_jar
+jar tf crm-api.jar
+
+jar tf crm-api.jar
